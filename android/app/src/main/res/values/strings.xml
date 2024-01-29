@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">partnerapp</string>
+  <string name="default_notification_channel_id" translatable="false">fcm_default_channel_partner</string>
+  <!-- <string name="mapbox_access_token">pk.eyJ1IjoibWVldGtyaXNobmEiLCJhIjoiY2t0NXIzdjNwMGI3ZDJ1bGF6ZGJtZ2VwcCJ9.FP-2R8JTeMw-LZWSgtXTpw</string> -->
+</resources>

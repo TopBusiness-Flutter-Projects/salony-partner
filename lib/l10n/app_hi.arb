@@ -1,0 +1,996 @@
+{
+    "lblSignIn": "Sign In",
+    "@lblSignIn":{
+      "description": "Do sign up"
+    },
+    "lblEmail":"Email",
+    "@lblEmail":{
+      "description":"Email"
+    },
+    "lblPassword":"Password",
+    "@lblPassword":{
+      "description":"password"
+    },
+    "lblRememberMe":"Remember me",
+    "@lblRememberMe" :{
+      "description":"remember me"
+    },
+    "lblForgotPassword":"Forgot password",
+    "@lblForgotPassword" : {
+      "description": "forgot password"
+    },
+    "btnSignIn":"Sign In",
+    "@btnSignIn":{
+      "description": "sign in"
+    },
+    "btnSignUp":"SIGN UP",
+    "@btnSignUp": {
+      "description": "sign up"
+    },
+    "txt_if_you_have_no_account":"if you have no an account? ",
+    "@txt_if_you_have_no_account": {
+      "description": "if you have no an account"
+    },
+    "txt_beautiyon_expert_app":"Beautyon Expert App",
+    "@txt_beautiyon_expert_app": {
+      "description": "Beautyon Expert App"
+    },
+    "hnt_email":"demo@gmail.com",
+    "@hnt_email": {
+      "description" : "demo@gmail.com"
+    },
+    "hnt_password":"demo1234",
+    "@hnt_password" : {
+      "description": "demo1234"
+    },
+    "lbl_back":"Back",
+    "@lbl_back": {
+      "description": "Back"
+    },
+    "lbl_sign_up":"Sign Up",
+    "@lbl_sign_up": {
+        "description" : "sign up"
+    },
+    "lbl_confirm_password":"Confirm Password",
+    "@lbl_confirm_password": {
+      "description" : "Confirm Password"
+    },
+    "txt_i_accept_the":"I accept the ",
+    "@txt_i_accept_the": {
+      "description": "I accept the "
+    },
+    "txt_privacy_and_policy": "privacy and policy",
+    "@txt_privacy_and_policy": {
+      "description": "Privacy and Policy"
+    },
+    "btn_next":"NEXT",
+    "@btn_next": {
+      "description": "Next"
+    },
+    "txt_already_have_an_account":"Already have an account? ",
+    "@txt_already_have_an_account": {
+      "description": "Already have an account"
+    },
+    "txt_please_enter_email":"Please enter Email",
+    "@txt_please_enter_email": {
+      "description": "Please enter Email"
+    },
+    "txt_password_should_be_of_minimum_2_characters":"Password should be of minimun 2 characters",
+    "@txt_password_should_be_of_minimum_2_characters": {
+      "description":"password should be of minimun 2 characters"
+    },
+    "txt_password_do_not_match":"Passwords do not match",
+    "@txt_password_do_not_match":{
+      "description": "password do not match"
+    },
+    "txt_please_accept_privacy_and_policy":"Please accept privacy and policy to complete your registration",
+    "@txt_please_accept_privacy_and_policy": {
+      "description": "Please accept privacy and policy to complete your registration"
+    },
+    "txt_please_enter_valid_email":"Please enter valid email",
+    "@txt_please_enter_valid_email" : {
+      "description": "Please enter valid email"
+    },
+    "lbl_generall_information":"General Information",
+    "@lbl_generall_information": {
+      "description":"General Information"
+    },
+    "lbl_parlour_name":"Parlour Name",
+    "@lbl_parlour_name": {
+      "description": "Parlour Name"
+    },
+    "hnt_parlour_name":"Beauty Life Parlour",
+    "@hnt_parlour_name": {
+      "description": "Beauty Life Parlour"
+    },
+    "lbl_owner_name":"Owner Name",
+    "@lbl_owner_name": {
+      "description": "Owner Name"
+    },
+    "hnt_owner_name":"Jesika Merry",
+    "@hnt_owner_name": {
+      "description":"Jesika Merry"
+    },
+    "lbl_phone_number":"Phone Number",
+    "@lbl_phone_number": {
+      "description":"Phone Number"
+    },
+    "hnt_phone_number":"9898989898",
+    "@hnt_phone_number":{
+      "description":"9898989898"
+    },
+    "lbl_address":"Address",
+    "@lbl_address": {
+      "description": "Address" 
+    },
+    "hnt_address":"58 Street -al dulha london -USA",
+    "@hnt_address": {
+      "description": "58 Street -al dulha london -USA"
+    },
+    "lbl_saloon_type":"Saloon Type",
+    "@lbl_saloon_type": {
+      "description": "Saloon Type"
+    },
+    "lbl_male":"Male",
+    "@lbl_male":{
+      "description": "Male"
+    },
+    "lbl_female":"Female",
+    "@lbl_female":{
+      "description": "Female"
+    },
+    "lbl_unisex":"unisex",
+    "@lbl_unisex":{
+      "description": "unisex"
+    },
+    "lbl_description":"Description",
+    "@lbl_description":{
+      "description": "Description"
+    },
+    "hnt_description":"This is a description",
+    "@hnt_description":{
+      "description":"this is a description"
+    },
+    "lbl_upload_image":"Upload Photo",
+    "@lbl_upload_image": {
+      "description": "Upload Photo"
+    },
+    "btn_create_account":"CREATE ACCOUNT",
+    "@btn_create_account": {
+      "description":"CREATE account"
+    },
+    "lbl_action":"Actions",
+    "@lbl_action": {
+      "description":"Actions"
+    },
+    "lbl_take_picture":"Take picture",
+    "@lbl_take_picture":{
+      "description":"Take picture"
+    },
+    "lbl_choose_from_library":"Choose from library",
+    "@lbl_choose_from_library": {
+      "description": "Choose from library"
+    },
+    "lbl_cancel":"Cancel",
+    "@lbl_cancel": {
+      "description":"Cancel"
+    },
+    "txt_please_enter_parlour_name":"Please enter Parlour Name",
+    "@txt_please_enter_parlour_name":{
+      "description":"Please enter Parlour Name"
+    },
+    "txt_please_enter_phone_number":"Please enter Phone Number",
+    "@txt_please_enter_phone_number":{
+      "description":"Please enter Phone Number"
+    },
+    "txt_please_enter_valid_phone_number":"Please enter valid Phone Number",
+    "@txt_please_enter_valid_phone_number": {
+      "description":"Please enter valid Phone Number"
+    },
+    "txt_please_enter_owner_name":"Please enter Owner Name",
+    "@txt_please_enter_owner_name": {
+      "description":"Please enter Owner name"
+    },
+    "txt_please_enter_address":"Please enter Address",
+    "@txt_please_enter_address": {
+      "description": "Please enter Address"
+    },
+    "txt_please_enter_description":"Please enter Description",
+    "@txt_please_enter_description": {
+      "description": "Please enter description"
+    },
+    "txt_please_select_image":"Please select Image",
+    "@txt_please_select_image": {
+      "description":"Please select Image"
+    },
+    "btn_update_profile":"UPDATE PROFILE",
+    "@btn_update_profile": {
+      "description":"UPDATE PROFILE"
+    },
+    "lbl_about":"About",
+    "@lbl_about": {
+      "description":"about"
+    },
+    "lbl_opening_hours":"Opening Hours",
+    "@lbl_opening_hours": {
+      "description": "Opening Hours"
+    },
+    "txt_profile_will_be_shown_here":"Profile will be shown here",
+    "@txt_profile_will_be_shown_here": {
+      "description":"Profile will be shown here"
+    },
+    "lbl_user_request":"User Request",
+    "@lbl_user_request": {
+      "description":"User Request"
+    },
+    "lbl_amount":"Amount",
+    "@lbl_amount" :{
+      "description":"Amount"
+    },
+    "txt_user_request_will_be_shown_here":"User Request will be shown here",
+    "@txt_user_request_will_be_shown_here": {
+      "description":"user Request will be shown here"
+    },
+    "lbl_complete_request":"Complete Request",
+    "@lbl_complete_request":{
+      "description":"complete Request"
+    },
+    "txt_confirmation_message_for_complete_request":"Are you sure you want to Complete this Request ?",
+    "@txt_confirmation_message_for_complete_request": {
+      "description":"are you sure you' want to complete this Request"
+    },
+    "lbl_no":"NO",
+    "@lbl_no": {
+      "description":"no"
+    },
+    "lbl_yes":"YES",
+    "@lbl_yes" :{
+      "description":"yes"
+    },
+    "lbl_cancel_request":"Cancel Request",
+    "@lbl_cancel_request": {
+      "description":"Cancel Request"
+    },
+    "txt_confirmation_message_for_cancel_request":"Are you sure you want to Cancel this Request ?",
+    "@txt_confirmation_message_for_cancel_request": {
+      "description":"Are you sure you want to Cancel this Request ?"
+    },
+    "lbl_appointment_history":"Appointment History",
+    "@lbl_appointment_history": {
+      "description":"Appointment History"
+    },
+    "txt_appointment_history_will_be_shown_here":"Appointment History will be shown here",
+    "@txt_appointment_history_will_be_shown_here": {
+      "description":"Appointment History will be shown here"
+    },
+    "lbl_weekly_earn":"WEEKLY EARN",
+    "@lbl_weekly_earn": {
+      "description": "WEEKLY EARN"
+    },
+    "txt_weekly_earn_will_shown_here":"Weekly earning will be shown here",
+    "@txt_weekly_earn_will_shown_here": {
+      "description":"Weekly earning will be shown here"
+    },
+    "lbl_total":"Total",
+    "@lbl_total": {
+      "description":"Total"
+    },
+    "lbl_services":"Services",
+    "@lbl_services":{
+      "description":"Services"
+    },
+    "lbl_pending":"Pending",
+    "@lbl_pending": {
+      "description": "Pending"
+    },
+    "lbl_completed":"Completed",
+    "@lbl_completed" : {
+      "description": "completed" 
+    },
+    "lbl_complete_our_goals":"Complete Our Goals",
+    "@lbl_complete_our_goals": {
+      "description": "complete Our Goals"
+    },
+    "lbl_experts":"Experts",
+    "@lbl_experts" : {
+      "description":"Experts"
+    },
+    "lbl_delete":"Delete",
+    "@lbl_delete": {
+      "description": "delete lebal for list screen"
+    },
+    "lbl_edit":"Edit",
+    "@lbl_edit": {
+      "description":"Edit lebal for list screen"
+    },
+    "txt_expert_will_shown_here":"Expert List will be shown here",
+    "@txt_expert_will_shown_here": {
+      "description": "Expert List will be shown here"
+    },
+    "btn_add_new_expert":"ADD NEW BEAUTY EXPERT + ",
+    "@btn_add_new_expert": {
+      "description": "ADD NEW BEAUTY EXPERT + "
+    },
+    "lbl_delete_expert":"Delete Expert",
+    "@lbl_delete_expert" : {
+      "description":"Delete Expert"
+    },
+    "txt_confirmation_message_for_delete_expert":"Are you sure you want to delete this Expert ?",
+    "@txt_confirmation_message_for_delete_expert" : {
+      "description": "Are you sure you want to delete this Expert ?"
+    },
+    "lbl_coupons":"Coupons",
+    "@lbl_coupons": {
+      "description":"Coupons"
+    },
+    "txt_coupon_list_will_shown_here":"Coupon List will be shown here",
+    "@txt_coupon_list_will_shown_here": {
+      "description": "Coupon List will be shown here"
+    },
+    "btn_add_new_coupon":"ADD NEW COUPON +",
+    "@btn_add_new_coupon" : {
+      "description" : "ADD NEW COUPON +"
+    },
+    "lbl_delete_coupon":"Delete Coupon",
+    "@lbl_delete_coupon": {
+      "description":"delete Coupon"
+    },
+    "txt_confirmation_message_for_delete_Coupon":"Are you sure you want to delete this Coupon ?",
+    "@txt_confirmation_message_for_delete_Coupon" : {
+      "description": "Are you sure you want to delete this Coupon ?"
+    },
+    "lbl_add_service_variant":"Add Service Variant",
+    "@lbl_add_service_variant": {
+      "description": "Add Service Variant"
+    },
+    "txt_service_will_shown_here":"Service List will be shown here",
+    "@txt_service_will_shown_here": {
+      "description": "Service List will be shown here"
+    },
+    "btn_add_new_service":"ADD NEW SERVICE +",
+    "@btn_add_new_service": {
+      "description": "ADD NEW SERVICE +"
+    },
+    "lbl_delete_service":"Delete Service",
+    "@lbl_delete_service": {
+      "description": "Delete Service"
+    },
+    "txt_confirmation_message_for_delete_service":"Are you sure you want to delete this Service ?",
+    "@txt_confirmation_message_for_delete_service": {
+      "description": "Are you sure you want to delete this Service ?"
+    },
+    "lbl_delete_service_variant":"Delete Service Variant",
+    "@lbl_delete_service_variant" : {
+      "description": "Delete Service Variant"
+    },
+    "txt_confirmation_message_for_delete_service_variant":"Are you sure you want to delete this Service Variant ?",
+    "@txt_confirmation_message_for_delete_service_variant": {
+      "description": "txt_confirmation_message_for_delete_service_variant"
+    },
+    "lbl_min":"min",
+    "@lbl_min": {
+      "description": "min"
+    },
+    "btn_save_service":"SAVE SERVICE +",
+    "@btn_save_service" : {
+      "description": "SAVE SERVICE +"
+    },
+    "lbl_edit_service":"Edit Service",
+    "@lbl_edit_service": {
+      "description": "Edit Service"
+    },
+    "lbl_Add_service":"Add Service",
+    "@lbl_Add_service": {
+      "description": "add Service"
+    },
+    "lbl_service_name":"Service Name",
+    "@lbl_service_name": {
+      "description": "Service Name"
+    },
+    "hnt_service_name":"Spa, Facial, Makeup",
+    "@hnt_service_name": {
+      "description": "Spa, Facial, Makeup"
+    },
+    "lbl_tap_to_add_image":"Tap to add image",
+    "@lbl_tap_to_add_image": {              
+      "description": "Tap to add image"
+    },
+    "txt_please_enter_name":"Please enter name",
+    "@txt_please_enter_name": {
+      "description": "Please enter name"
+    },
+    "btn_save_service_variant":"SAVE SERVICE VERIANT +",
+    "@btn_save_service_variant": {
+      "description": "SAVE SERVICE VERIANT +"
+    },
+    "lbl_variant":"Variant",
+    "@lbl_variant": {
+      "description": "Variant"
+    },
+    "lbl_price":"Price",
+    "@lbl_price": {
+      "description": "Price"
+    },
+    "hnt_price":"100",
+    "@hnt_price": {
+      "description": "100"
+    },
+    "lbl_time":"Time",
+    "@lbl_time": {
+      "description": "Time"
+    },
+    "hnt_time":"Enter Minute",
+    "@hnt_time": {
+      "description": "Enter Minute"
+    },
+    "txt_please_enter_price":"Please enter price",
+    "@txt_please_enter_price": {
+      "description": "Please enter price"
+    },
+    "txt_please_enter_time":"Please enter time",
+    "@txt_please_enter_time": {
+      "description": "Please enter time"
+    },
+    "btn_save_expert":"SAVE  EXPERT + ",
+    "@btn_save_expert": {
+      "description": "SAVE  EXPERT + "
+    },
+    "lbl_edit_expert":"Edit Beauty Expert",
+    "@lbl_edit_expert": {
+      "description": "Edit Beauty Expert"
+    },
+    "lbl_add_Expert":"Add Beauty Expert",
+    "@lbl_add_Expert": {
+      "description": "Add Beauty Expert"
+    },
+    "lbl_expert_name":"Expert Name",
+    "@lbl_expert_name": {
+      "description": "Expert Name"
+    },
+    "hnt_expert_name":"Jesika Merry",
+    "@hnt_expert_name": {
+      "description":"Jesika Merry"
+    },
+    "txt_something_went_wrong":"Something went Wrong!Try again later",
+    "@txt_something_went_wrong": {
+      "description": "Something went Wrong!Try again later"
+    },
+    "btn_save_coupon":"SAVE COUPON +",
+    "@btn_save_coupon": {
+      "description": "SAVE COUPON +"
+    },
+    "lbl_Add_coupon":"Add Coupon",
+    "@lbl_Add_coupon": {
+      "description": "Add Coupon"
+    },
+    "lbl_coupon_name":"Coupon Name",
+    "@lbl_coupon_name": {
+      "description": "Coupon Name"
+    },
+    "hnt_coupon_name":"Beauty coupon",
+    "@hnt_coupon_name": {
+      "description": "Beauty coupon"
+    },
+    "lbl_coupon_number":"Coupon Number",
+    "@lbl_coupon_number": {
+      "description":"Coupon Number"
+    },
+    "hnt_coupon_number":"Beauty89",
+    "@hnt_coupon_number": {
+      "description": "Beauty89"
+    },
+    "lbl_coupon_description":"Coupon Desciption",
+    "@lbl_coupon_description": {
+      "description": "coupon description"
+    },
+    "lbl_select_coupon_type":"Select Coupon Type",
+    "@lbl_select_coupon_type": {
+      "description": "Select Coupon Type"
+    },
+    "lbl_percentage":"Percentage",
+    "@lbl_percentage": {
+      "description": "Percentage"
+    },
+    "hnt_coupon_type":"Select Coupon Type",
+    "@hnt_coupon_type": {
+      "description": "Select Coupon Type"
+    },
+    "lbl_offer_price":"Offer Price/Percentage",
+    "@lbl_offer_price": {
+      "description": "Offer price/Percentage"
+    },
+    "hnt_offer_price":"100",
+    "@hnt_offer_price": {
+      "description": "100"
+    },
+    "lbl_min_service_amount":"Min Service Amount",
+    "@lbl_min_service_amount": {
+      "description": "Min Service Amount"
+    },
+    "hnt_min_service_amount":"250",
+    "@hnt_min_service_amount": {
+      "description": "Min Service Amount"
+    },
+    "lbl_select_usesRestriction":"Select Uses-restriction",
+    "@lbl_select_usesRestriction": {
+      "description": "Select Uses-restriction"
+    },
+    "hnt_usesRestriction":"Uses-Restriction",
+    "@hnt_usesRestriction": {
+      "description": "Uses-Restriction"
+    },
+    "lbl_select_start_date":"Select Start Date",
+    "@lbl_select_start_date" : {
+      "description": "Select Start Date"
+    },
+    "hnt_select_start_date":"Start Date",
+    "@hnt_select_start_date": {
+      "description": "Start Date"
+    },
+    "lbl_select__end_date":"Select End Date",
+    "@lbl_select__end_date": {
+      "description": "Select End Date"
+    },
+    "hnt_select_end_date":"End Date",
+    "@hnt_select_end_date": {
+      "description": "End Date"
+    },
+    "txt_please_enter_offer_price":"Please enter offer price",
+    "@txt_please_enter_offer_price": {
+      "description": "Please enter offer price"
+    },
+    "txt_pleae_enter_min_service_price":"Please enter min service price",
+    "@txt_pleae_enter_min_service_price": {
+      "description": "Please enter min service price"
+    },
+    "txt_please_enter_coupon_number":"Please enter coupon number",
+    "@txt_please_enter_coupon_number": {
+      "description": "Please enter coupon number"
+    },
+    "txt_please_enter_usesRestriction":"Please enter user restriction",
+    "@txt_please_enter_usesRestriction": {
+      "description": "Please enter user restriction"
+    },
+    "txt_please_select_coupon_type":"Please select coupon type",
+    "@txt_please_select_coupon_type": {
+      "description": "Please select coupon type"
+    },
+    "txt_please_select_start_date":"Please select start date",
+    "@txt_please_select_start_date": {
+      "description": "Please select start date"
+    },
+    "txt_please_select_end_date":"Please select end date",
+    "@txt_please_select_end_date": {
+      "description": "Please select end date"
+    },
+    "lbl_gallery":"Gallery",
+    "@lbl_gallery": {
+      "description": "Gallery"
+    },
+    "txt_gallery_will_shown_here":"Gallery List will be shown here",
+    "@txt_gallery_will_shown_here": {
+      "description": "Gallery List will be shown here"
+    },
+    "btn_add_new_gallery":"ADD NEW GALLERY +",
+    "@btn_add_new_gallery": {
+      "description": "ADD NEW GALLERY +"
+    },
+    "lbl_delete_gallery":"Delete Gallery",
+    "@lbl_delete_gallery": {
+      "description": "Delete Gallery"
+    },
+    "txt_confirmation_message_for_delete_gallery":"Are you sure you want to delete this Gallery ?",
+    "@txt_confirmation_message_for_delete_gallery": {
+      "description": "Are you sure you want to delete this Gallery ?"
+    },
+    "lbl_products":"Products",
+    "@lbl_products": {
+      "description": "Products"
+    },
+    "txt_products_will_shown_here":"Product List will be shown here",
+    "@txt_products_will_shown_here": {
+      "description": "Product List will be shown here"
+    },
+    "btn_add_new_product":"ADD NEW PRODUCT+ ",
+    "@btn_add_new_product": {
+      "description": "ADD NEW PRODUCT+ "
+    },
+    "lbl_delete_product":"Delete Product",
+    "@lbl_delete_product": {
+      "description":"Delete Product"
+    },
+    "txt_confirmation_message_for_delete_product":"Are you sure you want to delete this Product ?",
+    "@txt_confirmation_message_for_delete_product": {
+      "description": "Are you sure you want to delete this Product ?"
+    },
+    "btn_save_gallery":"SAVE GALLERY +",
+    "@btn_save_gallery": {
+      "description": "SAVE GALLERY +"
+    },
+    "lbl_Add_gallery":"Add Gallery",
+    "@lbl_Add_gallery": {
+      "description": "Add Gallery"
+    },
+    "btn_save_product":"SAVE  PRODUCT + ",
+    "@btn_save_product": {
+      "description": "SAVE  PRODUCT + "
+    },
+    "lbl_edit_product":"Edit Product",
+    "@lbl_edit_product": {
+      "description": "Edit Product"
+    },
+    "lbl_add_product":"Add Product",
+    "@lbl_add_product": {
+      "description": "Add Product"
+    },
+    "lbl_product_name":"Product Name",
+    "@lbl_product_name": {
+      "description": "Product Name"
+    },
+    "hnt_product_name":"shampoo",
+    "@hnt_product_name": {
+      "description": "shampoo"
+    },
+    "lbl_quantity":"Quantity",
+    "@lbl_quantity": {
+      "description": "Quantity"
+    },
+    "hnt_quantity":"100L",
+    "@hnt_quantity": {
+      "description": "100L"
+    },
+    "txt_please_enter_quantity":"Please enter quantity",
+    "@txt_please_enter_quantity": {
+      "description": "Please enter quantity"
+    },
+    "lbl_beautyon":"Beautyon",
+    "@lbl_beautyon": {
+      "description": "Beautyon"
+    },
+    "lbl_loading":"Loading...",
+    "@lbl_loading": {
+      "description": "loading"
+    },
+    "lbl_orders":"Orders",
+    "@lbl_orders": {
+      "description": "Orders"
+    },
+    "lbl_qty":"Qty",
+    "@lbl_qty": {
+      "description": "Qty"
+    },
+    "txt_orders_will_shown_here":"Orders will be shown here",
+    "@txt_orders_will_shown_here": {
+      "description": "Orders will be shown here"
+    },
+    "lbl_confirm_order":"Confirm Order",
+    "@lbl_confirm_order": {
+      "description": "Confirm Order"
+    },
+    "txt_confirmation_message_for_confirm_order":"Are you sure you want to Confirm this Order ?",
+    "@txt_confirmation_message_for_confirm_order": {
+      "description": "Are you sure you want to Confirm this Order ?"
+    },
+    "btn_save_setting":"SAVE SETTINGS",
+    "@btn_save_setting": {
+      "description": "SAVE SETTINGS"
+    },
+    "lbl_settings":"Settings",
+    "@lbl_settings": {
+      "description": "Settings"
+    },
+    "lbl_shop_open":"Shop Open",
+    "@lbl_shop_open": {
+      "description": "Shop Open"
+    },
+    "lbl_help_and_support":"Help & Support ",
+    "@lbl_help_and_support": {
+      "description": "Help & Support "
+    },
+    "lbl_faq":"FAQ",
+    "@lbl_faq": {
+      "description": "FAQ"
+    },
+    "txt_faq_will_shown_here":"Faqs will be shown here",
+    "@txt_faq_will_shown_here": {
+      "description": "Faqs will be shown here"
+    },
+    "lbl_change_password":"Change Password",
+    "@lbl_change_password": {
+      "description": "Change Password"
+    },
+    "lbl_old_password":"Old Password",
+    "@lbl_old_password": {
+      "description": "Old password"
+    },
+    "lbl_new_password":"New Password",
+    "@lbl_new_password": {
+      "description": "New Password"
+    },
+    "btn_change_password":"CHANGE PASSWORD",
+    "@btn_change_password": {
+      "description": "CHANGE PASSWORD"
+    },
+    "txt_password_and_confirm_password_do_not_match":"password and confirm password do not match",
+    "@txt_password_and_confirm_password_do_not_match": {
+      "description": "password and confirm password do not match"
+    },
+    "txt_please_enter_old_password":"Please enter old password",
+    "@txt_please_enter_old_password": {
+      "description": "Please enter old password"
+    },
+    "txt_please_enter_new_password":"Please enter new password",
+    "@txt_please_enter_new_password": {
+      "description": "Please enter new password"
+    },
+    "lbl_my_wallet":"My Wallet",
+    "@lbl_my_wallet": {
+      "description": "My Wallet"
+    },
+    "lbl_total_earning":"Total Earnings",
+    "@lbl_total_earning": {
+      "description": "Total Earnings"
+    },
+    "lbl_paid_to_app":"Paid to App",
+    "@lbl_paid_to_app": {
+      "description": "Paid to App"
+    },
+    "lbl_payment_pending_from_app":"Payment Pending from App",
+    "@lbl_payment_pending_from_app": {
+      "description": "Payment Pending from App"
+    },
+    "lbl_paid_by_app":"Paid by App",
+    "@lbl_paid_by_app": {
+      "description": "Paid by App"
+    },
+    "lbl_pending_to_give_app":"Pending to give App",
+    "@lbl_pending_to_give_app": {
+      "description" : "Pending to give App"
+    },
+    "btn_mask_as_paid":"MARK AS PAID ",
+    "@btn_mask_as_paid": {
+      "description": "MARK AS PAID "
+    },
+    "txt_nothing_yet_to_see_here":"Nothing yet to see here",
+    "@txt_nothing_yet_to_see_here": {
+      "description": "Nothing yet to see here"
+    },
+    "lbl_confirm_dialog":"Confirm Dialog",
+    "@lbl_confirm_dialog": {
+      "description": "Confirm Dialog"
+    },
+    "txt_confirmation_message_for_paid_to_admin":"Are you sure you want to paid this to admin",
+    "@txt_confirmation_message_for_paid_to_admin": {
+      "description": "Are you sure you want to paid this to admin"
+    },
+    "lbl_notification":"Notifications",
+    "@lbl_notification": {
+      "description": "Notifications"
+    },
+    "txt_notification_will_shown_here":"Notifications will be shown here",
+    "@txt_notification_will_shown_here": {
+      "description": "Notifications will be shown here"
+    },
+    "lbl_accept":"Accept",
+    "@lbl_accept": {
+      "description": "Accept"
+    },
+    "lbl_ok":"OK",
+    "@lbl_ok": {
+      "description": "OK"
+    },
+    "lbl_date_and_time":"Date & Time",
+    "@lbl_date_and_time": {
+      "description": "Date & Time"
+    },
+    "lbl_date":"Date",
+    "@lbl_date": {
+      "description": "Date"
+    },
+    "lbl_service":"Service",
+    "@lbl_service": {
+      "description": "Service"
+    },
+    "lbl_subTotal":"SubTotal",
+    "@lbl_subTotal": {
+      "description": "SubTotal"
+    },
+    "lbl_discount_by_coupon":"Discount by coupon",
+    "@lbl_discount_by_coupon": {
+      "description": "Discount by coupon"
+    },
+    "lbl_service_summary":"Service Summary",
+    "@lbl_service_summary": {
+      "description":"Service Summary"
+    },
+    "btn_confirm":"CONFIRM",
+    "@btn_confirm": {
+      "description": "CONFIRM"
+    },
+    "lbl_confirm_service":"Confirm Service",
+    "@lbl_confirm_service": {
+      "description": "Confirm Service"
+    },
+    "txt_confirmation_message_for_confirm_service":"Are you sure you want to Confirm this Service ?",
+    "@txt_confirmation_message_for_confirm_service": {
+      "description":"Are you sure you want to Confirm this Service ?"
+    },
+    "lbl_update_profile":"Update Profile",
+    "@lbl_update_profile": {
+      "description":"Update Profile"
+    },
+    "txt_easy_to_find_customer":"Easy to Find Customer",
+    "@txt_easy_to_find_customer": {
+      "description": "Easy to Find Customer"
+    },
+    "txt_easy_to_find_customer_detail_text":"Many desktop publishing packages and web page editors now use Lorem Ipsum as .",
+    "@txt_easy_to_find_customer_detail_text": {
+      "description": " Many desktop publishing packages and web page editors now use Lorem Ipsum as ."
+    },
+    "txt_branding_for_your_parlour":"Branding For Your Parlour",
+    "@txt_branding_for_your_parlour": {
+      "description": "Branding For Your Parlour"
+    },
+    "txt_branding_for_your_parlour_detail_text":"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words",
+    "@txt_branding_for_your_parlour_detail_text": {
+      "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words"
+    },
+    "txt_get_customer_feedback":"Get Customer Feedback",
+    "@txt_get_customer_feedback": {
+      "description": "Get Customer Feedback"
+    },
+    "txt_get_customer_feedback_detail_text":"to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
+    "@txt_get_customer_feedback_detail_text": {
+      "description": "to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+    },
+    "btn_get_started":"GET STARTED",
+    "@btn_get_started": {
+      "description": "GET STARTED"
+    },
+    "lbl_forgot_password":"Forgot Password",
+    "@lbl_forgot_password": {
+      "description": "forgot password"
+    },
+    "btn_send_code":"SEND CODE",
+    "@btn_send_code": {
+      "description": "SEND CODE"
+    },
+    "btn_submit":"SUBMIT",
+    "@btn_submit": {
+      "description": "SUBMIT"
+    },
+    "lbl_verify_otp":"Verify Otp",
+    "@lbl_verify_otp": {
+      "description": "Verify Otp"
+    },
+    "txt_enter_the_verification_code_from":"Enter the Verification code from ",
+    "@txt_enter_the_verification_code_from": {
+      "description": "Enter the Verification code from "
+    },
+    "txt_the_phone_we_just_sent_you":"the phone we just sent you ",
+    "@txt_the_phone_we_just_sent_you": {
+      "description": "the phone we just sent you "
+    },
+    "txt_check_your_mail_for_otp":"Check your mail for opt",
+    "@txt_check_your_mail_for_otp": {
+      "description": "Check your mail for opt"
+    },
+    "txt_please_enter_otp":"Please enter Otp",
+    "@txt_please_enter_otp": {
+      "description": "Please enter Otp"
+    },
+    "txt_successfully_add":"Successfully add",
+    "@txt_successfully_add": {
+      "description": "Successfully add"
+    },
+    "txt_your_new_expert":"your new expert",
+    "@txt_your_new_expert": {
+      "description": "your new expert"
+    },
+    "txt_your_new_coupon":"your new coupon",
+    "@txt_your_new_coupon": {
+      "description": "your new coupon"
+    },
+    "txt_successfully_changed_your_password":"Successfully changed your password",
+    "@txt_successfully_changed_your_password": {
+      "description": "Successfully changed"
+    },
+  
+    "txt_your_new_product":"your new product",
+    "@txt_your_new_product": {
+      "description": "your new product"
+    },
+    "txt_your_new_service":"your new service",
+    "@txt_your_new_service": {
+      "description": "your new service"
+    },
+    "txt_successfully_save":"Successfully save",
+    "@txt_successfully_save": {
+      "description": "Successfully save"
+    },
+    "txt_your_setting":"your setting",
+    "@txt_your_setting": {
+      "description": "your setting"
+    },
+    "txt_successfully_add_your_new_coupon":"Successfully add your new coupon",
+    "@txt_successfully_add_your_new_coupon": {
+      "description": "Successfully add your new coupon"
+    },
+    "txt_successfully_add_your_new_expert":"Successfully add your new expert",
+    "@txt_successfully_add_your_new_expert": {
+      "description": "Successfully add your new expert"
+    },
+    "txt_successfully_add_your_new_service":"Successfully add your new service",
+    "@txt_successfully_add_your_new_service": {
+      "description": "Successfully add your new service"
+    },
+    "txt_successfully_save_your_setting":"Successfully save your setting",
+    "@txt_successfully_save_your_setting": {
+      "description": "Successfully save your setting"
+    },
+    "txt_succesfully_add_your_new_product":"Successfully add your new product",
+    "@txt_succesfully_add_your_new_product": {
+      "description": "Successfully add your new product"
+    },
+    "txt_successfully_changed_your_profile":"Successfully changed your profile",
+    "@txt_successfully_changed_your_profile": {
+      "description": "Successfully changed your profile"
+    },
+    "lbl_selet_language":"Select Language",
+    "@lbl_selet_language": {
+      "description":"Select Language"
+    },
+    "lbl_add_expert":"Add Expert",
+    "@lbl_add_expert": {
+      "description": "Add Expert"
+    },
+    "lbl_sign_out":"Sign Out",
+    "@lbl_sign_out": {
+      "description": "Sign Out"
+    },
+    "txt_confirmation_message_for_sign_out":"Are you sure you want to Sign Out?",
+    "@txt_confirmation_message_for_sign_out": {
+      "description": "Are you sure you want to Sign Out?"
+    },
+    "lbl_gofresha":"GoFresha",
+    "@lbl_gofresha":{
+      "description": "GoFresha"
+    },
+    "txt_total_admin_share_sent_by_vendor":"Total Admin Share sent by Vendor",
+    "@txt_total_admin_share_sent_by_vendor": {
+      "description": "Total Admin Share sent by Vendor"
+    },
+    "txt_total_admin_share_pending_at_vendor":"Total Admin Share pending at Vendor",
+    "@txt_total_admin_share_pending_at_vendor": {
+      "description": "Total Admin Share pending at Vendor"
+    },
+    "txt_total_vendor_share_given_by_admin":"Total Vendor Share given by Admin",
+    "@txt_total_vendor_share_given_by_admin": {
+      "description": "Total Vendor Share given by Admin"
+    },
+    "txt_total_vendor_share_pending_at_admin":"Total Vendor Share pending at Admin",
+    "@txt_total_vendor_share_pending_at_admin": {
+      "description": "Total Vendor Share pending at Admin"
+    },
+    "lbl_reviews":"Reviews",
+    "@lbl_reviews": {
+      "description": "Reviews"
+    },
+    "lbl_view_all":"View All",
+    "@lbl_view_all": {
+      "description": "View All"
+    },
+    "lbl_profile": "Profile",
+    "@lbl_profile": {
+      "description": "Profile"
+    },
+    "lbl_request": "Request",
+    "@lbl_request": {
+      "description": "Request"
+    },
+    "lbl_home": "Home",
+    "@lbl_home": {
+      "description": "Home"
+    }
+
+}
