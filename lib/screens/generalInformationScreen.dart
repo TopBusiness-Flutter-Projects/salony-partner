@@ -13,7 +13,6 @@ class GeneralInformationScreen extends BaseRoute {
   final String email;
   final String password;
 
-
   GeneralInformationScreen(this.email, this.password, {a, o})
       : super(a: a, o: o, r: 'GeneralInformationScreen');
 

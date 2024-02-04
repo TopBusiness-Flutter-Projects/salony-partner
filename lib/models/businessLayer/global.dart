@@ -15,9 +15,9 @@ late SharedPreferences sp;
 Currency currency = new Currency();
 CurrentUser user = new CurrentUser();
 // String baseUrl = 'https://thecodecafe.in/gofresha/api/partner/';
-String baseUrl = 'https://gofresha.tecmanic.com/api/partner/';
+String baseUrl = 'https://salon.motaweron.com/api/partner/';
 //  String baseUrlForImage = 'https://thecodecafe.in/gofresha/';
-String baseUrlForImage = 'https://gofresha.tecmanic.com/';
+String baseUrlForImage = 'https://salon.motaweron.com/';
 List<String> rtlLanguageCodeLList = [
   'ar',
   'arc',
