@@ -119,7 +119,7 @@ class _GeneralInformationScreenState extends BaseRouteState {
                                     .lbl_generall_information,
                                 style: Theme.of(context)
                                     .primaryTextTheme
-                                    .headline3,
+                                    .displaySmall,
                               )),
                           Expanded(
                             child: SingleChildScrollView(
@@ -137,7 +137,7 @@ class _GeneralInformationScreenState extends BaseRouteState {
                                           .lbl_parlour_name,
                                       style: Theme.of(context)
                                           .primaryTextTheme
-                                          .subtitle2,
+                                          .titleSmall,
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.only(top: 5),
@@ -441,7 +441,6 @@ class _GeneralInformationScreenState extends BaseRouteState {
   signUp() async {
     try {
       user.vendor_email = email;
-
       user.vendor_password = password;
       user.vendor_address = _cAddress.text.trim();
       user.vendor_name = _cVenderName.text.trim();

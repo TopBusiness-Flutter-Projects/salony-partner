@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:app/models/businessLayer/baseRoute.dart';
 import 'package:app/models/businessLayer/global.dart' as global;
 import 'package:app/models/homePageModel.dart';
@@ -61,13 +60,18 @@ class _HomeScreenState extends BaseRouteState {
                         width: MediaQuery.of(context).size.width,
                         height: MediaQuery.of(context).size.height * 0.33,
                         child: CachedNetworkImage(
-                          imageUrl: global.baseUrlForImage + (global.user.vendor_logo ?? ''),
+                          imageUrl: global.baseUrlForImage +
+                              (global.user.vendor_logo ?? ''),
                           imageBuilder: (context, imageProvider) => Container(
                             height: 70,
-                            decoration: BoxDecoration(image: DecorationImage(fit: BoxFit.cover, image: imageProvider)),
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    fit: BoxFit.cover, image: imageProvider)),
                           ),
-                          placeholder: (context, url) => Center(child: CircularProgressIndicator()),
-                          errorWidget: (context, url, error) => Icon(Icons.error),
+                          placeholder: (context, url) =>
+                              Center(child: CircularProgressIndicator()),
+                          errorWidget: (context, url, error) =>
+                              Icon(Icons.error),
                         ),
                       ),
                       Container(
@@ -100,7 +104,8 @@ class _HomeScreenState extends BaseRouteState {
                                   )),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(right: 15, top: 10, left: 15),
+                              padding: const EdgeInsets.only(
+                                  right: 15, top: 10, left: 15),
                               child: InkWell(
                                 onTap: () {
                                   Navigator.of(context).push(MaterialPageRoute(
@@ -111,7 +116,8 @@ class _HomeScreenState extends BaseRouteState {
                                 },
                                 child: badges.Badge(
                                   showBadge: _isDataLoaded
-                                      ? _homeData!.unread_notification_count! > 0
+                                      ? _homeData!.unread_notification_count! >
+                                              0
                                           ? true
                                           : false
                                       : false,
@@ -120,7 +126,8 @@ class _HomeScreenState extends BaseRouteState {
                                   ),
                                   badgeContent: Text(
                                     '${_homeData?.unread_notification_count}',
-                                    style: TextStyle(color: Colors.white, fontSize: 09),
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 09),
                                   ),
                                   child: CircleAvatar(
                                     radius: 17,
@@ -143,15 +150,21 @@ class _HomeScreenState extends BaseRouteState {
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: global.isRTL ? CrossAxisAlignment.start : CrossAxisAlignment.start,
+                                crossAxisAlignment: global.isRTL
+                                    ? CrossAxisAlignment.start
+                                    : CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     '${global.user.vendor_name?.toUpperCase()}',
-                                    style: Theme.of(context).primaryTextTheme.headline2,
+                                    style: Theme.of(context)
+                                        .primaryTextTheme
+                                        .headline2,
                                   ),
                                   Text(
                                     '${global.user.owner_name?.toUpperCase()}',
-                                    style: Theme.of(context).primaryTextTheme.headline5,
+                                    style: Theme.of(context)
+                                        .primaryTextTheme
+                                        .headline5,
                                   ),
                                 ],
                               ),
@@ -162,15 +175,21 @@ class _HomeScreenState extends BaseRouteState {
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: global.isRTL ? CrossAxisAlignment.start : CrossAxisAlignment.start,
+                                crossAxisAlignment: global.isRTL
+                                    ? CrossAxisAlignment.start
+                                    : CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     '${global.user.vendor_name?.toUpperCase()}',
-                                    style: Theme.of(context).primaryTextTheme.headline2,
+                                    style: Theme.of(context)
+                                        .primaryTextTheme
+                                        .headline2,
                                   ),
                                   Text(
                                     '${global.user.owner_name?.toUpperCase()}',
-                                    style: Theme.of(context).primaryTextTheme.headline5,
+                                    style: Theme.of(context)
+                                        .primaryTextTheme
+                                        .headline5,
                                   ),
                                 ],
                               ),
@@ -187,27 +206,45 @@ class _HomeScreenState extends BaseRouteState {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: global.isRTL ? EdgeInsets.only(right: 10, top: 10) : EdgeInsets.only(left: 10, top: 10),
+                        padding: global.isRTL
+                            ? EdgeInsets.only(right: 10, top: 10)
+                            : EdgeInsets.only(left: 10, top: 10),
                         child: Text(
                           AppLocalizations.of(context)!.lbl_weekly_earn,
                           style: Theme.of(context).primaryTextTheme.caption,
                         ),
                       ),
-                      _homeData?.day1Details?.earning == 0 && _homeData?.day2Details?.earning == 0 && _homeData?.day3Details?.earning == 0 && _homeData?.day4Details?.earning == 0 && _homeData?.day5Details?.earning == 0 && _homeData?.day6Details?.earning == 0 && _homeData?.day7Details?.earning == 0
+                      _homeData?.day1Details?.earning == 0 &&
+                              _homeData?.day2Details?.earning == 0 &&
+                              _homeData?.day3Details?.earning == 0 &&
+                              _homeData?.day4Details?.earning == 0 &&
+                              _homeData?.day5Details?.earning == 0 &&
+                              _homeData?.day6Details?.earning == 0 &&
+                              _homeData?.day7Details?.earning == 0
                           ? Container(
                               width: MediaQuery.of(context).size.width,
-                              height: MediaQuery.of(context).size.height - ((MediaQuery.of(context).size.height * 0.33) + 50 + 220),
+                              height: MediaQuery.of(context).size.height -
+                                  ((MediaQuery.of(context).size.height * 0.33) +
+                                      50 +
+                                      220),
                               child: Center(
                                 child: Text(
-                                  AppLocalizations.of(context)!.txt_weekly_earn_will_shown_here,
-                                  style: Theme.of(context).primaryTextTheme.subtitle2,
+                                  AppLocalizations.of(context)!
+                                      .txt_weekly_earn_will_shown_here,
+                                  style: Theme.of(context)
+                                      .primaryTextTheme
+                                      .subtitle2,
                                 ),
                               ),
                             )
                           : Container(
-                              margin: EdgeInsets.only(top: 5, left: 55, right: 30, bottom: 5),
+                              margin: EdgeInsets.only(
+                                  top: 5, left: 55, right: 30, bottom: 5),
                               width: MediaQuery.of(context).size.width,
-                              height: MediaQuery.of(context).size.height - ((MediaQuery.of(context).size.height * 0.33) + 50 + 220),
+                              height: MediaQuery.of(context).size.height -
+                                  ((MediaQuery.of(context).size.height * 0.33) +
+                                      50 +
+                                      220),
                               child: _isDataLoaded
                                   ? _charts()
                                   : Center(
@@ -217,7 +254,8 @@ class _HomeScreenState extends BaseRouteState {
                   ))
               : _shimmer4(),
           Padding(
-            padding: const EdgeInsets.only(top: 25, left: 10, right: 10, bottom: 20),
+            padding:
+                const EdgeInsets.only(top: 25, left: 10, right: 10, bottom: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -234,16 +272,26 @@ class _HomeScreenState extends BaseRouteState {
                                   padding: const EdgeInsets.only(top: 20),
                                   child: Text(
                                     AppLocalizations.of(context)!.lbl_total,
-                                    style: Theme.of(context).primaryTextTheme.subtitle2,
+                                    style: Theme.of(context)
+                                        .primaryTextTheme
+                                        .subtitle2,
                                   ),
                                 ),
-                                Text(AppLocalizations.of(context)!.lbl_services, style: Theme.of(context).primaryTextTheme.subtitle2),
+                                Text(AppLocalizations.of(context)!.lbl_services,
+                                    style: Theme.of(context)
+                                        .primaryTextTheme
+                                        .subtitle2),
                                 Padding(
                                   padding: const EdgeInsets.only(top: 5),
                                   child: _isDataLoaded
                                       ? Text(
-                                          _homeData != null ? '${_homeData?.allOrders}' : '0',
-                                          style: Theme.of(context).primaryTextTheme.overline?.copyWith(color: Colors.blue),
+                                          _homeData != null
+                                              ? '${_homeData?.allOrders}'
+                                              : '0',
+                                          style: Theme.of(context)
+                                              .primaryTextTheme
+                                              .overline
+                                              ?.copyWith(color: Colors.blue),
                                         )
                                       : Center(
                                           child: CircularProgressIndicator(),
@@ -266,19 +314,29 @@ class _HomeScreenState extends BaseRouteState {
                                   padding: const EdgeInsets.only(top: 20),
                                   child: Text(
                                     AppLocalizations.of(context)!.lbl_pending,
-                                    style: Theme.of(context).primaryTextTheme.subtitle2,
+                                    style: Theme.of(context)
+                                        .primaryTextTheme
+                                        .subtitle2,
                                   ),
                                 ),
                                 Text(
                                   AppLocalizations.of(context)!.lbl_services,
-                                  style: Theme.of(context).primaryTextTheme.subtitle2,
+                                  style: Theme.of(context)
+                                      .primaryTextTheme
+                                      .subtitle2,
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.only(top: 5),
                                   child: _isDataLoaded
                                       ? Text(
-                                          _homeData != null ? '${_homeData?.pendingOrders}' : '0',
-                                          style: Theme.of(context).primaryTextTheme.overline?.copyWith(color: Color(0xFFFBD18B)),
+                                          _homeData != null
+                                              ? '${_homeData?.pendingOrders}'
+                                              : '0',
+                                          style: Theme.of(context)
+                                              .primaryTextTheme
+                                              .overline
+                                              ?.copyWith(
+                                                  color: Color(0xFFFBD18B)),
                                         )
                                       : Center(
                                           child: CircularProgressIndicator(),
@@ -301,16 +359,27 @@ class _HomeScreenState extends BaseRouteState {
                                   padding: const EdgeInsets.only(top: 20),
                                   child: Text(
                                     AppLocalizations.of(context)!.lbl_completed,
-                                    style: Theme.of(context).primaryTextTheme.subtitle2,
+                                    style: Theme.of(context)
+                                        .primaryTextTheme
+                                        .subtitle2,
                                   ),
                                 ),
-                                Text(AppLocalizations.of(context)!.lbl_services, style: Theme.of(context).primaryTextTheme.subtitle2),
+                                Text(AppLocalizations.of(context)!.lbl_services,
+                                    style: Theme.of(context)
+                                        .primaryTextTheme
+                                        .subtitle2),
                                 Padding(
                                   padding: const EdgeInsets.only(top: 5),
                                   child: _isDataLoaded
                                       ? Text(
-                                          _homeData != null ? '${_homeData?.completedOrders}' : '0',
-                                          style: Theme.of(context).primaryTextTheme.overline?.copyWith(color: Color(0xFF49EC97)),
+                                          _homeData != null
+                                              ? '${_homeData?.completedOrders}'
+                                              : '0',
+                                          style: Theme.of(context)
+                                              .primaryTextTheme
+                                              .overline
+                                              ?.copyWith(
+                                                  color: Color(0xFF49EC97)),
                                         )
                                       : Center(
                                           child: CircularProgressIndicator(),
@@ -337,7 +406,8 @@ class _HomeScreenState extends BaseRouteState {
                           Padding(
                             padding: const EdgeInsets.only(top: 25),
                             child: Text(
-                              AppLocalizations.of(context)!.lbl_complete_our_goals,
+                              AppLocalizations.of(context)!
+                                  .lbl_complete_our_goals,
                               style: Theme.of(context).primaryTextTheme.caption,
                             ),
                           ),
@@ -347,9 +417,14 @@ class _HomeScreenState extends BaseRouteState {
                                 ? CircularPercentIndicator(
                                     radius: 85.0,
                                     lineWidth: 12.0,
-                                    percent: double.parse(_homeData!.completedGloals!.toStringAsFixed(2)) / 100,
-                                    center: Text("${double.parse(_homeData!.completedGloals!.toStringAsFixed(2))}%"),
-                                    progressColor: Theme.of(context).primaryColor,
+                                    percent: double.parse(_homeData!
+                                            .completedGloals!
+                                            .toStringAsFixed(2)) /
+                                        100,
+                                    center: Text(
+                                        "${double.parse(_homeData!.completedGloals!.toStringAsFixed(2))}%"),
+                                    progressColor:
+                                        Theme.of(context).primaryColor,
                                   )
                                 : Center(
                                     child: CircularProgressIndicator(),
@@ -420,7 +495,13 @@ class _HomeScreenState extends BaseRouteState {
       var duration = Duration(milliseconds: 500);
       Timer(duration, () {
         setState(() {
-          if (_homeData?.day1Details?.earning == 0 && _homeData?.day2Details?.earning == 0 && _homeData?.day3Details?.earning == 0 && _homeData?.day4Details?.earning == 0 && _homeData?.day5Details?.earning == 0 && _homeData?.day6Details?.earning == 0 && _homeData?.day7Details?.earning == 0) {
+          if (_homeData?.day1Details?.earning == 0 &&
+              _homeData?.day2Details?.earning == 0 &&
+              _homeData?.day3Details?.earning == 0 &&
+              _homeData?.day4Details?.earning == 0 &&
+              _homeData?.day5Details?.earning == 0 &&
+              _homeData?.day6Details?.earning == 0 &&
+              _homeData?.day7Details?.earning == 0) {
             y1 = 10;
             y2 = 10;
             y3 = 10;
@@ -462,43 +543,71 @@ class _HomeScreenState extends BaseRouteState {
       BarChartGroupData(
         x: 15,
         barRods: [
-          BarChartRodData(y: y1, colors: [Color(0xFF47505F)], width: 22, borderRadius: BorderRadius.zero),
+          BarChartRodData(
+              y: y1,
+              colors: [Color(0xFF47505F)],
+              width: 22,
+              borderRadius: BorderRadius.zero),
         ],
       ),
       BarChartGroupData(
         x: 15,
         barRods: [
-          BarChartRodData(y: y2, colors: [Color(0xFFF44336)], width: 22, borderRadius: BorderRadius.zero),
+          BarChartRodData(
+              y: y2,
+              colors: [Color(0xFFF44336)],
+              width: 22,
+              borderRadius: BorderRadius.zero),
         ],
       ),
       BarChartGroupData(
         x: 15,
         barRods: [
-          BarChartRodData(y: y3, colors: [Color(0xFF4CAF50)], width: 22, borderRadius: BorderRadius.zero),
+          BarChartRodData(
+              y: y3,
+              colors: [Color(0xFF4CAF50)],
+              width: 22,
+              borderRadius: BorderRadius.zero),
         ],
       ),
       BarChartGroupData(
         x: 15,
         barRods: [
-          BarChartRodData(y: y4, colors: [Color(0xFFFDEB3B)], width: 22, borderRadius: BorderRadius.zero),
+          BarChartRodData(
+              y: y4,
+              colors: [Color(0xFFFDEB3B)],
+              width: 22,
+              borderRadius: BorderRadius.zero),
         ],
       ),
       BarChartGroupData(
         x: 15,
         barRods: [
-          BarChartRodData(y: y5, colors: [Color(0xFf40C4FF)], width: 22, borderRadius: BorderRadius.zero),
+          BarChartRodData(
+              y: y5,
+              colors: [Color(0xFf40C4FF)],
+              width: 22,
+              borderRadius: BorderRadius.zero),
         ],
       ),
       BarChartGroupData(
         x: 15,
         barRods: [
-          BarChartRodData(y: y6, colors: [Color(0xFFE91E64)], width: 22, borderRadius: BorderRadius.zero),
+          BarChartRodData(
+              y: y6,
+              colors: [Color(0xFFE91E64)],
+              width: 22,
+              borderRadius: BorderRadius.zero),
         ],
       ),
       BarChartGroupData(
         x: 15,
         barRods: [
-          BarChartRodData(y: y7, colors: [Color(0xFF9C27B0)], width: 22, borderRadius: BorderRadius.zero),
+          BarChartRodData(
+              y: y7,
+              colors: [Color(0xFF9C27B0)],
+              width: 22,
+              borderRadius: BorderRadius.zero),
         ],
       )
     ];
@@ -518,7 +627,8 @@ class _HomeScreenState extends BaseRouteState {
       ),
       titlesData: FlTitlesData(
         show: true,
-        bottomTitles: SideTitles(showTitles: true, getTitles: (double val) => _days[(val.toInt())]),
+        bottomTitles: SideTitles(
+            showTitles: true, getTitles: (double val) => _days[(val.toInt())]),
         leftTitles: SideTitles(
           showTitles: false,
           getTitles: (double val) {
@@ -536,7 +646,13 @@ class _HomeScreenState extends BaseRouteState {
   }
 
   Widget _shimmer1() {
-    return Shimmer.fromColors(baseColor: Colors.grey[300]!, highlightColor: Colors.grey[100]!, child: Container(height: MediaQuery.of(context).size.height * 0.33, width: MediaQuery.of(context).size.width, child: Card()));
+    return Shimmer.fromColors(
+        baseColor: Colors.grey[300]!,
+        highlightColor: Colors.grey[100]!,
+        child: Container(
+            height: MediaQuery.of(context).size.height * 0.33,
+            width: MediaQuery.of(context).size.width,
+            child: Card()));
   }
 
   Widget _shimmer2() {
@@ -570,14 +686,16 @@ class _HomeScreenState extends BaseRouteState {
         child: Container(
             margin: EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 5),
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height - ((MediaQuery.of(context).size.height * 0.33) + 50 + 220),
+            height: MediaQuery.of(context).size.height -
+                ((MediaQuery.of(context).size.height * 0.33) + 50 + 220),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Container(
                   margin: EdgeInsets.only(left: 5, right: 5),
-                  height: MediaQuery.of(context).size.height - ((MediaQuery.of(context).size.height * 0.33) + 50 + 220),
+                  height: MediaQuery.of(context).size.height -
+                      ((MediaQuery.of(context).size.height * 0.33) + 50 + 220),
                   width: 20,
                   child: Card(),
                 ),
@@ -595,7 +713,8 @@ class _HomeScreenState extends BaseRouteState {
                 ),
                 Container(
                   margin: EdgeInsets.only(left: 5, right: 5),
-                  height: MediaQuery.of(context).size.height - ((MediaQuery.of(context).size.height * 0.33) + 50 + 50),
+                  height: MediaQuery.of(context).size.height -
+                      ((MediaQuery.of(context).size.height * 0.33) + 50 + 50),
                   width: 20,
                   child: Card(),
                 ),
@@ -613,13 +732,15 @@ class _HomeScreenState extends BaseRouteState {
                 ),
                 Container(
                   margin: EdgeInsets.only(left: 5, right: 5),
-                  height: MediaQuery.of(context).size.height - ((MediaQuery.of(context).size.height * 0.33) + 50 + 100),
+                  height: MediaQuery.of(context).size.height -
+                      ((MediaQuery.of(context).size.height * 0.33) + 50 + 100),
                   width: 20,
                   child: Card(),
                 ),
                 Container(
                   margin: EdgeInsets.only(left: 5, right: 5),
-                  height: MediaQuery.of(context).size.height - ((MediaQuery.of(context).size.height * 0.33) + 50 + 100),
+                  height: MediaQuery.of(context).size.height -
+                      ((MediaQuery.of(context).size.height * 0.33) + 50 + 100),
                   width: 20,
                   child: Card(),
                 ),

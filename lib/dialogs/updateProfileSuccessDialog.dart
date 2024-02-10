@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class UpdateProfileSuccessDialog extends BaseRoute {
-  UpdateProfileSuccessDialog({a, o}) : super(a: a, o: o, r: 'UpdateProfileSuccessDialog');
+  UpdateProfileSuccessDialog({a, o})
+      : super(a: a, o: o, r: 'UpdateProfileSuccessDialog');
   @override
-  _UpdateProfileSuccessDialogState createState() => new _UpdateProfileSuccessDialogState();
+  _UpdateProfileSuccessDialogState createState() =>
+      new _UpdateProfileSuccessDialogState();
 }
 
 class _UpdateProfileSuccessDialogState extends BaseRouteState {
@@ -39,7 +41,8 @@ class _UpdateProfileSuccessDialogState extends BaseRouteState {
                 child: Column(
                   children: [
                     Text(
-                      AppLocalizations.of(context)!.txt_successfully_changed_your_profile,
+                      AppLocalizations.of(context)!
+                          .txt_successfully_changed_your_profile,
                       style: Theme.of(context).primaryTextTheme.headline6,
                     ),
                   ],
@@ -51,7 +54,11 @@ class _UpdateProfileSuccessDialogState extends BaseRouteState {
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: ElevatedButton(
-                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Theme.of(context).primaryColor), padding: MaterialStateProperty.all(EdgeInsets.only(top: 15, bottom: 15))),
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                          Theme.of(context).primaryColor),
+                      padding: MaterialStateProperty.all(
+                          EdgeInsets.only(top: 15, bottom: 15))),
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => BottomNavigationWidget(

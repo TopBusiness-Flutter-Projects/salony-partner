@@ -7,10 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ChooseSignUpSignInScreen extends BaseRoute {
-  ChooseSignUpSignInScreen({a, o}) : super(a: a, o: o, r: 'ChooseSignUpSignInScreen');
+  ChooseSignUpSignInScreen({a, o})
+      : super(a: a, o: o, r: 'ChooseSignUpSignInScreen');
 
   @override
-  _ChooseSignUpSignInScreenState createState() => new _ChooseSignUpSignInScreenState();
+  _ChooseSignUpSignInScreenState createState() =>
+      new _ChooseSignUpSignInScreenState();
 }
 
 class _ChooseSignUpSignInScreenState extends BaseRouteState {
@@ -27,26 +29,39 @@ class _ChooseSignUpSignInScreenState extends BaseRouteState {
       },
       child: Scaffold(
           body: Container(
-        decoration: BoxDecoration(gradient: LinearGradient(stops: [0.75, 1], begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Theme.of(context).primaryColor, Theme.of(context).primaryColorLight])),
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                stops: [0.75, 1],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Theme.of(context).primaryColor,
+                  Theme.of(context).primaryColorLight
+                ])),
         child: Container(
-          margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.28),
+          margin:
+              EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.28),
           child: Center(
             child: Column(
               children: [
                 CircleAvatar(
                   radius: 55,
+                  backgroundColor: Colors.white70,
                   backgroundImage: AssetImage('assets/appicon_120x120.png'),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 15),
-                  child: Text(
-                    AppLocalizations.of(context)!.lbl_gofresha,
-                    style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.w100),
-                  ),
-                ),
+                // Padding(
+                //   padding: const EdgeInsets.only(top: 15),
+                //   child: Text(
+                //     AppLocalizations.of(context)!.lbl_gofresha,
+                //     style: TextStyle(
+                //         color: Colors.white,
+                //         fontSize: 22,
+                //         fontWeight: FontWeight.w100),
+                //   ),
+                // ),
                 Container(
                   margin: EdgeInsets.only(top: 50),
-                  height: 50,
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   width: MediaQuery.of(context).size.width - 50,
                   child: ElevatedButton(
                     onPressed: () {
@@ -58,15 +73,22 @@ class _ChooseSignUpSignInScreenState extends BaseRouteState {
                     },
                     child: Text(
                       AppLocalizations.of(context)!.btnSignIn.toUpperCase(),
-                      style: Theme.of(context).elevatedButtonTheme.style!.textStyle!.resolve({MaterialState.pressed}),
+                      style: Theme.of(context)
+                          .elevatedButtonTheme
+                          .style!
+                          .textStyle!
+                          .resolve({MaterialState.pressed}),
                     ),
                   ),
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 20),
-                  height: 50,
+                  // height: 50,.
+
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   width: MediaQuery.of(context).size.width - 50,
                   child: ElevatedButton(
+                    style: ButtonStyle(),
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => SignUpScreen(
@@ -76,7 +98,12 @@ class _ChooseSignUpSignInScreenState extends BaseRouteState {
                     },
                     child: Text(
                       AppLocalizations.of(context)!.btnSignUp.toUpperCase(),
-                      style: Theme.of(context).elevatedButtonTheme.style!.textStyle!.resolve({MaterialState.pressed})!.copyWith(color: Theme.of(context).primaryColor),
+                      style: Theme.of(context)
+                          .elevatedButtonTheme
+                          .style!
+                          .textStyle!
+                          .resolve({MaterialState.pressed})!.copyWith(
+                              color: Theme.of(context).primaryColor),
                     ),
                   ),
                 ),
@@ -96,7 +123,7 @@ class _ChooseSignUpSignInScreenState extends BaseRouteState {
   @override
   void initState() {
     super.initState();
-  
+
     isloading = true;
     timetsamp();
   }
@@ -109,6 +136,4 @@ class _ChooseSignUpSignInScreenState extends BaseRouteState {
       });
     });
   }
-
- 
 }

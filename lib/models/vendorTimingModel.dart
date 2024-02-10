@@ -11,13 +11,21 @@ class VendorTiming with JsonParsable {
 
   VendorTiming();
 
-  Map<String, dynamic> toJson() => {'vendor_id': vendor_id != null ? vendor_id : null, 'status': status != null ? status : null, 'days': days != null ? days : null, 'time_slot_id': time_slot_id != null ? time_slot_id : null};
+  Map<String, dynamic> toJson() => {
+        'vendor_id': vendor_id != null ? vendor_id : null,
+        'status': status != null ? status : null,
+        'days': days != null ? days : null,
+        'time_slot_id': time_slot_id != null ? time_slot_id : null
+      };
 
   VendorTiming.fromJson(Map<String, dynamic> json) {
     try {
-      vendor_id = json['vendor_id'] != null ? parseField(json['vendor_id']) : null;
+      vendor_id =
+          json['vendor_id'] != null ? parseField(json['vendor_id']) : null;
       status = json['status'] != null ? parseField(json['status']) : null;
-      time_slot_id = json['time_slot_id'] != null ? parseField(json['time_slot_id']) : null;
+      time_slot_id = json['time_slot_id'] != null
+          ? parseField(json['time_slot_id'])
+          : null;
       days = json['days'] != null ? json['days'] : null;
       if (json['open_hour'] != null) {
         List<String> _tTimeList = json['open_hour'].toString().split(":");
@@ -36,7 +44,8 @@ class VendorTiming with JsonParsable {
         close_hour = null;
       }
     } catch (e) {
-      print("Exception - vendorTimingModel.dart - VendorTiming.fromJson():" + e.toString());
+      print("Exception - vendorTimingModel.dart - VendorTiming.fromJson():" +
+          e.toString());
     }
   }
 }

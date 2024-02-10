@@ -39,7 +39,8 @@ class _SaveServiceDialogState extends BaseRouteState {
                 child: Column(
                   children: [
                     Text(
-                      AppLocalizations.of(context)!.txt_successfully_add_your_new_service,
+                      AppLocalizations.of(context)!
+                          .txt_successfully_add_your_new_service,
                       style: Theme.of(context).primaryTextTheme.headline6,
                     ),
                   ],
@@ -51,7 +52,11 @@ class _SaveServiceDialogState extends BaseRouteState {
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: ElevatedButton(
-                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Theme.of(context).primaryColor), padding: MaterialStateProperty.all(EdgeInsets.only(top: 15, bottom: 15))),
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                          Theme.of(context).primaryColor),
+                      padding: MaterialStateProperty.all(
+                          EdgeInsets.only(top: 15, bottom: 15))),
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => ServiceListScreen(
