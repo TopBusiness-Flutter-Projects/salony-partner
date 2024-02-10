@@ -105,6 +105,9 @@ flutter:
     - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins-Regular.otf
+    - family: cairo
+      fonts:
+        - asset: assets/fonts/cairo.ttf
         # - asset: assets/fonts/Poppins-BlackItalic.otf
         # - asset: assets/fonts/Poppins-Bold.otf
         # - asset: assets/fonts/Poppins-BoldItalic.otf

@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
-
+import 'dart:ui';
 import 'package:app/models/businessLayer/baseRoute.dart';
 import 'package:app/models/businessLayer/global.dart' as global;
 import 'package:app/models/partnerUserModel.dart';
@@ -9,7 +9,6 @@ import 'package:app/screens/introScreen.dart';
 import 'package:app/widgets/bottomNavigationBar.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 class SplashScreen extends BaseRoute {
@@ -27,34 +26,73 @@ class _SplashScreenState extends BaseRouteState {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-          body: Container(
-        decoration: BoxDecoration(gradient: LinearGradient(stops: [0.75, 1], begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Theme.of(context).primaryColor, Theme.of(context).primaryColorLight])),
-        child: Container(
-          margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.28),
-          child: Center(
-            child: Column(
-              children: [
-                CircleAvatar(
-                  radius: 55,
-                  backgroundImage: AssetImage('assets/appicon_120x120.png'),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 15),
-                  child: Text(
-                    AppLocalizations.of(context)!.lbl_gofresha,
-                    style: TextStyle(color: Colors.white, fontSize: 27, fontWeight: FontWeight.w100),
-                  ),
-                ),
-                Container(
-                    margin: EdgeInsets.only(top: 140),
-                    child: Text(
-                      AppLocalizations.of(context)!.lbl_loading,
-                      style: TextStyle(color: Colors.white, fontSize: 17),
-                    ))
-              ],
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          Image.asset(
+            'assets/splash.png',
+            width: double.infinity,
+            height: double.infinity,
+            fit: BoxFit.cover,
+            filterQuality: FilterQuality.high,
+          ),
+          BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 0.5, sigmaY: 0.5),
+            child: Container(
+              width: double.infinity,
+              height: double.infinity,
+              color: Colors.black.withOpacity(0.5),
             ),
           ),
-        ),
+          Padding(
+            padding: const EdgeInsets.only(top: 100),
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: Column(
+                children: [
+                  Image.asset(
+                    'assets/appicon_120x120.png',
+                    width: MediaQuery.of(context).size.width / 1.8,
+                  ),
+                  // Padding(
+                  //   padding: EdgeInsets.only(top: 20),
+                  //   child: Text(
+                  //     AppLocalizations.of(context)!.lbl_gofresha,
+                  //     style: TextStyle(color: Colors.white, fontSize: 22),
+                  //   ),
+                  // ),
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 20, left: 10, right: 10),
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              // child: RichText(
+              //     textAlign: TextAlign.center,
+              //     text: TextSpan(
+              //         style: TextStyle(color: Colors.white, fontSize: 18),
+              //         children: [
+              //           TextSpan(
+              //               text:
+              //                   AppLocalizations.of(context)!.txt_welcome_to),
+              //           TextSpan(
+              //             text: AppLocalizations.of(context)!.lbl_gofresha,
+              //             style: TextStyle(
+              //                 color: Theme.of(context).primaryColor,
+              //                 fontSize: 18),
+              //           ),
+              //           TextSpan(
+              //               text: AppLocalizations.of(context)!.txt_app,
+              //               style:
+              //                   TextStyle(color: Colors.white, fontSize: 18))
+              //         ])),
+              child: Image.asset('assets/top.png',
+                  width: MediaQuery.of(context).size.width / 2.5),
+            ),
+          )
+        ],
       ),
     );
   }
@@ -76,8 +114,7 @@ class _SplashScreenState extends BaseRouteState {
               global.currency = result.recordList;
 
               setState(() {});
-            } else {
-            }
+            } else {}
           }
         });
       } else {
@@ -113,7 +150,8 @@ class _SplashScreenState extends BaseRouteState {
         bool isConnected = await br.checkConnectivity();
         if (isConnected) {
           if (global.sp.getString('currentUser') != null) {
-            global.user = CurrentUser.fromJson(json.decode(global.sp.getString("currentUser")!));
+            global.user = CurrentUser.fromJson(
+                json.decode(global.sp.getString("currentUser")!));
 
             Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => BottomNavigationWidget(

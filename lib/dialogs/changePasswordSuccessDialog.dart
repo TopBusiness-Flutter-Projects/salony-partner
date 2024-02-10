@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ChangePasswordSuccessDialog extends BaseRoute {
-  ChangePasswordSuccessDialog({a, o}) : super(a: a, o: o, r: 'ChangePasswordSuccessDialog');
+  ChangePasswordSuccessDialog({a, o})
+      : super(a: a, o: o, r: 'ChangePasswordSuccessDialog');
   @override
-  _ChangePasswordSuccessDialogState createState() => new _ChangePasswordSuccessDialogState();
+  _ChangePasswordSuccessDialogState createState() =>
+      new _ChangePasswordSuccessDialogState();
 }
 
 class _ChangePasswordSuccessDialogState extends BaseRouteState {
@@ -35,12 +37,12 @@ class _ChangePasswordSuccessDialogState extends BaseRouteState {
             Padding(
               padding: EdgeInsets.only(top: 15),
               child: Container(
-                
                 width: MediaQuery.of(context).size.width / 2,
                 child: Column(
                   children: [
                     Text(
-                      AppLocalizations.of(context)!.txt_successfully_changed_your_password,
+                      AppLocalizations.of(context)!
+                          .txt_successfully_changed_your_password,
                       style: Theme.of(context).primaryTextTheme.headline6,
                     ),
                   ],
@@ -52,7 +54,11 @@ class _ChangePasswordSuccessDialogState extends BaseRouteState {
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: ElevatedButton(
-                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Theme.of(context).primaryColor), padding: MaterialStateProperty.all(EdgeInsets.only(top: 15, bottom: 15))),
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                          Theme.of(context).primaryColor),
+                      padding: MaterialStateProperty.all(
+                          EdgeInsets.only(top: 15, bottom: 15))),
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => SignInScreen(

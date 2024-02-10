@@ -39,7 +39,8 @@ class _SettingSaveDialogState extends BaseRouteState {
                 child: Column(
                   children: [
                     Text(
-                      AppLocalizations.of(context)!.txt_successfully_save_your_setting,
+                      AppLocalizations.of(context)!
+                          .txt_successfully_save_your_setting,
                       style: Theme.of(context).primaryTextTheme.headline6,
                     ),
                   ],
@@ -51,8 +52,10 @@ class _SettingSaveDialogState extends BaseRouteState {
               width: MediaQuery.of(context).size.width,
               child: ElevatedButton(
                 style: ButtonStyle(
-                  padding: MaterialStateProperty.all(EdgeInsets.only(top: 15, bottom: 15)),
-                  backgroundColor: MaterialStateProperty.all(Theme.of(context).primaryColor),
+                  padding: MaterialStateProperty.all(
+                      EdgeInsets.only(top: 15, bottom: 15)),
+                  backgroundColor:
+                      MaterialStateProperty.all(Theme.of(context).primaryColor),
                 ),
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(

@@ -39,7 +39,8 @@ class _SaveProductDialogState extends BaseRouteState {
                 child: Column(
                   children: [
                     Text(
-                      AppLocalizations.of(context)!.txt_succesfully_add_your_new_product,
+                      AppLocalizations.of(context)!
+                          .txt_succesfully_add_your_new_product,
                       style: Theme.of(context).primaryTextTheme.headline6,
                     ),
                   ],
@@ -51,7 +52,11 @@ class _SaveProductDialogState extends BaseRouteState {
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: ElevatedButton(
-                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Theme.of(context).primaryColor), padding: MaterialStateProperty.all(EdgeInsets.only(top: 15, bottom: 15))),
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                          Theme.of(context).primaryColor),
+                      padding: MaterialStateProperty.all(
+                          EdgeInsets.only(top: 15, bottom: 15))),
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => ProductListScreen(
