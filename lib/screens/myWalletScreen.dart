@@ -9,9 +9,11 @@ import 'package:shimmer/shimmer.dart';
 
 class MyWalletScreen extends BaseRoute {
   final int? screenId;
-  MyWalletScreen({a, o, this.screenId}) : super(a: a, o: o, r: 'MyWalletScreen');
+  MyWalletScreen({a, o, this.screenId})
+      : super(a: a, o: o, r: 'MyWalletScreen');
   @override
-  _MyWalletScreenState createState() => new _MyWalletScreenState(screenId: screenId);
+  _MyWalletScreenState createState() =>
+      new _MyWalletScreenState(screenId: screenId);
 }
 
 class _MyWalletScreenState extends BaseRouteState {
@@ -24,25 +26,25 @@ class _MyWalletScreenState extends BaseRouteState {
 
   @override
   Widget build(BuildContext context) {
-    final languageCode = Localizations.localeOf(context).languageCode;
-    final cellHeight = languageCode == 'en' ? 55.0 : 71.0;
+    // final languageCode = Localizations.localeOf(context).languageCode;
+    final double cellHeight = 75;
     return WillPopScope(
-        onWillPop: () async {
-          screenId == 1
-              ? Navigator.of(context).push(
-                  MaterialPageRoute(
-                      builder: (context) => BottomNavigationWidget(
-                            a: widget.analytics,
-                            o: widget.observer,
-                          )),
-                )
-              : Navigator.of(context).pop();
-          return false;
-        },
-        child: Scaffold(
-            body: SafeArea(
-              child: Stack(
-          children: [
+      onWillPop: () async {
+        screenId == 1
+            ? Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: (context) => BottomNavigationWidget(
+                          a: widget.analytics,
+                          o: widget.observer,
+                        )),
+              )
+            : Navigator.of(context).pop();
+        return false;
+      },
+      child: Scaffold(
+        body: SafeArea(
+          child: Stack(
+            children: [
               Container(
                 height: 100,
                 width: MediaQuery.of(context).size.width,
@@ -68,7 +70,8 @@ class _MyWalletScreenState extends BaseRouteState {
                           screenId == 1
                               ? Navigator.of(context).push(
                                   MaterialPageRoute(
-                                      builder: (context) => BottomNavigationWidget(
+                                      builder: (context) =>
+                                          BottomNavigationWidget(
                                             a: widget.analytics,
                                             o: widget.observer,
                                           )),
@@ -83,7 +86,8 @@ class _MyWalletScreenState extends BaseRouteState {
                             ),
                             Text(
                               AppLocalizations.of(context)!.lbl_back,
-                              style: TextStyle(color: Colors.black, fontSize: 17.5),
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 17.5),
                             ),
                           ],
                         ),
@@ -95,7 +99,9 @@ class _MyWalletScreenState extends BaseRouteState {
               Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20)),
                   ),
                   margin: EdgeInsets.only(top: 80),
                   height: MediaQuery.of(context).size.height,
@@ -109,41 +115,71 @@ class _MyWalletScreenState extends BaseRouteState {
                             margin: EdgeInsets.only(top: 30, bottom: 5),
                             child: Text(
                               AppLocalizations.of(context)!.lbl_my_wallet,
-                              style: Theme.of(context).primaryTextTheme.displaySmall,
+                              style: Theme.of(context)
+                                  .primaryTextTheme
+                                  .displaySmall,
                             )),
                         _isDataLoaded
                             ? Expanded(
                                 child: ListView(
+                                shrinkWrap: true,
                                 children: [
                                   Container(
-                                      height: 55,
-                                      margin: EdgeInsets.only(bottom: 5),
+                                      height: 75,
+                                      padding: EdgeInsets.symmetric(
+                                        vertical: 10,
+                                      ),
+                                      margin: EdgeInsets.only(
+                                        bottom: 5,
+                                      ),
                                       width: MediaQuery.of(context).size.width,
                                       child: Card(
                                         elevation: 5,
                                         child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsets.only(top: 7),
+                                              padding:
+                                                  const EdgeInsets.only(top: 0),
                                               child: Column(
                                                 children: [
                                                   Padding(
-                                                    padding: global.isRTL ? EdgeInsets.only(right: 10, top: 10) : EdgeInsets.only(left: 10, top: 10),
+                                                    padding: global.isRTL
+                                                        ? EdgeInsets.only(
+                                                            right: 10, top: 10)
+                                                        : EdgeInsets.only(
+                                                            left: 10, top: 10),
                                                     child: Text(
-                                                      AppLocalizations.of(context)!.lbl_total_earning,
-                                                      style: Theme.of(context).primaryTextTheme.titleSmall,
+                                                      AppLocalizations.of(
+                                                              context)!
+                                                          .lbl_total_earning,
+                                                      style: Theme.of(context)
+                                                          .primaryTextTheme
+                                                          .titleSmall,
                                                     ),
                                                   ),
                                                 ],
                                               ),
                                             ),
                                             Container(
-                                              margin: global.isRTL ? EdgeInsets.only(left: 10) : EdgeInsets.only(right: 10),
+                                              margin: global.isRTL
+                                                  ? EdgeInsets.only(left: 10)
+                                                  : EdgeInsets.only(right: 10),
                                               height: 30,
                                               width: 100,
-                                              decoration: BoxDecoration(border: Border.all(color: Theme.of(context).primaryColor, width: 1)),
-                                              padding: EdgeInsets.only(left: 5, right: 2, top: 2, bottom: 2),
+                                              decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                      color: Theme.of(context)
+                                                          .primaryColor,
+                                                      width: 1)),
+                                              padding: EdgeInsets.only(
+                                                  left: 5,
+                                                  right: 2,
+                                                  top: 2,
+                                                  bottom: 2),
                                               child: Center(
                                                   child: Text(
                                                 '${global.currency.currency_sign} ${_myWallet?.total_price}',
@@ -155,138 +191,224 @@ class _MyWalletScreenState extends BaseRouteState {
                                       )),
                                   GestureDetector(
                                     onTap: () {
-                                      Navigator.of(context).push(MaterialPageRoute(
-                                          builder: (context) => WalletDetailScreen(
-                                                AppLocalizations.of(context)!.txt_total_admin_share_sent_by_vendor,
-                                                _myWallet!.share_sent,
-                                                a: widget.analytics,
-                                                o: widget.observer,
-                                              )));
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  WalletDetailScreen(
+                                                    AppLocalizations.of(
+                                                            context)!
+                                                        .txt_total_admin_share_sent_by_vendor,
+                                                    _myWallet!.share_sent,
+                                                    a: widget.analytics,
+                                                    o: widget.observer,
+                                                  )));
                                     },
                                     child: Container(
-                                        height: 55,
+                                        height: 75,
                                         margin: EdgeInsets.only(bottom: 5),
-                                        width: MediaQuery.of(context).size.width,
+                                        width:
+                                            MediaQuery.of(context).size.width,
                                         child: Card(
                                           elevation: 5,
                                           child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsets.only(top: 10),
+                                                padding: const EdgeInsets.only(
+                                                    top: 10),
                                                 child: Column(
-                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Padding(
-                                                      padding: global.isRTL ? EdgeInsets.only(right: 10) : EdgeInsets.only(left: 10),
+                                                      padding: global.isRTL
+                                                          ? EdgeInsets.only(
+                                                              right: 10)
+                                                          : EdgeInsets.only(
+                                                              left: 10),
                                                       child: Text(
-                                                        AppLocalizations.of(context)!.txt_total_admin_share_sent_by_vendor,
-                                                        style: Theme.of(context).primaryTextTheme.titleSmall,
+                                                        AppLocalizations.of(
+                                                                context)!
+                                                            .txt_total_admin_share_sent_by_vendor,
+                                                        style: Theme.of(context)
+                                                            .primaryTextTheme
+                                                            .titleSmall,
                                                       ),
                                                     ),
                                                     Padding(
-                                                      padding: global.isRTL ? EdgeInsets.only(right: 10) : EdgeInsets.only(left: 10),
+                                                      padding: global.isRTL
+                                                          ? EdgeInsets.only(
+                                                              right: 10)
+                                                          : EdgeInsets.only(
+                                                              left: 10),
                                                       child: Text(
                                                         '${global.currency.currency_sign}${_myWallet?.share_sent_amount}',
-                                                        style: Theme.of(context).primaryTextTheme.titleMedium,
+                                                        style: Theme.of(context)
+                                                            .primaryTextTheme
+                                                            .titleMedium,
                                                       ),
                                                     )
                                                   ],
                                                 ),
                                               ),
-                                              Padding(padding: global.isRTL ? EdgeInsets.only(left: 5) : EdgeInsets.only(right: 5), child: Icon(Icons.keyboard_arrow_right_rounded))
+                                              Padding(
+                                                  padding: global.isRTL
+                                                      ? EdgeInsets.only(left: 5)
+                                                      : EdgeInsets.only(
+                                                          right: 5),
+                                                  child: Icon(Icons
+                                                      .keyboard_arrow_right_rounded))
                                             ],
                                           ),
                                         )),
                                   ),
                                   GestureDetector(
                                     onTap: () {
-                                      Navigator.of(context).push(MaterialPageRoute(
-                                          builder: (context) => WalletDetailScreen(
-                                                AppLocalizations.of(context)!.txt_total_admin_share_pending_at_vendor,
-                                                _myWallet!.share_sent_pending,
-                                                a: widget.analytics,
-                                                o: widget.observer,
-                                              )));
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  WalletDetailScreen(
+                                                    AppLocalizations.of(
+                                                            context)!
+                                                        .txt_total_admin_share_pending_at_vendor,
+                                                    _myWallet!
+                                                        .share_sent_pending,
+                                                    a: widget.analytics,
+                                                    o: widget.observer,
+                                                  )));
                                     },
                                     child: Container(
                                         height: cellHeight,
                                         margin: EdgeInsets.only(bottom: 5),
-                                        width: MediaQuery.of(context).size.width,
+                                        width:
+                                            MediaQuery.of(context).size.width,
                                         child: Card(
                                           elevation: 5,
                                           child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
                                             children: [
                                               Expanded(
                                                 child: Padding(
-                                                  padding: EdgeInsets.only(top: 10),
+                                                  padding:
+                                                      EdgeInsets.only(top: 10),
                                                   child: Column(
-                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
                                                     children: [
                                                       Padding(
-                                                        padding: global.isRTL ? EdgeInsets.only(right: 10) : EdgeInsets.only(left: 10),
+                                                        padding: global.isRTL
+                                                            ? EdgeInsets.only(
+                                                                right: 10)
+                                                            : EdgeInsets.only(
+                                                                left: 10),
                                                         child: Text(
-                                                          AppLocalizations.of(context)!.txt_total_admin_share_pending_at_vendor,
-                                                          style: Theme.of(context).primaryTextTheme.titleSmall,
+                                                          AppLocalizations.of(
+                                                                  context)!
+                                                              .txt_total_admin_share_pending_at_vendor,
+                                                          style: Theme.of(
+                                                                  context)
+                                                              .primaryTextTheme
+                                                              .titleSmall,
                                                         ),
                                                       ),
                                                       Padding(
-                                                        padding: global.isRTL ? EdgeInsets.only(right: 10) : EdgeInsets.only(left: 10),
+                                                        padding: global.isRTL
+                                                            ? EdgeInsets.only(
+                                                                right: 10)
+                                                            : EdgeInsets.only(
+                                                                left: 10),
                                                         child: Text(
                                                           '${global.currency.currency_sign}${_myWallet?.share_sent_pending_amount}',
-                                                          style: Theme.of(context).primaryTextTheme.titleMedium,
+                                                          style: Theme.of(
+                                                                  context)
+                                                              .primaryTextTheme
+                                                              .titleMedium,
                                                         ),
                                                       )
                                                     ],
                                                   ),
                                                 ),
                                               ),
-                                              Padding(padding: global.isRTL ? EdgeInsets.only(left: 5) : EdgeInsets.only(right: 5), child: Icon(Icons.keyboard_arrow_right_rounded))
+                                              Padding(
+                                                  padding: global.isRTL
+                                                      ? EdgeInsets.only(left: 5)
+                                                      : EdgeInsets.only(
+                                                          right: 5),
+                                                  child: Icon(Icons
+                                                      .keyboard_arrow_right_rounded))
                                             ],
                                           ),
                                         )),
                                   ),
                                   GestureDetector(
                                     onTap: () {
-                                      Navigator.of(context).push(MaterialPageRoute(
-                                          builder: (context) => WalletDetailScreen(
-                                                AppLocalizations.of(context)!.txt_total_vendor_share_given_by_admin,
-                                                _myWallet!.share_given,
-                                                a: widget.analytics,
-                                                o: widget.observer,
-                                              )));
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  WalletDetailScreen(
+                                                    AppLocalizations.of(
+                                                            context)!
+                                                        .txt_total_vendor_share_given_by_admin,
+                                                    _myWallet!.share_given,
+                                                    a: widget.analytics,
+                                                    o: widget.observer,
+                                                  )));
                                     },
                                     child: Container(
                                         height: cellHeight,
                                         margin: EdgeInsets.only(bottom: 5),
-                                        width: MediaQuery.of(context).size.width,
+                                        width:
+                                            MediaQuery.of(context).size.width,
                                         child: Card(
                                           elevation: 5,
                                           child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
                                             children: [
                                               Expanded(
                                                 child: Padding(
-                                                  padding: const EdgeInsets.only(top: 10),
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 10),
                                                   child: Column(
-                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
                                                     children: [
                                                       Padding(
-                                                        padding: global.isRTL ? EdgeInsets.only(right: 10) : EdgeInsets.only(left: 10),
+                                                        padding: global.isRTL
+                                                            ? EdgeInsets.only(
+                                                                right: 10)
+                                                            : EdgeInsets.only(
+                                                                left: 10),
                                                         child: Expanded(
                                                           child: Text(
-                                                            AppLocalizations.of(context)!.txt_total_vendor_share_given_by_admin,
-                                                            style: Theme.of(context).primaryTextTheme.titleSmall,
+                                                            AppLocalizations.of(
+                                                                    context)!
+                                                                .txt_total_vendor_share_given_by_admin,
+                                                            style: Theme.of(
+                                                                    context)
+                                                                .primaryTextTheme
+                                                                .titleSmall,
                                                           ),
                                                         ),
                                                       ),
                                                       Padding(
-                                                        padding: global.isRTL ? EdgeInsets.only(right: 10) : EdgeInsets.only(left: 10),
+                                                        padding: global.isRTL
+                                                            ? EdgeInsets.only(
+                                                                right: 10)
+                                                            : EdgeInsets.only(
+                                                                left: 10),
                                                         child: Expanded(
                                                           child: Text(
                                                             "${global.currency.currency_sign}${_myWallet?.share_given_amount}",
-                                                            style: Theme.of(context).primaryTextTheme.titleMedium,
+                                                            style: Theme.of(
+                                                                    context)
+                                                                .primaryTextTheme
+                                                                .titleMedium,
                                                           ),
                                                         ),
                                                       )
@@ -294,49 +416,82 @@ class _MyWalletScreenState extends BaseRouteState {
                                                   ),
                                                 ),
                                               ),
-                                              Padding(padding: global.isRTL ? EdgeInsets.only(left: 5) : EdgeInsets.only(right: 5), child: Icon(Icons.keyboard_arrow_right_rounded))
+                                              Padding(
+                                                  padding: global.isRTL
+                                                      ? EdgeInsets.only(left: 5)
+                                                      : EdgeInsets.only(
+                                                          right: 5),
+                                                  child: Icon(Icons
+                                                      .keyboard_arrow_right_rounded))
                                             ],
                                           ),
                                         )),
                                   ),
                                   GestureDetector(
                                     onTap: () {
-                                      Navigator.of(context).push(MaterialPageRoute(
-                                          builder: (context) => WalletDetailScreen(
-                                                AppLocalizations.of(context)!.txt_total_vendor_share_pending_at_admin,
-                                                _myWallet!.share_given_pending,
-                                                a: widget.analytics,
-                                                o: widget.observer,
-                                              )));
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  WalletDetailScreen(
+                                                    AppLocalizations.of(
+                                                            context)!
+                                                        .txt_total_vendor_share_pending_at_admin,
+                                                    _myWallet!
+                                                        .share_given_pending,
+                                                    a: widget.analytics,
+                                                    o: widget.observer,
+                                                  )));
                                     },
                                     child: Container(
                                         height: cellHeight,
                                         margin: EdgeInsets.only(bottom: 5),
-                                        width: MediaQuery.of(context).size.width,
+                                        width:
+                                            MediaQuery.of(context).size.width,
                                         child: Card(
                                           elevation: 5,
                                           child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
                                             children: [
                                               Expanded(
                                                 child: Padding(
-                                                  padding: const EdgeInsets.only(top: 10),
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 10),
                                                   child: Column(
-                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
                                                     children: [
                                                       Padding(
-                                                        padding: global.isRTL ? EdgeInsets.only(right: 10) : EdgeInsets.only(left: 10),
+                                                        padding: global.isRTL
+                                                            ? EdgeInsets.only(
+                                                                right: 10)
+                                                            : EdgeInsets.only(
+                                                                left: 10),
                                                         child: Text(
-                                                          AppLocalizations.of(context)!.txt_total_vendor_share_pending_at_admin,
-                                                          style: Theme.of(context).primaryTextTheme.titleSmall,
+                                                          AppLocalizations.of(
+                                                                  context)!
+                                                              .txt_total_vendor_share_pending_at_admin,
+                                                          style: Theme.of(
+                                                                  context)
+                                                              .primaryTextTheme
+                                                              .titleSmall,
                                                         ),
                                                       ),
                                                       Padding(
-                                                        padding: global.isRTL ? EdgeInsets.only(right: 10) : EdgeInsets.only(left: 10),
+                                                        padding: global.isRTL
+                                                            ? EdgeInsets.only(
+                                                                right: 10)
+                                                            : EdgeInsets.only(
+                                                                left: 10),
                                                         child: Expanded(
                                                           child: Text(
                                                             "${global.currency.currency_sign}${_myWallet?.share_given_pending_amount}",
-                                                            style: Theme.of(context).primaryTextTheme.titleMedium,
+                                                            style: Theme.of(
+                                                                    context)
+                                                                .primaryTextTheme
+                                                                .titleMedium,
                                                           ),
                                                         ),
                                                       )
@@ -344,7 +499,13 @@ class _MyWalletScreenState extends BaseRouteState {
                                                   ),
                                                 ),
                                               ),
-                                              Padding(padding: global.isRTL ? EdgeInsets.only(left: 5) : EdgeInsets.only(right: 5), child: Icon(Icons.keyboard_arrow_right_rounded))
+                                              Padding(
+                                                  padding: global.isRTL
+                                                      ? EdgeInsets.only(left: 5)
+                                                      : EdgeInsets.only(
+                                                          right: 5),
+                                                  child: Icon(Icons
+                                                      .keyboard_arrow_right_rounded))
                                             ],
                                           ),
                                         )),
@@ -355,9 +516,9 @@ class _MyWalletScreenState extends BaseRouteState {
                       ],
                     ),
                   ))
-          ],
+            ],
+          ),
         ),
-            ),
       ),
     );
   }

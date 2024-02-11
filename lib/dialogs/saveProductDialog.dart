@@ -65,7 +65,7 @@ class _SaveProductDialogState extends BaseRouteState {
                               screenId: 1,
                             )));
                   },
-                  child: Text('Ok'),
+                  child: Text('تم'),
                 ),
               ),
             )

@@ -13,6 +13,7 @@ import 'package:app/screens/serviceListScreen.dart';
 import 'package:app/screens/settingScreen.dart';
 import 'package:app/screens/signInScreen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -65,7 +66,7 @@ class _DrawerWidgetState extends BaseRouteState {
                 ),
                 subtitle: Text(
                   global.user.vendor_phone != null
-                      ? '${global.user.vendor_phone}'
+                      ? '${global.user.vendor_phone ?? ''}'
                       : '',
                   style: Theme.of(context).primaryTextTheme.headlineSmall,
                 ),
@@ -167,7 +168,7 @@ class _DrawerWidgetState extends BaseRouteState {
               padding: const EdgeInsets.only(),
               child: ListTile(
                 leading: Icon(
-                  Icons.card_giftcard,
+                  CupertinoIcons.photo_on_rectangle,
                   color: Colors.white,
                   size: 22,
                 ),
@@ -190,7 +191,7 @@ class _DrawerWidgetState extends BaseRouteState {
               padding: const EdgeInsets.only(),
               child: ListTile(
                 leading: Icon(
-                  Icons.card_giftcard,
+                  FontAwesomeIcons.productHunt,
                   color: Colors.white,
                   size: 22,
                 ),
@@ -213,7 +214,7 @@ class _DrawerWidgetState extends BaseRouteState {
               padding: const EdgeInsets.only(),
               child: ListTile(
                 leading: Icon(
-                  Icons.card_giftcard,
+                  CupertinoIcons.option,
                   color: Colors.white,
                   size: 22,
                 ),
@@ -279,34 +280,34 @@ class _DrawerWidgetState extends BaseRouteState {
                 },
               ),
             ),
+            // Padding(
+            //   padding: const EdgeInsets.only(),
+            //   child: ListTile(
+            //     leading: Icon(
+            //       FontAwesomeIcons.language,
+            //       color: Colors.white,
+            //       size: 22,
+            //     ),
+            //     title: Text(
+            //       AppLocalizations.of(context)!.lbl_selet_language,
+            //       style: Theme.of(context).primaryTextTheme.labelLarge,
+            //     ),
+            //     onTap: () {
+            //       Navigator.of(context).push(
+            //         MaterialPageRoute(
+            //             builder: (context) => ChooseLanguageScreen(
+            //                   a: widget.analytics,
+            //                   o: widget.observer,
+            //                 )),
+            //       );
+            //     },
+            //   ),
+            // ),
             Padding(
               padding: const EdgeInsets.only(),
               child: ListTile(
                 leading: Icon(
-                  FontAwesomeIcons.language,
-                  color: Colors.white,
-                  size: 22,
-                ),
-                title: Text(
-                  AppLocalizations.of(context)!.lbl_selet_language,
-                  style: Theme.of(context).primaryTextTheme.labelLarge,
-                ),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                        builder: (context) => ChooseLanguageScreen(
-                              a: widget.analytics,
-                              o: widget.observer,
-                            )),
-                  );
-                },
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(),
-              child: ListTile(
-                leading: Icon(
-                  Icons.help,
+                  FontAwesomeIcons.circleQuestion,
                   color: Colors.white,
                   size: 22,
                 ),

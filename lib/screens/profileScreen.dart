@@ -35,7 +35,8 @@ class _ProfileScreenState extends BaseRouteState {
         Scaffold(
             bottomNavigationBar: _isDataLoaded
                 ? Container(
-                    margin: EdgeInsets.only(top: 15, bottom: 15, left: 10, right: 10),
+                    margin: EdgeInsets.only(
+                        top: 15, bottom: 15, left: 10, right: 10),
                     width: MediaQuery.of(context).size.width,
                     height: 50,
                     child: TextButton(
@@ -48,9 +49,12 @@ class _ProfileScreenState extends BaseRouteState {
                                   o: widget.observer,
                                 )));
                       },
-                      child: Text(AppLocalizations.of(context)!.btn_update_profile),
+                      child: Text(
+                          AppLocalizations.of(context)!.btn_update_profile),
                     ),
-                    decoration: BoxDecoration(color: Theme.of(context).primaryColor, borderRadius: BorderRadius.all(Radius.circular(10))),
+                    decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor,
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
                   )
                 : SizedBox(),
             body: Stack(
@@ -72,7 +76,9 @@ class _ProfileScreenState extends BaseRouteState {
                 Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20)),
                     ),
                     margin: EdgeInsets.only(top: 80),
                     height: MediaQuery.of(context).size.height,
@@ -83,30 +89,47 @@ class _ProfileScreenState extends BaseRouteState {
                                 child: Column(
                                   children: [
                                     Container(
-                                      margin: EdgeInsets.only(left: 10, right: 10),
+                                      margin:
+                                          EdgeInsets.only(left: 10, right: 10),
                                       width: MediaQuery.of(context).size.width,
                                       child: Column(
                                         children: [
                                           Container(
-                                              margin: EdgeInsets.only(top: 30, bottom: 10),
+                                              margin: EdgeInsets.only(
+                                                  top: 30, bottom: 10),
                                               child: Text(
                                                 '${_user?.owner_name}',
-                                                style: Theme.of(context).primaryTextTheme.headline3,
+                                                style: Theme.of(context)
+                                                    .primaryTextTheme
+                                                    .displaySmall,
                                               )),
                                           Container(
-                                            padding: const EdgeInsets.only(top: 05),
+                                            padding:
+                                                const EdgeInsets.only(top: 05),
                                             child: CircleAvatar(
                                               radius: 38,
                                               child: _user?.vendor_logo == ""
-                                                  ? Image.asset('assets/userImage.png')
+                                                  ? Image.asset(
+                                                      'assets/userImage.png')
                                                   : CachedNetworkImage(
-                                                      imageUrl: global.baseUrlForImage + _user!.vendor_logo!,
-                                                      imageBuilder: (context, imageProvider) => CircleAvatar(
+                                                      imageUrl: global
+                                                              .baseUrlForImage +
+                                                          _user!.vendor_logo!,
+                                                      imageBuilder: (context,
+                                                              imageProvider) =>
+                                                          CircleAvatar(
                                                         radius: 38,
-                                                        backgroundImage: imageProvider,
+                                                        backgroundImage:
+                                                            imageProvider,
                                                       ),
-                                                      placeholder: (context, url) => Center(child: CircularProgressIndicator()),
-                                                      errorWidget: (context, url, error) => Icon(Icons.error),
+                                                      placeholder: (context,
+                                                              url) =>
+                                                          Center(
+                                                              child:
+                                                                  CircularProgressIndicator()),
+                                                      errorWidget: (context,
+                                                              url, error) =>
+                                                          Icon(Icons.error),
                                                     ),
                                             ),
                                           ),
@@ -114,36 +137,48 @@ class _ProfileScreenState extends BaseRouteState {
                                             padding: EdgeInsets.only(top: 10),
                                             child: Text(
                                               '${_user?.salon_name}',
-                                              style: Theme.of(context).primaryTextTheme.subtitle2,
+                                              style: Theme.of(context)
+                                                  .primaryTextTheme
+                                                  .titleSmall,
                                             ),
                                           ),
                                           Container(
                                             child: Row(
-                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
                                               children: [
                                                 RatingBar.builder(
-                                                  initialRating: _user?.rating != null ? _user!.rating! : 0,
+                                                  initialRating:
+                                                      _user?.rating != null
+                                                          ? _user!.rating!
+                                                          : 0,
                                                   minRating: 1,
                                                   direction: Axis.horizontal,
                                                   allowHalfRating: true,
                                                   itemCount: 5,
                                                   itemSize: 23,
-
-                                                  glowColor: Theme.of(context).primaryColor,
-                                                  itemBuilder: (context, _) => Icon(
+                                                  glowColor: Theme.of(context)
+                                                      .primaryColor,
+                                                  itemBuilder: (context, _) =>
+                                                      Icon(
                                                     Icons.star,
-                                                    color: Theme.of(context).primaryColor,
+                                                    color: Theme.of(context)
+                                                        .primaryColor,
                                                   ),
                                                   ignoreGestures: true,
                                                   updateOnDrag: false,
-                                                  onRatingUpdate: (rating) {
-                                                  },
+                                                  onRatingUpdate: (rating) {},
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsets.only(left: 3),
+                                                  padding:
+                                                      EdgeInsets.only(left: 3),
                                                   child: Text(
-                                                    _user?.rating != null ? '${_user?.rating}' : '0',
-                                                    style: Theme.of(context).primaryTextTheme.subtitle1,
+                                                    _user?.rating != null
+                                                        ? '${_user?.rating}'
+                                                        : '0',
+                                                    style: Theme.of(context)
+                                                        .primaryTextTheme
+                                                        .titleMedium,
                                                   ),
                                                 ),
                                               ],
@@ -153,51 +188,81 @@ class _ProfileScreenState extends BaseRouteState {
                                       ),
                                     ),
                                     Container(
-                                      margin: EdgeInsets.only(left: 10, right: 10, top: 17),
+                                      margin: EdgeInsets.only(
+                                          left: 10, right: 10, top: 17),
                                       width: MediaQuery.of(context).size.width,
                                       child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            AppLocalizations.of(context)!.lbl_about,
-                                            style: Theme.of(context).primaryTextTheme.subtitle2,
+                                            AppLocalizations.of(context)!
+                                                .lbl_about,
+                                            style: Theme.of(context)
+                                                .primaryTextTheme
+                                                .titleSmall,
                                           ),
                                           Padding(
-                                            padding: const EdgeInsets.only(top: 5),
+                                            padding:
+                                                const EdgeInsets.only(top: 5),
                                             child: Text(
                                               '${_user?.description}',
-                                              style: Theme.of(context).primaryTextTheme.subtitle1,
+                                              style: Theme.of(context)
+                                                  .primaryTextTheme
+                                                  .titleMedium,
                                             ),
                                           ),
                                           _user!.weekly_time.length > 0
                                               ? Padding(
-                                                  padding: EdgeInsets.only(top: 10),
+                                                  padding:
+                                                      EdgeInsets.only(top: 10),
                                                   child: Text(
-                                                    AppLocalizations.of(context)!.lbl_opening_hours,
-                                                    style: Theme.of(context).primaryTextTheme.subtitle2,
+                                                    AppLocalizations.of(
+                                                            context)!
+                                                        .lbl_opening_hours,
+                                                    style: Theme.of(context)
+                                                        .primaryTextTheme
+                                                        .titleSmall,
                                                   ),
                                                 )
                                               : SizedBox(),
                                           _user!.weekly_time.length > 0
                                               ? Container(
-                                                  width: MediaQuery.of(context).size.width * 0.75,
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      0.75,
                                                   child: ListView.builder(
-                                                      physics: NeverScrollableScrollPhysics(),
+                                                      physics:
+                                                          NeverScrollableScrollPhysics(),
                                                       shrinkWrap: true,
-                                                      itemCount: _user!.weekly_time.length,
-                                                      itemBuilder: (BuildContext context, int i) {
+                                                      itemCount: _user!
+                                                          .weekly_time.length,
+                                                      itemBuilder:
+                                                          (BuildContext context,
+                                                              int i) {
                                                         return Container(
-                                                          padding: const EdgeInsets.only(top: 4),
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .only(top: 4),
                                                           child: Row(
-                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
                                                             children: [
                                                               Text(
                                                                 '${_days[i]}',
-                                                                style: Theme.of(context).primaryTextTheme.subtitle1,
+                                                                style: Theme.of(
+                                                                        context)
+                                                                    .primaryTextTheme
+                                                                    .titleMedium,
                                                               ),
                                                               Text(
                                                                 '${_openHourList[i]} - ${_closeHourList[i]}',
-                                                                style: Theme.of(context).primaryTextTheme.subtitle1,
+                                                                style: Theme.of(
+                                                                        context)
+                                                                    .primaryTextTheme
+                                                                    .titleMedium,
                                                               )
                                                             ],
                                                           ),
@@ -208,49 +273,81 @@ class _ProfileScreenState extends BaseRouteState {
                                           Padding(
                                             padding: EdgeInsets.only(top: 10),
                                             child: Text(
-                                              AppLocalizations.of(context)!.lbl_address,
-                                              style: Theme.of(context).primaryTextTheme.subtitle2,
+                                              AppLocalizations.of(context)!
+                                                  .lbl_address,
+                                              style: Theme.of(context)
+                                                  .primaryTextTheme
+                                                  .titleSmall,
                                             ),
                                           ),
                                           ListTile(
                                             leading: Icon(
                                               Icons.location_on,
-                                              color: Theme.of(context).primaryColor,
+                                              color: Theme.of(context)
+                                                  .primaryColor,
                                             ),
                                             title: Text(
                                               '${_user?.vendor_address}',
-                                              style: Theme.of(context).primaryTextTheme.subtitle1,
+                                              style: Theme.of(context)
+                                                  .primaryTextTheme
+                                                  .titleMedium,
                                             ),
                                           ),
                                           _user?.review != null
                                               ? Row(
-                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
                                                     Text(
-                                                      AppLocalizations.of(context)!.lbl_reviews,
-                                                      style: Theme.of(context).primaryTextTheme.subtitle2,
+                                                      AppLocalizations.of(
+                                                              context)!
+                                                          .lbl_reviews,
+                                                      style: Theme.of(context)
+                                                          .primaryTextTheme
+                                                          .titleSmall,
                                                     ),
                                                     GestureDetector(
                                                         onTap: () {
-                                                          Navigator.of(context).push(MaterialPageRoute(
-                                                              builder: (context) => ReviewScreen(
-                                                                    _user!.review!,
-                                                                    false,
-                                                                    a: widget.analytics,
-                                                                    o: widget.observer,
-                                                                  )));
+                                                          Navigator.of(context).push(
+                                                              MaterialPageRoute(
+                                                                  builder:
+                                                                      (context) =>
+                                                                          ReviewScreen(
+                                                                            _user!.review!,
+                                                                            false,
+                                                                            a: widget.analytics,
+                                                                            o: widget.observer,
+                                                                          )));
                                                         },
                                                         child: Text(
-                                                          AppLocalizations.of(context)!.lbl_view_all,
-                                                          style: Theme.of(context).primaryTextTheme.subtitle2,
+                                                          AppLocalizations.of(
+                                                                  context)!
+                                                              .lbl_view_all,
+                                                          style: Theme.of(
+                                                                  context)
+                                                              .primaryTextTheme
+                                                              .titleSmall,
                                                         ))
                                                   ],
                                                 )
                                               : SizedBox(),
                                           _user?.review != null
                                               ? Padding(
-                                                  padding: EdgeInsets.only(bottom: 20.0, left: 10, top: 10),
-                                                  child: SizedBox(height: 130, child: Align(alignment: global.isRTL ? Alignment.centerRight : Alignment.centerLeft, child: _review())),
+                                                  padding: EdgeInsets.only(
+                                                      bottom: 20.0,
+                                                      left: 10,
+                                                      top: 10),
+                                                  child: SizedBox(
+                                                      height: 130,
+                                                      child: Align(
+                                                          alignment: global
+                                                                  .isRTL
+                                                              ? Alignment
+                                                                  .centerRight
+                                                              : Alignment
+                                                                  .centerLeft,
+                                                          child: _review())),
                                                 )
                                               : SizedBox(),
                                         ],
@@ -260,7 +357,8 @@ class _ProfileScreenState extends BaseRouteState {
                                 ),
                               )
                             : Center(
-                                child: Text(AppLocalizations.of(context)!.txt_profile_will_be_shown_here),
+                                child: Text(AppLocalizations.of(context)!
+                                    .txt_profile_will_be_shown_here),
                               )
                         : _shimmer())
               ],
@@ -297,7 +395,8 @@ class _ProfileScreenState extends BaseRouteState {
         showNetworkErrorSnackBar(_scaffoldKey);
       }
     } catch (e) {
-      print("Exception - expertListScreen.dart - _getExperts():" + e.toString());
+      print(
+          "Exception - expertListScreen.dart - _getExperts():" + e.toString());
     }
   }
 
@@ -318,7 +417,8 @@ class _ProfileScreenState extends BaseRouteState {
         showNetworkErrorSnackBar(_scaffoldKey);
       }
     } catch (e) {
-      print("Exception - profileScreen.dart - _getUserProfile():" + e.toString());
+      print(
+          "Exception - profileScreen.dart - _getUserProfile():" + e.toString());
     }
   }
 
@@ -331,8 +431,12 @@ class _ProfileScreenState extends BaseRouteState {
       final localizations = MaterialLocalizations.of(context);
       if (_user?.weekly_time != null) {
         for (var i = 0; i < _user!.weekly_time.length; i++) {
-          _openHourList.add(localizations.formatTimeOfDay(_user!.weekly_time[i].open_hour!).toString());
-          _closeHourList.add(localizations.formatTimeOfDay(_user!.weekly_time[i].close_hour!).toString());
+          _openHourList.add(localizations
+              .formatTimeOfDay(_user!.weekly_time[i].open_hour!)
+              .toString());
+          _closeHourList.add(localizations
+              .formatTimeOfDay(_user!.weekly_time[i].close_hour!)
+              .toString());
           _days.add(_user!.weekly_time[i].days!);
         }
       }
@@ -355,9 +459,7 @@ class _ProfileScreenState extends BaseRouteState {
                     splashColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     overlayColor: MaterialStateProperty.all(Colors.transparent),
-                    onTap: () {
-                     
-                    },
+                    onTap: () {},
                     child: Padding(
                       padding: EdgeInsets.only(left: 5, right: 5),
                       child: SizedBox(
@@ -369,17 +471,28 @@ class _ProfileScreenState extends BaseRouteState {
                                 children: [
                                   _user?.review?[index].user?.image != 'N/A'
                                       ? CachedNetworkImage(
-                                          imageUrl: global.baseUrlForImage + _user!.review![index].user!.image!,
-                                          imageBuilder: (context, imageProvider) => CircleAvatar(radius: 35, backgroundImage: imageProvider),
-                                          placeholder: (context, url) => Center(child: CircularProgressIndicator()),
-                                          errorWidget: (context, url, error) => CircleAvatar(
+                                          imageUrl: global.baseUrlForImage +
+                                              _user!
+                                                  .review![index].user!.image!,
+                                          imageBuilder:
+                                              (context, imageProvider) =>
+                                                  CircleAvatar(
+                                                      radius: 35,
+                                                      backgroundImage:
+                                                          imageProvider),
+                                          placeholder: (context, url) => Center(
+                                              child:
+                                                  CircularProgressIndicator()),
+                                          errorWidget: (context, url, error) =>
+                                              CircleAvatar(
                                             radius: 35,
                                             child: Icon(Icons.person),
                                           ),
                                         )
                                       : CircleAvatar(
                                           radius: 31,
-                                          backgroundColor: Theme.of(context).primaryColor,
+                                          backgroundColor:
+                                              Theme.of(context).primaryColor,
                                           child: CircleAvatar(
                                             radius: 30,
                                             backgroundColor: Colors.white,
@@ -389,26 +502,29 @@ class _ProfileScreenState extends BaseRouteState {
                                   Text(
                                     _user!.review![index].user!.name!,
                                     textAlign: TextAlign.center,
-                                    style: Theme.of(context).primaryTextTheme.subtitle2,
+                                    style: Theme.of(context)
+                                        .primaryTextTheme
+                                        .titleSmall,
                                   ),
                                   Padding(
                                     padding: EdgeInsets.only(),
                                     child: RatingBar.builder(
-                                      initialRating: _user!.review![index].rating!,
+                                      initialRating:
+                                          _user!.review![index].rating!,
                                       minRating: 1,
                                       direction: Axis.horizontal,
                                       allowHalfRating: true,
                                       itemCount: 5,
                                       itemSize: 15,
-                                      itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
+                                      itemPadding:
+                                          EdgeInsets.symmetric(horizontal: 1.0),
                                       itemBuilder: (context, _) => Icon(
                                         Icons.star,
                                         color: Colors.amber,
                                       ),
                                       ignoreGestures: true,
                                       updateOnDrag: false,
-                                      onRatingUpdate: (rating) {
-                                      },
+                                      onRatingUpdate: (rating) {},
                                     ),
                                   )
                                 ],
@@ -425,7 +541,7 @@ class _ProfileScreenState extends BaseRouteState {
               alignment: Alignment.centerLeft,
               child: Text(
                 'Nothing is yet to see here',
-                style: Theme.of(context).primaryTextTheme.subtitle1,
+                style: Theme.of(context).primaryTextTheme.titleMedium,
               ),
             ),
           );
@@ -468,13 +584,17 @@ class _ProfileScreenState extends BaseRouteState {
                                       width: MediaQuery.of(context).size.width,
                                       height: 30,
                                       child: Card(
-                                        margin: EdgeInsets.only(bottom: 5, left: 5, top: 5),
+                                        margin: EdgeInsets.only(
+                                            bottom: 5, left: 5, top: 5),
                                       ),
                                     ),
                                     SizedBox(
-                                      width: MediaQuery.of(context).size.width - 100,
+                                      width: MediaQuery.of(context).size.width -
+                                          100,
                                       height: 30,
-                                      child: Card(margin: EdgeInsets.only(bottom: 5, left: 5, top: 5)),
+                                      child: Card(
+                                          margin: EdgeInsets.only(
+                                              bottom: 5, left: 5, top: 5)),
                                     )
                                   ],
                                 ),

@@ -163,7 +163,7 @@ class _GeneralInformationScreenState extends BaseRouteState {
                                           .lbl_owner_name,
                                       style: Theme.of(context)
                                           .primaryTextTheme
-                                          .subtitle2,
+                                          .titleSmall,
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.only(top: 5),
@@ -190,7 +190,7 @@ class _GeneralInformationScreenState extends BaseRouteState {
                                           .lbl_phone_number,
                                       style: Theme.of(context)
                                           .primaryTextTheme
-                                          .subtitle2,
+                                          .titleSmall,
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.only(top: 5),
@@ -219,7 +219,7 @@ class _GeneralInformationScreenState extends BaseRouteState {
                                             .lbl_address,
                                         style: Theme.of(context)
                                             .primaryTextTheme
-                                            .subtitle2,
+                                            .titleSmall,
                                       ),
                                     ),
                                     Padding(
@@ -246,7 +246,7 @@ class _GeneralInformationScreenState extends BaseRouteState {
                                             .lbl_saloon_type,
                                         style: Theme.of(context)
                                             .primaryTextTheme
-                                            .subtitle2,
+                                            .titleSmall,
                                       ),
                                     ),
                                     Padding(
@@ -305,7 +305,7 @@ class _GeneralInformationScreenState extends BaseRouteState {
                                             .lbl_description,
                                         style: Theme.of(context)
                                             .primaryTextTheme
-                                            .subtitle2,
+                                            .titleSmall,
                                       ),
                                     ),
                                     Padding(
@@ -331,7 +331,7 @@ class _GeneralInformationScreenState extends BaseRouteState {
                                             .lbl_upload_image,
                                         style: Theme.of(context)
                                             .primaryTextTheme
-                                            .subtitle2,
+                                            .titleSmall,
                                       ),
                                     ),
                                     Padding(
@@ -393,7 +393,7 @@ class _GeneralInformationScreenState extends BaseRouteState {
                                                 .txt_already_have_an_account,
                                             style: Theme.of(context)
                                                 .primaryTextTheme
-                                                .subtitle2,
+                                                .titleSmall,
                                           ),
                                           GestureDetector(
                                             onTap: () {
@@ -410,7 +410,7 @@ class _GeneralInformationScreenState extends BaseRouteState {
                                                   .btnSignIn,
                                               style: Theme.of(context)
                                                   .primaryTextTheme
-                                                  .headline1,
+                                                  .displayLarge,
                                             ),
                                           )
                                         ],

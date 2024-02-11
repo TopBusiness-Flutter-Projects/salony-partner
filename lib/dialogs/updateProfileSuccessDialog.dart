@@ -66,7 +66,7 @@ class _UpdateProfileSuccessDialogState extends BaseRouteState {
                               o: widget.observer,
                             )));
                   },
-                  child: Text('Ok'),
+                  child: Text('تأكيد'),
                 ),
               ),
             )

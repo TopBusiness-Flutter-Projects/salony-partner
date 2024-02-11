@@ -12,9 +12,11 @@ import 'package:shimmer/shimmer.dart';
 
 class ServiceListScreen extends BaseRoute {
   final int? screenId;
-  ServiceListScreen({a, o, this.screenId}) : super(a: a, o: o, r: 'ServiceListScreen');
+  ServiceListScreen({a, o, this.screenId})
+      : super(a: a, o: o, r: 'ServiceListScreen');
   @override
-  _ServiceListScreenState createState() => new _ServiceListScreenState(screenId: screenId);
+  _ServiceListScreenState createState() =>
+      new _ServiceListScreenState(screenId: screenId);
 }
 
 class _ServiceListScreenState extends BaseRouteState {
@@ -28,25 +30,24 @@ class _ServiceListScreenState extends BaseRouteState {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-        onWillPop: () async {
-          screenId == 1
-              ? Navigator.of(context).push(
-                  MaterialPageRoute(
-                      builder: (context) => BottomNavigationWidget(
-                            a: widget.analytics,
-                            o: widget.observer,
-                          )),
-                )
-              : Navigator.of(context).pop();
-          return false;
-        },
-        child: Scaffold(
+      onWillPop: () async {
+        screenId == 1
+            ? Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: (context) => BottomNavigationWidget(
+                          a: widget.analytics,
+                          o: widget.observer,
+                        )),
+              )
+            : Navigator.of(context).pop();
+        return false;
+      },
+      child: Scaffold(
           body: SafeArea(
             child: Stack(
               children: [
                 Container(
                   height: 100,
-
                   width: MediaQuery.of(context).size.width,
                   child: Stack(
                     children: [
@@ -70,7 +71,8 @@ class _ServiceListScreenState extends BaseRouteState {
                             screenId == 1
                                 ? Navigator.of(context).push(
                                     MaterialPageRoute(
-                                        builder: (context) => BottomNavigationWidget(
+                                        builder: (context) =>
+                                            BottomNavigationWidget(
                                               a: widget.analytics,
                                               o: widget.observer,
                                             )),
@@ -85,7 +87,8 @@ class _ServiceListScreenState extends BaseRouteState {
                               ),
                               Text(
                                 AppLocalizations.of(context)!.lbl_back,
-                                style: TextStyle(color: Colors.black, fontSize: 17.5),
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 17.5),
                               ),
                             ],
                           ),
@@ -97,7 +100,9 @@ class _ServiceListScreenState extends BaseRouteState {
                 Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20)),
                     ),
                     margin: EdgeInsets.only(top: 80),
                     height: MediaQuery.of(context).size.height - 190,
@@ -111,76 +116,130 @@ class _ServiceListScreenState extends BaseRouteState {
                               margin: EdgeInsets.only(top: 30, bottom: 10),
                               child: Text(
                                 AppLocalizations.of(context)!.lbl_services,
-                                style: Theme.of(context).primaryTextTheme.displaySmall,
+                                style: Theme.of(context)
+                                    .primaryTextTheme
+                                    .displaySmall,
                               )),
                           _isDataLoaded
                               ? _serviceList.length > 0
                                   ? Expanded(
                                       child: ListView.builder(
                                           itemCount: _serviceList.length,
-                                          itemBuilder: (BuildContext context, int index) {
+                                          itemBuilder: (BuildContext context,
+                                              int index) {
                                             return Padding(
-                                              padding: const EdgeInsets.only(top: 5, bottom: 5),
+                                              padding: const EdgeInsets.only(
+                                                  top: 5, bottom: 5),
                                               child: Card(
                                                 child: ExpansionTile(
-                                                  tilePadding: EdgeInsets.only(left: 2),
-                                                  children: [_serviceVariant1(index)!],
+                                                  tilePadding:
+                                                      EdgeInsets.only(left: 2),
+                                                  children: [
+                                                    _serviceVariant1(index)!
+                                                  ],
                                                   trailing: Padding(
-                                                    padding: const EdgeInsets.only(),
-                                                    child: PopupMenuButton(itemBuilder: (BuildContext context) {
+                                                    padding:
+                                                        const EdgeInsets.only(),
+                                                    child: PopupMenuButton(
+                                                        itemBuilder:
+                                                            (BuildContext
+                                                                context) {
                                                       return [
                                                         PopupMenuItem(
-                                                          padding: EdgeInsets.all(0),
+                                                          padding:
+                                                              EdgeInsets.all(0),
                                                           child: new ListTile(
                                                             leading: Icon(
                                                               Icons.edit,
-                                                              color: Theme.of(context).primaryColor,
+                                                              color: Theme.of(
+                                                                      context)
+                                                                  .primaryColor,
                                                             ),
                                                             title: Text(
-                                                              AppLocalizations.of(context)!.lbl_edit,
-                                                              style: Theme.of(context).primaryTextTheme.titleSmall,
+                                                              AppLocalizations.of(
+                                                                      context)!
+                                                                  .lbl_edit,
+                                                              style: Theme.of(
+                                                                      context)
+                                                                  .primaryTextTheme
+                                                                  .titleSmall,
                                                             ),
                                                             onTap: () {
-                                                              Navigator.of(context).pop();
-                                                              Navigator.of(context).push(MaterialPageRoute(
-                                                                  builder: (context) => AddServiceScreen(
-                                                                        a: widget.analytics,
-                                                                        o: widget.observer,
-                                                                        service: _serviceList[index],
-                                                                      )));
+                                                              Navigator.of(
+                                                                      context)
+                                                                  .pop();
+                                                              Navigator.of(context).push(
+                                                                  MaterialPageRoute(
+                                                                      builder: (context) =>
+                                                                          AddServiceScreen(
+                                                                            a: widget.analytics,
+                                                                            o: widget.observer,
+                                                                            service:
+                                                                                _serviceList[index],
+                                                                          )));
                                                             },
                                                           ),
                                                         ),
                                                         PopupMenuItem(
-                                                          padding: EdgeInsets.all(0),
+                                                          padding:
+                                                              EdgeInsets.all(0),
                                                           child: new ListTile(
-                                                            leading: Icon(Icons.delete, color: Theme.of(context).primaryColor),
-                                                            title: Text(AppLocalizations.of(context)!.lbl_delete, style: Theme.of(context).primaryTextTheme.titleSmall),
+                                                            leading: Icon(
+                                                                Icons.delete,
+                                                                color: Theme.of(
+                                                                        context)
+                                                                    .primaryColor),
+                                                            title: Text(
+                                                                AppLocalizations.of(
+                                                                        context)!
+                                                                    .lbl_delete,
+                                                                style: Theme.of(
+                                                                        context)
+                                                                    .primaryTextTheme
+                                                                    .titleSmall),
                                                             onTap: () {
-                                                              Navigator.of(context).pop();
-                                                              _deleteServiceConfirmationDialog(_serviceList[index].service_id, index);
+                                                              Navigator.of(
+                                                                      context)
+                                                                  .pop();
+                                                              _deleteServiceConfirmationDialog(
+                                                                  _serviceList[
+                                                                          index]
+                                                                      .service_id,
+                                                                  index);
                                                             },
                                                           ),
                                                         ),
                                                         PopupMenuItem(
-                                                          padding: EdgeInsets.all(0),
+                                                          padding:
+                                                              EdgeInsets.all(0),
                                                           child: new ListTile(
                                                             leading: Icon(
                                                               Icons.add,
-                                                              color: Theme.of(context).primaryColor,
+                                                              color: Theme.of(
+                                                                      context)
+                                                                  .primaryColor,
                                                             ),
                                                             title: Text(
-                                                              AppLocalizations.of(context)!.lbl_add_service_variant,
-                                                              style: Theme.of(context).primaryTextTheme.titleSmall,
+                                                              AppLocalizations.of(
+                                                                      context)!
+                                                                  .lbl_add_service_variant,
+                                                              style: Theme.of(
+                                                                      context)
+                                                                  .primaryTextTheme
+                                                                  .titleSmall,
                                                             ),
                                                             onTap: () {
-                                                              Navigator.of(context).pop();
-                                                              Navigator.of(context).push(MaterialPageRoute(
-                                                                  builder: (context) => AddServiceVariantScreen(
-                                                                        _serviceList[index].service_id!,
-                                                                        a: widget.analytics,
-                                                                        o: widget.observer,
-                                                                      )));
+                                                              Navigator.of(
+                                                                      context)
+                                                                  .pop();
+                                                              Navigator.of(context).push(
+                                                                  MaterialPageRoute(
+                                                                      builder: (context) =>
+                                                                          AddServiceVariantScreen(
+                                                                            _serviceList[index].service_id!,
+                                                                            a: widget.analytics,
+                                                                            o: widget.observer,
+                                                                          )));
                                                             },
                                                           ),
                                                         ),
@@ -192,46 +251,102 @@ class _ServiceListScreenState extends BaseRouteState {
                                                     child: Row(
                                                       children: [
                                                         Container(
-                                                          margin: EdgeInsets.only(left: 3, right: 3),
+                                                          margin:
+                                                              EdgeInsets.only(
+                                                                  left: 3,
+                                                                  right: 3),
                                                           child: ClipRRect(
-                                                            borderRadius: BorderRadius.all(Radius.circular(7)),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .all(Radius
+                                                                        .circular(
+                                                                            7)),
                                                             child: Container(
-                                                              decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(15))),
+                                                              decoration: BoxDecoration(
+                                                                  borderRadius:
+                                                                      BorderRadius.all(
+                                                                          Radius.circular(
+                                                                              15))),
                                                               height: 70,
                                                               width: 70,
-                                                              child: _serviceList[index].service_image == 'N/A'
+                                                              child: _serviceList[
+                                                                              index]
+                                                                          .service_image ==
+                                                                      'N/A'
                                                                   ? Image.asset(
                                                                       'assets/sample_image.jpg',
-                                                                      fit: BoxFit.cover,
+                                                                      fit: BoxFit
+                                                                          .cover,
                                                                     )
                                                                   : CachedNetworkImage(
-                                                                      imageUrl: global.baseUrlForImage + _serviceList[index].service_image!,
-                                                                      imageBuilder: (context, imageProvider) => Container(
-                                                                        height: 70,
-                                                                        decoration: BoxDecoration(image: DecorationImage(fit: BoxFit.cover, image: imageProvider)),
+                                                                      imageUrl: global
+                                                                              .baseUrlForImage +
+                                                                          _serviceList[index]
+                                                                              .service_image!,
+                                                                      imageBuilder:
+                                                                          (context, imageProvider) =>
+                                                                              Container(
+                                                                        height:
+                                                                            70,
+                                                                        decoration:
+                                                                            BoxDecoration(image: DecorationImage(fit: BoxFit.cover, image: imageProvider)),
                                                                       ),
-                                                                      placeholder: (context, url) => Center(child: CircularProgressIndicator()),
-                                                                      errorWidget: (context, url, error) => Icon(Icons.error),
+                                                                      placeholder: (context,
+                                                                              url) =>
+                                                                          Center(
+                                                                              child: CircularProgressIndicator()),
+                                                                      errorWidget: (context,
+                                                                              url,
+                                                                              error) =>
+                                                                          Icon(Icons
+                                                                              .error),
                                                                     ),
                                                             ),
                                                           ),
                                                         ),
                                                         Expanded(
                                                           child: Padding(
-                                                            padding: global.isRTL ? EdgeInsets.only(right: 15.0, top: 10) : EdgeInsets.only(left: 15.0, top: 10),
+                                                            padding: global
+                                                                    .isRTL
+                                                                ? EdgeInsets
+                                                                    .only(
+                                                                        right:
+                                                                            15.0,
+                                                                        top: 10)
+                                                                : EdgeInsets
+                                                                    .only(
+                                                                        left:
+                                                                            15.0,
+                                                                        top:
+                                                                            10),
                                                             child: Column(
-                                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
                                                               children: [
                                                                 Container(
                                                                     child: Text(
                                                                   '${_serviceList[index].service_name}',
-                                                                  style: Theme.of(context).primaryTextTheme.titleSmall,
+                                                                  style: Theme.of(
+                                                                          context)
+                                                                      .primaryTextTheme
+                                                                      .titleSmall,
                                                                 )),
                                                                 Padding(
-                                                                  padding: const EdgeInsets.only(top: 2),
+                                                                  padding:
+                                                                      const EdgeInsets
+                                                                          .only(
+                                                                          top:
+                                                                              2),
                                                                   child: Text(
-                                                                    _serviceList[index].createdAt != "N/A" ? '${_serviceList[index].createdAt}' : '',
-                                                                    style: Theme.of(context).primaryTextTheme.titleMedium,
+                                                                    _serviceList[index].createdAt !=
+                                                                            "N/A"
+                                                                        ? '${_serviceList[index].createdAt}'
+                                                                        : '',
+                                                                    style: Theme.of(
+                                                                            context)
+                                                                        .primaryTextTheme
+                                                                        .titleMedium,
                                                                   ),
                                                                 )
                                                               ],
@@ -247,7 +362,15 @@ class _ServiceListScreenState extends BaseRouteState {
                                           }),
                                     )
                                   : Center(
-                                      child: Padding(padding: EdgeInsets.only(top: MediaQuery.of(context).size.height / 3), child: Text(AppLocalizations.of(context)!.txt_service_will_shown_here)),
+                                      child: Padding(
+                                          padding: EdgeInsets.only(
+                                              top: MediaQuery.of(context)
+                                                      .size
+                                                      .height /
+                                                  3),
+                                          child: Text(AppLocalizations.of(
+                                                  context)!
+                                              .txt_service_will_shown_here)),
                                     )
                               : Expanded(child: _shimmer())
                         ],
@@ -259,24 +382,27 @@ class _ServiceListScreenState extends BaseRouteState {
           bottomNavigationBar: SafeArea(
             child: _isDataLoaded
                 ? Container(
-              margin: EdgeInsets.only(top: 15, left: 10, right: 10, bottom: 8),
-              width: MediaQuery.of(context).size.width,
-              height: 50,
-              child: TextButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => AddServiceScreen(
-                        a: widget.analytics,
-                        o: widget.observer,
-                      )));
-                },
-                child: Text(AppLocalizations.of(context)!.btn_add_new_service),
-              ),
-              decoration: BoxDecoration(color: Theme.of(context).primaryColor, borderRadius: BorderRadius.all(Radius.circular(10))),
-            )
+                    margin: EdgeInsets.only(
+                        top: 15, left: 10, right: 10, bottom: 8),
+                    width: MediaQuery.of(context).size.width,
+                    height: 50,
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => AddServiceScreen(
+                                  a: widget.analytics,
+                                  o: widget.observer,
+                                )));
+                      },
+                      child: Text(
+                          AppLocalizations.of(context)!.btn_add_new_service),
+                    ),
+                    decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor,
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                  )
                 : _shimmer1(),
-          )
-        ),
+          )),
     );
   }
 
@@ -302,7 +428,8 @@ class _ServiceListScreenState extends BaseRouteState {
         showNetworkErrorSnackBar(_scaffoldKey);
       }
     } catch (e) {
-      print("Exception - serviceListScreen.dart - _getServices():" + e.toString());
+      print("Exception - serviceListScreen.dart - _getServices():" +
+          e.toString());
     }
   }
 
@@ -339,7 +466,6 @@ class _ServiceListScreenState extends BaseRouteState {
 
   Future _deleteServiceConfirmationDialog(serviceId, _index) async {
     try {
-      
       showDialog(
           context: context,
           builder: (_) {
@@ -347,7 +473,8 @@ class _ServiceListScreenState extends BaseRouteState {
               title: Text(
                 AppLocalizations.of(context)!.lbl_delete_service,
               ),
-              content: Text(AppLocalizations.of(context)!.txt_confirmation_message_for_delete_service),
+              content: Text(AppLocalizations.of(context)!
+                  .txt_confirmation_message_for_delete_service),
               actions: [
                 TextButton(
                   child: Text(AppLocalizations.of(context)!.lbl_no),
@@ -364,7 +491,9 @@ class _ServiceListScreenState extends BaseRouteState {
             );
           });
     } catch (e) {
-      print("Exception - serviceListScreen.dart - _deleteServiceConfirmationDialog():" + e.toString());
+      print(
+          "Exception - serviceListScreen.dart - _deleteServiceConfirmationDialog():" +
+              e.toString());
     }
   }
 
@@ -383,13 +512,14 @@ class _ServiceListScreenState extends BaseRouteState {
         }
       });
     } catch (e) {
-      print("Exception - serviceListScreen.dart - _deleteServiceVariant():" + e.toString());
+      print("Exception - serviceListScreen.dart - _deleteServiceVariant():" +
+          e.toString());
     }
   }
 
-  Future _deleteServiceVariantConfirmationDialog(varientId, _index, parentId) async {
+  Future _deleteServiceVariantConfirmationDialog(
+      varientId, _index, parentId) async {
     try {
-      
       showDialog(
           context: context,
           builder: (_) {
@@ -397,7 +527,8 @@ class _ServiceListScreenState extends BaseRouteState {
               title: Text(
                 AppLocalizations.of(context)!.lbl_delete_service_variant,
               ),
-              content: Text(AppLocalizations.of(context)!.txt_confirmation_message_for_delete_service_variant),
+              content: Text(AppLocalizations.of(context)!
+                  .txt_confirmation_message_for_delete_service_variant),
               actions: [
                 TextButton(
                   child: Text(AppLocalizations.of(context)!.lbl_no),
@@ -414,7 +545,9 @@ class _ServiceListScreenState extends BaseRouteState {
             );
           });
     } catch (e) {
-      print("Exception - serviceListScreen.dart - _deleteServiceVariantConfirmationDialog():" + e.toString());
+      print(
+          "Exception - serviceListScreen.dart - _deleteServiceVariantConfirmationDialog():" +
+              e.toString());
     }
   }
 
@@ -437,8 +570,12 @@ class _ServiceListScreenState extends BaseRouteState {
                       Container(
                         height: 30,
                         width: 70,
-                        decoration: BoxDecoration(border: Border.all(color: Theme.of(context).primaryColor, width: 1)),
-                        padding: EdgeInsets.only(left: 5, right: 2, top: 2, bottom: 2),
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                                color: Theme.of(context).primaryColor,
+                                width: 1)),
+                        padding: EdgeInsets.only(
+                            left: 5, right: 2, top: 2, bottom: 2),
                         child: Center(
                             child: Text(
                           '${global.currency.currency_sign} ${_serviceVariant[i].price}',
@@ -448,7 +585,8 @@ class _ServiceListScreenState extends BaseRouteState {
                       Container(
                         width: 30,
                         padding: const EdgeInsets.only(),
-                        child: PopupMenuButton(itemBuilder: (BuildContext context) {
+                        child: PopupMenuButton(
+                            itemBuilder: (BuildContext context) {
                           return [
                             PopupMenuItem(
                               padding: EdgeInsets.all(0),
@@ -459,12 +597,15 @@ class _ServiceListScreenState extends BaseRouteState {
                                 ),
                                 title: Text(
                                   AppLocalizations.of(context)!.lbl_edit,
-                                  style: Theme.of(context).primaryTextTheme.titleSmall,
+                                  style: Theme.of(context)
+                                      .primaryTextTheme
+                                      .titleSmall,
                                 ),
                                 onTap: () {
                                   Navigator.of(context).pop();
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => AddServiceVariantScreen(
+                                      builder: (context) =>
+                                          AddServiceVariantScreen(
                                             _serviceVariant[i].service_id!,
                                             a: widget.analytics,
                                             o: widget.observer,
@@ -476,11 +617,17 @@ class _ServiceListScreenState extends BaseRouteState {
                             PopupMenuItem(
                               padding: EdgeInsets.all(0),
                               child: new ListTile(
-                                leading: Icon(Icons.delete, color: Theme.of(context).primaryColor),
-                                title: Text(AppLocalizations.of(context)!.lbl_delete, style: Theme.of(context).primaryTextTheme.titleSmall),
+                                leading: Icon(Icons.delete,
+                                    color: Theme.of(context).primaryColor),
+                                title: Text(
+                                    AppLocalizations.of(context)!.lbl_delete,
+                                    style: Theme.of(context)
+                                        .primaryTextTheme
+                                        .titleSmall),
                                 onTap: () {
                                   Navigator.of(context).pop();
-                                  _deleteServiceVariantConfirmationDialog(_serviceVariant[i].varient_id, i, index);
+                                  _deleteServiceVariantConfirmationDialog(
+                                      _serviceVariant[i].varient_id, i, index);
                                 },
                               ),
                             ),
@@ -503,10 +650,13 @@ class _ServiceListScreenState extends BaseRouteState {
                   ),
                 ),
                 title: Text('${_serviceVariant[i].varient}'),
-                subtitle: Text('${_serviceVariant[i].time}' + " " + AppLocalizations.of(context)!.lbl_min));
+                subtitle: Text('${_serviceVariant[i].time}' +
+                    " " +
+                    AppLocalizations.of(context)!.lbl_min));
           });
     } catch (e) {
-      print("Exception - serviceListScreen.dart - _serviceVariant1():" + e.toString());
+      print("Exception - serviceListScreen.dart - _serviceVariant1():" +
+          e.toString());
       return null;
     }
   }
@@ -541,13 +691,16 @@ class _ServiceListScreenState extends BaseRouteState {
                               width: MediaQuery.of(context).size.width,
                               height: 30,
                               child: Card(
-                                margin: EdgeInsets.only(bottom: 5, left: 5, top: 5),
+                                margin:
+                                    EdgeInsets.only(bottom: 5, left: 5, top: 5),
                               ),
                             ),
                             SizedBox(
                               width: MediaQuery.of(context).size.width,
                               height: 30,
-                              child: Card(margin: EdgeInsets.only(bottom: 5, left: 5, top: 5)),
+                              child: Card(
+                                  margin: EdgeInsets.only(
+                                      bottom: 5, left: 5, top: 5)),
                             )
                           ],
                         ),

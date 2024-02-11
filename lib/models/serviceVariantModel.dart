@@ -8,7 +8,14 @@ class ServiceVariant {
 
   ServiceVariant();
 
-  Map<String, dynamic> toJson() => {'vendor_id': vendor_id != null ? vendor_id : null, 'service_id': service_id != null ? service_id : null, 'price': price != null ? price : null, 'varient': varient != null ? varient : null, 'time': time != null ? time : null, 'varient_id': varient_id != null ? varient_id : null};
+  Map<String, dynamic> toJson() => {
+        'vendor_id': vendor_id != null ? vendor_id : null,
+        'service_id': service_id != null ? service_id : null,
+        'price': price != null ? price : null,
+        'varient': varient != null ? varient : null,
+        'time': time != null ? time : null,
+        'varient_id': varient_id != null ? varient_id : null
+      };
 
   ServiceVariant.fromJson(Map<String, dynamic> json) {
     try {
@@ -19,7 +26,8 @@ class ServiceVariant {
       time = json['time'] != null ? json['time'] : null;
       varient_id = json['varient_id'] != null ? json['varient_id'] : null;
     } catch (e) {
-      print("Exception - serviceVariantModel.dart - serviceModel.fromJson():" + e.toString());
+      print("Exception - serviceVariantModel.dart - serviceModel.fromJson():" +
+          e.toString());
     }
   }
 }
