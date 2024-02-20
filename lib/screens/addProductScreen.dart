@@ -137,7 +137,7 @@ class _AddProductScreenState extends BaseRouteState {
                                           .lbl_add_product,
                                   style: Theme.of(context)
                                       .primaryTextTheme
-                                      .headline3,
+                                      .displaySmall,
                                 )),
                             Expanded(
                               child: SingleChildScrollView(
@@ -159,7 +159,7 @@ class _AddProductScreenState extends BaseRouteState {
                                             .lbl_product_name,
                                         style: Theme.of(context)
                                             .primaryTextTheme
-                                            .subtitle2,
+                                            .headlineSmall,
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.only(
@@ -185,7 +185,7 @@ class _AddProductScreenState extends BaseRouteState {
                                         AppLocalizations.of(context)!.lbl_price,
                                         style: Theme.of(context)
                                             .primaryTextTheme
-                                            .subtitle2,
+                                            .headlineSmall,
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.only(
@@ -214,7 +214,7 @@ class _AddProductScreenState extends BaseRouteState {
                                             .lbl_description,
                                         style: Theme.of(context)
                                             .primaryTextTheme
-                                            .subtitle2,
+                                            .headlineSmall,
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.only(
@@ -243,7 +243,7 @@ class _AddProductScreenState extends BaseRouteState {
                                             .lbl_quantity,
                                         style: Theme.of(context)
                                             .primaryTextTheme
-                                            .subtitle2,
+                                            .headlineSmall,
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.only(
@@ -268,7 +268,7 @@ class _AddProductScreenState extends BaseRouteState {
                                             .lbl_upload_image,
                                         style: Theme.of(context)
                                             .primaryTextTheme
-                                            .subtitle2,
+                                            .headlineSmall,
                                       ),
                                       Container(
                                         decoration: BoxDecoration(

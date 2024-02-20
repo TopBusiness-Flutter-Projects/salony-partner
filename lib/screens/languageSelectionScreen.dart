@@ -92,8 +92,9 @@ class _ChooseLanguageScreenState extends BaseRouteState {
                         margin: EdgeInsets.only(top: 30, bottom: 10),
                         child: Text(
                             AppLocalizations.of(context)!.lbl_selet_language,
-                            style:
-                                Theme.of(context).primaryTextTheme.headline3),
+                            style: Theme.of(context)
+                                .primaryTextTheme
+                                .displaySmall),
                       ),
                       Expanded(
                         child: ListView.builder(
@@ -125,7 +126,7 @@ class _ChooseLanguageScreenState extends BaseRouteState {
                               title: Text(L10n.languageListName[index],
                                   style: Theme.of(context)
                                       .primaryTextTheme
-                                      .subtitle2),
+                                      .headlineSmall),
                             );
                           },
                         ),

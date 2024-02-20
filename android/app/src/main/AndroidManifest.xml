@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gofreshapartner.app">
    <application
-        android:label="Gofresha Partner App"
+        android:label="salony partner"
         android:icon="@mipmap/ic_launcher">
       
         <activity

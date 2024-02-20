@@ -29,21 +29,27 @@ class _RequestScreenState extends BaseRouteState {
       child: sc(
         Scaffold(
             body: Stack(
-              children: [
-              Container(
-                height: 100,
-                width: MediaQuery.of(context).size.width,
-                child: ColorFiltered(colorFilter: ColorFilter.mode(
+          children: [
+            Container(
+              height: 100,
+              width: MediaQuery.of(context).size.width,
+              child: ColorFiltered(
+                colorFilter: ColorFilter.mode(
                   Theme.of(context).primaryColor,
                   BlendMode.screen,
-                  ),
-                  child: Image.asset('assets/banner.jpg',fit: BoxFit.cover,),
+                ),
+                child: Image.asset(
+                  'assets/banner.jpg',
+                  fit: BoxFit.cover,
                 ),
               ),
-              Container(
+            ),
+            Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20)),
                 ),
                 margin: EdgeInsets.only(top: 80),
                 height: MediaQuery.of(context).size.height,
@@ -57,60 +63,108 @@ class _RequestScreenState extends BaseRouteState {
                         margin: EdgeInsets.only(top: 25, bottom: 10),
                         child: Text(
                           AppLocalizations.of(context)!.lbl_user_request,
-                          style: Theme.of(context).primaryTextTheme.headline3,
+                          style:
+                              Theme.of(context).primaryTextTheme.displaySmall,
                         ),
                       ),
                       _isDataLoaded
                           ? _userRequest.length > 0
-                              ? Expanded(
+                              ? Flexible(
                                   child: ListView.builder(
+                                      shrinkWrap: true,
                                       itemCount: _userRequest.length,
-                                      itemBuilder: (BuildContext context, int index) {
+                                      itemBuilder:
+                                          (BuildContext context, int index) {
                                         return Container(
-                                          height: 85,
+                                          // height: 85,
                                           child: Card(
-                                            margin: const EdgeInsets.only(top: 8),
+                                            margin:
+                                                const EdgeInsets.only(top: 8),
                                             child: ListTile(
                                               onTap: () {
-                                                if (_userRequest[index].statustext == "Pending") {
+                                                if (_userRequest[index]
+                                                        .statustext ==
+                                                    "Pending") {
                                                   _userRequestDialog(index);
                                                 }
                                               },
                                               contentPadding: EdgeInsets.zero,
                                               leading: Padding(
-                                                padding: global.isRTL ? EdgeInsets.only(right: 5) : EdgeInsets.only(left: 5),
+                                                padding: global.isRTL
+                                                    ? EdgeInsets.only(right: 5)
+                                                    : EdgeInsets.only(left: 5),
                                                 child: CircleAvatar(
-                                                  child: _userRequest[index].user == null
-                                                      ? CircleAvatar(radius: 25, backgroundImage: AssetImage('assets/userImage.png'))
-                                                      : _userRequest[index].user?.image == 'N/A'
-                                                          ? CircleAvatar(radius: 25, backgroundImage: AssetImage('assets/userImage.png'))
+                                                  child: _userRequest[index]
+                                                              .user ==
+                                                          null
+                                                      ? CircleAvatar(
+                                                          radius: 25,
+                                                          backgroundImage:
+                                                              AssetImage(
+                                                                  'assets/userImage.png'))
+                                                      : _userRequest[index]
+                                                                  .user
+                                                                  ?.image ==
+                                                              'N/A'
+                                                          ? CircleAvatar(
+                                                              radius: 25,
+                                                              backgroundImage:
+                                                                  AssetImage(
+                                                                      'assets/userImage.png'))
                                                           : CachedNetworkImage(
-                                                              imageUrl: global.baseUrlForImage + _userRequest[index].user!.image!,
-                                                              imageBuilder: (context, imageProvider) => CircleAvatar(
+                                                              imageUrl: global
+                                                                      .baseUrlForImage +
+                                                                  _userRequest[
+                                                                          index]
+                                                                      .user!
+                                                                      .image!,
+                                                              imageBuilder: (context,
+                                                                      imageProvider) =>
+                                                                  CircleAvatar(
                                                                 radius: 25,
-                                                                backgroundImage: imageProvider,
+                                                                backgroundImage:
+                                                                    imageProvider,
                                                               ),
-                                                              placeholder: (context, url) => Center(child: CircularProgressIndicator()),
-                                                              errorWidget: (context, url, error) => Icon(Icons.error),
+                                                              placeholder: (context,
+                                                                      url) =>
+                                                                  Center(
+                                                                      child:
+                                                                          CircularProgressIndicator()),
+                                                              errorWidget: (context,
+                                                                      url,
+                                                                      error) =>
+                                                                  Icon(Icons
+                                                                      .error),
                                                             ),
                                                   radius: 25,
                                                 ),
                                               ),
                                               title: Padding(
-                                                padding: const EdgeInsets.only(),
+                                                padding:
+                                                    const EdgeInsets.only(),
                                                 child: Text(
-                                                  _userRequest[index].user != null ? '${_userRequest[index].user?.name}' : 'No Name',
-                                                  style: Theme.of(context).primaryTextTheme.subtitle2,
+                                                  _userRequest[index].user !=
+                                                          null
+                                                      ? '${_userRequest[index].user?.name}'
+                                                      : 'No Name',
+                                                  // style: Theme.of(context)
+                                                  //     .primaryTextTheme
+                                                  //     .headlineSmall,
                                                   maxLines: 1,
-                                                  overflow: TextOverflow.ellipsis,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                               ),
                                               subtitle: Padding(
-                                                padding: const EdgeInsets.only(left: 0),
+                                                padding: const EdgeInsets.only(
+                                                    left: 0),
                                                 child: Text(
                                                   '${_userRequest[index].service_date}\n${_userRequest[index].service_time}',
-                                                  style: Theme.of(context).primaryTextTheme.subtitle1,
-                                                  overflow: TextOverflow.ellipsis,
+                                                  style: Theme.of(context)
+                                                      .primaryTextTheme
+                                                      .titleMedium,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                   maxLines: 2,
                                                 ),
                                               ),
@@ -118,57 +172,103 @@ class _RequestScreenState extends BaseRouteState {
                                               trailing: Container(
                                                 width: 120,
                                                 child: Column(
-                                                  mainAxisSize: MainAxisSize.min,
-                                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.end,
                                                   children: [
-                                                    _userRequest[index].statustext == "Pending"
+                                                    _userRequest[index]
+                                                                .statustext ==
+                                                            "Pending"
                                                         ? Row(
-                                                            mainAxisSize: MainAxisSize.min,
-                                                            mainAxisAlignment: MainAxisAlignment.center,
-                                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .center,
                                                             children: [
                                                               InkWell(
                                                                 onTap: () {
-                                                                  _userRequestDialog(index);
+                                                                  _userRequestDialog(
+                                                                      index);
                                                                 },
-                                                                child: Container(
-                                                                    padding: EdgeInsets.all(4),
-                                                                    decoration: BoxDecoration(
-                                                                      color: Theme.of(context).primaryColor,
-                                                                      borderRadius: BorderRadius.all(
-                                                                        Radius.circular(11),
-                                                                      ),
-                                                                    ),
-                                                                    child: Text(
-                                                                      'Accept',
-                                                                      style: Theme.of(context).primaryTextTheme.bodyText1,
-                                                                    )),
+                                                                child:
+                                                                    Container(
+                                                                        padding:
+                                                                            EdgeInsets.all(
+                                                                                4),
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              Theme.of(context).primaryColor,
+                                                                          borderRadius:
+                                                                              BorderRadius.all(
+                                                                            Radius.circular(11),
+                                                                          ),
+                                                                        ),
+                                                                        child:
+                                                                            Text(
+                                                                          'قبول',
+                                                                          style: Theme.of(context)
+                                                                              .primaryTextTheme
+                                                                              .bodyLarge,
+                                                                        )),
                                                               ),
                                                               InkWell(
                                                                 onTap: () {
-                                                                  _requestCancelConfirmationDialog(_userRequest[index].id);
+                                                                  _requestCancelConfirmationDialog(
+                                                                      _userRequest[
+                                                                              index]
+                                                                          .id);
                                                                 },
-                                                                child: Container(
-                                                                    margin: EdgeInsets.only(left: 3, right: 6),
-                                                                    padding: EdgeInsets.all(4),
-                                                                    decoration: BoxDecoration(color: Theme.of(context).primaryColorLight, borderRadius: BorderRadius.all(Radius.circular(12))),
-                                                                    child: Text(
-                                                                      'Cancel',
-                                                                      style: Theme.of(context).primaryTextTheme.bodyText2,
-                                                                    )),
+                                                                child:
+                                                                    Container(
+                                                                        margin: EdgeInsets.only(
+                                                                            left:
+                                                                                3,
+                                                                            right:
+                                                                                6),
+                                                                        padding:
+                                                                            EdgeInsets.all(
+                                                                                4),
+                                                                        decoration: BoxDecoration(
+                                                                            color: Theme.of(context)
+                                                                                .primaryColorLight,
+                                                                            borderRadius: BorderRadius.all(Radius.circular(
+                                                                                12))),
+                                                                        child:
+                                                                            Text(
+                                                                          'إلغاء',
+                                                                          style: Theme.of(context)
+                                                                              .primaryTextTheme
+                                                                              .bodyMedium,
+                                                                        )),
                                                               )
                                                             ],
                                                           )
                                                         : GestureDetector(
                                                             onTap: () {
-                                                              if (_userRequest[index].statustext == "Confirmed") {
-                                                                _requestCompleteConfirmationDialog(_userRequest[index].id);
+                                                              if (_userRequest[
+                                                                          index]
+                                                                      .statustext ==
+                                                                  "Confirmed") {
+                                                                _requestCompleteConfirmationDialog(
+                                                                    _userRequest[
+                                                                            index]
+                                                                        .id);
                                                               }
                                                             },
                                                             child: Container(
                                                               height: 30,
                                                               width: 130,
-                                                              margin: EdgeInsets.only(left: 5, right: 5),
+                                                              margin: EdgeInsets
+                                                                  .only(
+                                                                      left: 5,
+                                                                      right: 5),
                                                               decoration: BoxDecoration(
                                                                   color: _userRequest[index].statustext == "Pending"
                                                                       ? Colors.amber
@@ -182,21 +282,44 @@ class _RequestScreenState extends BaseRouteState {
                                                                                       ? Colors.blue[600]
                                                                                       : Colors.red,
                                                                   borderRadius: BorderRadius.all(Radius.circular(5))),
-                                                              padding: EdgeInsets.all(4),
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(4),
                                                               child: Center(
                                                                 child: Text(
                                                                   '${_userRequest[index].statustext}',
-                                                                  style: Theme.of(context).primaryTextTheme.headline5?.copyWith(color: Theme.of(context).primaryTextTheme.headline5?.color?.withOpacity(0.8)),
-                                                                  overflow: TextOverflow.ellipsis,
+                                                                  style: Theme.of(
+                                                                          context)
+                                                                      .primaryTextTheme
+                                                                      .headlineSmall
+                                                                      ?.copyWith(
+                                                                          color: Theme.of(context)
+                                                                              .primaryTextTheme
+                                                                              .headlineSmall
+                                                                              ?.color
+                                                                              ?.withOpacity(0.8)),
+                                                                  overflow:
+                                                                      TextOverflow
+                                                                          .ellipsis,
                                                                 ),
                                                               ),
                                                             ),
                                                           ),
-                                                    Padding(
-                                                      padding: const EdgeInsets.only(top: 3, left: 15, right: 5),
-                                                      child: Text(
-                                                        '${global.currency.currency_sign}${_userRequest[index].total_price}',
-                                                        style: Theme.of(context).primaryTextTheme.subtitle2,
+                                                    Flexible(
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(
+                                                                top: 3,
+                                                                left: 15,
+                                                                right: 5),
+                                                        child: Text(
+                                                          '${global.currency.currency_sign}${_userRequest[index].total_price}',
+                                                          style: Theme.of(
+                                                                  context)
+                                                              .primaryTextTheme
+                                                              .titleSmall,
+                                                        ),
                                                       ),
                                                     )
                                                   ],
@@ -209,8 +332,12 @@ class _RequestScreenState extends BaseRouteState {
                                 )
                               : Center(
                                   child: Padding(
-                                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height / 3),
-                                    child: Text(AppLocalizations.of(context)!.txt_user_request_will_be_shown_here),
+                                    padding: EdgeInsets.only(
+                                        top:
+                                            MediaQuery.of(context).size.height /
+                                                3),
+                                    child: Text(AppLocalizations.of(context)!
+                                        .txt_user_request_will_be_shown_here),
                                   ),
                                 )
                           : Expanded(child: _shimmer())
@@ -245,7 +372,8 @@ class _RequestScreenState extends BaseRouteState {
         showNetworkErrorSnackBar(_scaffoldKey);
       }
     } catch (e) {
-      print("Exception - requestScreen.dart - getUserRequest():" + e.toString());
+      print(
+          "Exception - requestScreen.dart - getUserRequest():" + e.toString());
     }
   }
 
@@ -257,8 +385,6 @@ class _RequestScreenState extends BaseRouteState {
       await getUserRequest();
       _isDataLoaded = true;
       setState(() {});
-    
-
     } catch (e) {
       print("Exception - requestScreen.dart - init():" + e.toString());
     }
@@ -288,12 +414,12 @@ class _RequestScreenState extends BaseRouteState {
         showNetworkErrorSnackBar(_scaffoldKey);
       }
     } catch (e) {
-      print("Exception - requestScreen.dart - _cancelRequest():" + e.toString());
+      print(
+          "Exception - requestScreen.dart - _cancelRequest():" + e.toString());
     }
   }
 
   Future _requestCancelConfirmationDialog(orderId) async {
-    
     showDialog(
         context: context,
         builder: (_) {
@@ -301,7 +427,8 @@ class _RequestScreenState extends BaseRouteState {
             title: Text(
               AppLocalizations.of(context)!.lbl_cancel_request,
             ),
-            content: Text(AppLocalizations.of(context)!.txt_confirmation_message_for_cancel_request),
+            content: Text(AppLocalizations.of(context)!
+                .txt_confirmation_message_for_cancel_request),
             actions: [
               TextButton(
                 child: Text(AppLocalizations.of(context)!.lbl_no),
@@ -321,22 +448,22 @@ class _RequestScreenState extends BaseRouteState {
 
   Future _requestCompleteConfirmationDialog(orderId) async {
     try {
-      
-         showDialog(
+      showDialog(
           context: context,
           builder: (context) => UserRequestAcceptDialog(
-              orderId,
+                orderId,
                 false,
                 2,
                 a: widget.analytics,
                 o: widget.observer,
               ));
-             } catch (e) {
-      print("Exception - requestScreen.dart - _requestCompleteConfirmationDialog():" + e.toString());
+    } catch (e) {
+      print(
+          "Exception - requestScreen.dart - _requestCompleteConfirmationDialog():" +
+              e.toString());
     }
   }
 
- 
   Widget _shimmer() {
     return Padding(
       padding: const EdgeInsets.all(15),
@@ -366,13 +493,16 @@ class _RequestScreenState extends BaseRouteState {
                               width: MediaQuery.of(context).size.width,
                               height: 30,
                               child: Card(
-                                margin: EdgeInsets.only(bottom: 5, left: 5, top: 5),
+                                margin:
+                                    EdgeInsets.only(bottom: 5, left: 5, top: 5),
                               ),
                             ),
                             SizedBox(
                               width: MediaQuery.of(context).size.width,
                               height: 30,
-                              child: Card(margin: EdgeInsets.only(bottom: 5, left: 5, top: 5)),
+                              child: Card(
+                                  margin: EdgeInsets.only(
+                                      bottom: 5, left: 5, top: 5)),
                             )
                           ],
                         ),
@@ -398,7 +528,8 @@ class _RequestScreenState extends BaseRouteState {
                 o: widget.observer,
               ));
     } catch (e) {
-      print('Exception - requestScreen - _userRequestDialog(): ${e.toString()}');
+      print(
+          'Exception - requestScreen - _userRequestDialog(): ${e.toString()}');
     }
   }
 }

@@ -93,7 +93,7 @@ class _PrivacyAndPolicyScreenState extends BaseRouteState {
                                       child: Text('Privacy & Policy',
                                           style: Theme.of(context)
                                               .primaryTextTheme
-                                              .headline3)),
+                                              .displaySmall)),
                                 ],
                               ),
                             ),

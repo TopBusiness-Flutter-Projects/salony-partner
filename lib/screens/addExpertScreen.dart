@@ -156,7 +156,7 @@ class _AddExpertScreenState extends BaseRouteState {
                                             .lbl_expert_name,
                                         style: Theme.of(context)
                                             .primaryTextTheme
-                                            .subtitle2,
+                                            .headlineSmall,
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.only(top: 5),
@@ -185,7 +185,7 @@ class _AddExpertScreenState extends BaseRouteState {
                                               .lbl_description,
                                           style: Theme.of(context)
                                               .primaryTextTheme
-                                              .subtitle2,
+                                              .headlineSmall,
                                         ),
                                       ),
                                       Padding(
@@ -212,7 +212,7 @@ class _AddExpertScreenState extends BaseRouteState {
                                               .lbl_upload_image,
                                           style: Theme.of(context)
                                               .primaryTextTheme
-                                              .subtitle2,
+                                              .headlineSmall,
                                         ),
                                       ),
                                       Container(

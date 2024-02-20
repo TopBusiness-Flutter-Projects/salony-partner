@@ -5,9 +5,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CouponDetailDialog extends BaseRoute {
   final Coupon coupondetail;
-  CouponDetailDialog(this.coupondetail, {a, o}) : super(a: a, o: o, r: 'CouponDetailDialog');
+  CouponDetailDialog(this.coupondetail, {a, o})
+      : super(a: a, o: o, r: 'CouponDetailDialog');
   @override
-  _CouponDetailDialogState createState() => new _CouponDetailDialogState(this.coupondetail);
+  _CouponDetailDialogState createState() =>
+      new _CouponDetailDialogState(this.coupondetail);
 }
 
 class _CouponDetailDialogState extends BaseRouteState {
@@ -32,8 +34,12 @@ class _CouponDetailDialogState extends BaseRouteState {
                       Navigator.of(context).pop();
                     },
                     child: Container(
-                        padding: EdgeInsets.only(top: 5, bottom: 5, left: 10, right: 10),
-                        decoration: BoxDecoration(color: Theme.of(context).primaryColor, borderRadius: BorderRadius.all(Radius.circular(05))),
+                        padding: EdgeInsets.only(
+                            top: 5, bottom: 5, left: 10, right: 10),
+                        decoration: BoxDecoration(
+                            color: Theme.of(context).primaryColor,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(05))),
                         child: Text(
                           AppLocalizations.of(context)!.lbl_ok,
                           style: TextStyle(color: Colors.white, fontSize: 13),
@@ -55,7 +61,8 @@ class _CouponDetailDialogState extends BaseRouteState {
                   : [
                       Center(
                         child: Padding(
-                          padding: EdgeInsets.only(top: MediaQuery.of(context).size.height / 4),
+                          padding: EdgeInsets.only(
+                              top: MediaQuery.of(context).size.height / 4),
                           child: CircularProgressIndicator(),
                         ),
                       ),
@@ -93,7 +100,7 @@ class _CouponDetailDialogState extends BaseRouteState {
         children: [
           Text(
             'Coupon Detail',
-            style: Theme.of(context).primaryTextTheme.headline3,
+            style: Theme.of(context).primaryTextTheme.displaySmall,
           )
         ],
       ));
@@ -104,7 +111,8 @@ class _CouponDetailDialogState extends BaseRouteState {
                 Text(
                   'Name',
                 ),
-                Text('${coupondetail.coupon_name}', style: Theme.of(context).primaryTextTheme.subtitle1)
+                Text('${coupondetail.coupon_name}',
+                    style: Theme.of(context).primaryTextTheme.subtitle1)
               ],
             ))
           : SizedBox();
@@ -115,7 +123,8 @@ class _CouponDetailDialogState extends BaseRouteState {
                 Text(
                   'Code',
                 ),
-                Text('${coupondetail.coupon_code}', style: Theme.of(context).primaryTextTheme.subtitle1)
+                Text('${coupondetail.coupon_code}',
+                    style: Theme.of(context).primaryTextTheme.subtitle1)
               ],
             ))
           : SizedBox();
@@ -139,7 +148,8 @@ class _CouponDetailDialogState extends BaseRouteState {
                 Text(
                   'Description',
                 ),
-                Text('${coupondetail.coupon_description}', style: Theme.of(context).primaryTextTheme.subtitle1)
+                Text('${coupondetail.coupon_description}',
+                    style: Theme.of(context).primaryTextTheme.subtitle1)
               ],
             ))
           : SizedBox();
@@ -150,7 +160,8 @@ class _CouponDetailDialogState extends BaseRouteState {
                 Text(
                   'Type',
                 ),
-                Text('${coupondetail.type}', style: Theme.of(context).primaryTextTheme.subtitle1)
+                Text('${coupondetail.type}',
+                    style: Theme.of(context).primaryTextTheme.subtitle1)
               ],
             ))
           : SizedBox();
@@ -161,7 +172,8 @@ class _CouponDetailDialogState extends BaseRouteState {
                 Text(
                   'User Restriction',
                 ),
-                Text('${coupondetail.uses_restriction}', style: Theme.of(context).primaryTextTheme.subtitle1)
+                Text('${coupondetail.uses_restriction}',
+                    style: Theme.of(context).primaryTextTheme.subtitle1)
               ],
             ))
           : SizedBox();
@@ -172,7 +184,9 @@ class _CouponDetailDialogState extends BaseRouteState {
                 Text(
                   'Start Date',
                 ),
-                Text('${coupondetail.start_date?.day}-${coupondetail.start_date?.month}-${coupondetail.start_date?.year}', style: Theme.of(context).primaryTextTheme.subtitle1)
+                Text(
+                    '${coupondetail.start_date?.day}-${coupondetail.start_date?.month}-${coupondetail.start_date?.year}',
+                    style: Theme.of(context).primaryTextTheme.subtitle1)
               ],
             ))
           : SizedBox();
@@ -183,14 +197,17 @@ class _CouponDetailDialogState extends BaseRouteState {
                 Text(
                   'End Date ',
                 ),
-                Text('${coupondetail.end_date?.day}-${coupondetail.end_date?.month}-${coupondetail.end_date?.year}', style: Theme.of(context).primaryTextTheme.subtitle1)
+                Text(
+                    '${coupondetail.end_date?.day}-${coupondetail.end_date?.month}-${coupondetail.end_date?.year}',
+                    style: Theme.of(context).primaryTextTheme.subtitle1)
               ],
             ))
           : SizedBox();
 
       return _widgetList;
     } catch (e) {
-      print("Exception - couponDetailDialog.dart - _widgetList():" + e.toString());
+      print("Exception - couponDetailDialog.dart - _widgetList():" +
+          e.toString());
       return _widgetList;
     }
   }
