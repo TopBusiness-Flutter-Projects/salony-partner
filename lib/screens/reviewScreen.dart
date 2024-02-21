@@ -11,9 +11,11 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 class ReviewScreen extends BaseRoute {
   final bool isForExpertReview;
   final List<Review> reviews;
-  ReviewScreen(this.reviews, this.isForExpertReview, {a, o}) : super(a: a, o: o, r: 'ReviewScreen');
+  ReviewScreen(this.reviews, this.isForExpertReview, {a, o})
+      : super(a: a, o: o, r: 'ReviewScreen');
   @override
-  _ReviewScreenState createState() => new _ReviewScreenState(this.reviews, this.isForExpertReview);
+  _ReviewScreenState createState() =>
+      new _ReviewScreenState(this.reviews, this.isForExpertReview);
 }
 
 class _ReviewScreenState extends BaseRouteState {
@@ -40,7 +42,6 @@ class _ReviewScreenState extends BaseRouteState {
             children: [
               Container(
                 height: 100,
-               
                 width: MediaQuery.of(context).size.width,
                 child: Stack(
                   children: [
@@ -62,7 +63,9 @@ class _ReviewScreenState extends BaseRouteState {
                         Navigator.of(context).pop();
                       },
                       child: Padding(
-                        padding: Platform.isAndroid ? EdgeInsets.only(bottom: 15, left: 10, top: 10) : EdgeInsets.only(bottom: 15, left: 10, top: 20),
+                        padding: Platform.isAndroid
+                            ? EdgeInsets.only(bottom: 15, left: 10, top: 10)
+                            : EdgeInsets.only(bottom: 15, left: 10, top: 20),
                         child: Row(
                           children: [
                             Icon(
@@ -71,7 +74,8 @@ class _ReviewScreenState extends BaseRouteState {
                             ),
                             Text(
                               AppLocalizations.of(context)!.lbl_back,
-                              style: TextStyle(color: Colors.black, fontSize: 17.5),
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 17.5),
                             ),
                           ],
                         ),
@@ -83,7 +87,9 @@ class _ReviewScreenState extends BaseRouteState {
               Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20)),
                   ),
                   margin: EdgeInsets.only(top: 80),
                   height: MediaQuery.of(context).size.height,
@@ -93,7 +99,10 @@ class _ReviewScreenState extends BaseRouteState {
                       children: [
                         Container(
                           margin: EdgeInsets.only(top: 30, bottom: 10),
-                          child: Text(AppLocalizations.of(context)!.lbl_reviews, style: Theme.of(context).primaryTextTheme.headline3),
+                          child: Text(AppLocalizations.of(context)!.lbl_reviews,
+                              style: Theme.of(context)
+                                  .primaryTextTheme
+                                  .displaySmall),
                         ),
                         Container(
                           height: MediaQuery.of(context).size.height,
@@ -103,79 +112,154 @@ class _ReviewScreenState extends BaseRouteState {
                               itemBuilder: (BuildContext context, int index) {
                                 return reviews[index].user != null
                                     ? Padding(
-                                        padding: const EdgeInsets.only(left: 10, right: 10, bottom: 3, top: 3),
+                                        padding: const EdgeInsets.only(
+                                            left: 10,
+                                            right: 10,
+                                            bottom: 3,
+                                            top: 3),
                                         child: Card(
                                             shape: global.isRTL
-                                                ? RoundedRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(25), bottomRight: Radius.circular(25)))
-                                                : RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(25), bottomLeft: Radius.circular(25))),
+                                                ? RoundedRectangleBorder(
+                                                    borderRadius: BorderRadius
+                                                        .only(
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    25),
+                                                            bottomRight:
+                                                                Radius.circular(
+                                                                    25)))
+                                                : RoundedRectangleBorder(
+                                                    borderRadius: BorderRadius
+                                                        .only(
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    25),
+                                                            bottomLeft:
+                                                                Radius.circular(
+                                                                    25))),
                                             margin: EdgeInsets.only(top: 8),
                                             child: Padding(
                                               padding: const EdgeInsets.all(0),
                                               child: Row(
                                                 children: [
-                                                  reviews[index].user?.image != 'N/A'
+                                                  reviews[index].user?.image !=
+                                                          'N/A'
                                                       ? CachedNetworkImage(
-                                                          imageUrl: global.baseUrlForImage + reviews[index].user!.image!,
-                                                          imageBuilder: (context, imageProvider) => CircleAvatar(radius: 25, backgroundImage: imageProvider),
-                                                          placeholder: (context, url) => Center(child: CircularProgressIndicator()),
-                                                          errorWidget: (context, url, error) => CircleAvatar(
+                                                          imageUrl: global
+                                                                  .baseUrlForImage +
+                                                              reviews[index]
+                                                                  .user!
+                                                                  .image!,
+                                                          imageBuilder: (context,
+                                                                  imageProvider) =>
+                                                              CircleAvatar(
+                                                                  radius: 25,
+                                                                  backgroundImage:
+                                                                      imageProvider),
+                                                          placeholder: (context,
+                                                                  url) =>
+                                                              Center(
+                                                                  child:
+                                                                      CircularProgressIndicator()),
+                                                          errorWidget: (context,
+                                                                  url, error) =>
+                                                              CircleAvatar(
                                                             radius: 25,
-                                                            child: Icon(Icons.person),
+                                                            child: Icon(
+                                                                Icons.person),
                                                           ),
                                                         )
                                                       : CircleAvatar(
                                                           radius: 26,
-                                                          backgroundColor: Theme.of(context).primaryColor,
+                                                          backgroundColor:
+                                                              Theme.of(context)
+                                                                  .primaryColor,
                                                           child: CircleAvatar(
                                                             radius: 25,
-                                                            backgroundColor: Colors.white,
-                                                            child: Icon(Icons.person),
+                                                            backgroundColor:
+                                                                Colors.white,
+                                                            child: Icon(
+                                                                Icons.person),
                                                           ),
                                                         ),
                                                   Padding(
-                                                    padding: global.isRTL ? EdgeInsets.only(right: 15) : EdgeInsets.only(left: 15),
+                                                    padding: global.isRTL
+                                                        ? EdgeInsets.only(
+                                                            right: 15)
+                                                        : EdgeInsets.only(
+                                                            left: 15),
                                                     child: Column(
-                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
                                                       children: [
-                                                        Text('${reviews[index].user?.name}'),
+                                                        Text(
+                                                            '${reviews[index].user?.name}'),
                                                         Row(
                                                           children: [
                                                             RatingBar.builder(
-                                                              initialRating: reviews[index].rating!,
+                                                              initialRating:
+                                                                  reviews[index]
+                                                                      .rating!,
                                                               minRating: 0,
-                                                              direction: Axis.horizontal,
-                                                              allowHalfRating: true,
+                                                              direction: Axis
+                                                                  .horizontal,
+                                                              allowHalfRating:
+                                                                  true,
                                                               itemCount: 5,
                                                               itemSize: 12,
-                                                              itemPadding: EdgeInsets.symmetric(horizontal: 0),
-                                                              itemBuilder: (context, _) => Icon(
+                                                              itemPadding: EdgeInsets
+                                                                  .symmetric(
+                                                                      horizontal:
+                                                                          0),
+                                                              itemBuilder:
+                                                                  (context,
+                                                                          _) =>
+                                                                      Icon(
                                                                 Icons.star,
-                                                                color: Colors.amber,
+                                                                color: Colors
+                                                                    .amber,
                                                               ),
-                                                              ignoreGestures: true,
-                                                              updateOnDrag: false,
-                                                              onRatingUpdate: (rating) {
-                                                               
-                                                              },
+                                                              ignoreGestures:
+                                                                  true,
+                                                              updateOnDrag:
+                                                                  false,
+                                                              onRatingUpdate:
+                                                                  (rating) {},
                                                             ),
                                                             Padding(
-                                                              padding: EdgeInsets.only(left: 3),
+                                                              padding: EdgeInsets
+                                                                  .only(
+                                                                      left: 3),
                                                               child: Text(
                                                                 '${reviews[index].rating}',
-                                                                style: Theme.of(context).primaryTextTheme.subtitle1,
+                                                                style: Theme.of(
+                                                                        context)
+                                                                    .primaryTextTheme
+                                                                    .subtitle1,
                                                               ),
                                                             )
                                                           ],
                                                         ),
-                                                        reviews[index].descriptionForPartner != null || reviews[index].descriptionForExpert != null
+                                                        reviews[index].descriptionForPartner !=
+                                                                    null ||
+                                                                reviews[index]
+                                                                        .descriptionForExpert !=
+                                                                    null
                                                             ? isForExpertReview
                                                                 ? Text(
                                                                     '${reviews[index].descriptionForExpert}',
-                                                                    style: Theme.of(context).primaryTextTheme.subtitle1,
+                                                                    style: Theme.of(
+                                                                            context)
+                                                                        .primaryTextTheme
+                                                                        .subtitle1,
                                                                   )
                                                                 : Text(
                                                                     '${reviews[index].descriptionForPartner}',
-                                                                    style: Theme.of(context).primaryTextTheme.subtitle1,
+                                                                    style: Theme.of(
+                                                                            context)
+                                                                        .primaryTextTheme
+                                                                        .subtitle1,
                                                                   )
                                                             : SizedBox()
                                                       ],

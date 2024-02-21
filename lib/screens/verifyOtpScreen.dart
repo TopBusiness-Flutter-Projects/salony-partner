@@ -21,7 +21,9 @@ class _VerifyOtpScreenState extends BaseRouteState {
   _VerifyOtpScreenState(this.email) : super();
 
   BoxDecoration get _pinPutDecoration {
-    return BoxDecoration(borderRadius: BorderRadius.circular(5.0), border: Border.all(color: Theme.of(context).primaryColor, width: 1));
+    return BoxDecoration(
+        borderRadius: BorderRadius.circular(5.0),
+        border: Border.all(color: Theme.of(context).primaryColor, width: 1));
   }
 
   @override
@@ -46,7 +48,9 @@ class _VerifyOtpScreenState extends BaseRouteState {
                   AppLocalizations.of(context)!.btn_submit,
                 ),
               ),
-              decoration: BoxDecoration(color: Theme.of(context).primaryColor, borderRadius: BorderRadius.all(Radius.circular(10))),
+              decoration: BoxDecoration(
+                  color: Theme.of(context).primaryColor,
+                  borderRadius: BorderRadius.all(Radius.circular(10))),
             ),
             resizeToAvoidBottomInset: false,
             body: Container(
@@ -77,7 +81,10 @@ class _VerifyOtpScreenState extends BaseRouteState {
                             ),
                           ),
                           Padding(
-                            padding: Platform.isAndroid ? EdgeInsets.only(bottom: 15, left: 10, top: 10) : EdgeInsets.only(bottom: 15, left: 10, top: 20),
+                            padding: Platform.isAndroid
+                                ? EdgeInsets.only(bottom: 15, left: 10, top: 10)
+                                : EdgeInsets.only(
+                                    bottom: 15, left: 10, top: 20),
                             child: Row(
                               children: [
                                 Icon(
@@ -86,7 +93,8 @@ class _VerifyOtpScreenState extends BaseRouteState {
                                 ),
                                 Text(
                                   AppLocalizations.of(context)!.lbl_back,
-                                  style: TextStyle(color: Colors.black, fontSize: 17.5),
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 17.5),
                                 ),
                               ],
                             ),
@@ -98,7 +106,9 @@ class _VerifyOtpScreenState extends BaseRouteState {
                   Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20)),
                       ),
                       margin: EdgeInsets.only(top: 80),
                       child: Padding(
@@ -113,7 +123,9 @@ class _VerifyOtpScreenState extends BaseRouteState {
                                 margin: EdgeInsets.only(top: 25),
                                 child: Text(
                                   AppLocalizations.of(context)!.lbl_verify_otp,
-                                  style: Theme.of(context).primaryTextTheme.headline3,
+                                  style: Theme.of(context)
+                                      .primaryTextTheme
+                                      .displaySmall,
                                 )),
                             Container(
                               height: MediaQuery.of(context).size.height - 246,
@@ -121,22 +133,31 @@ class _VerifyOtpScreenState extends BaseRouteState {
                               child: Center(
                                 child: Padding(
                                   padding: EdgeInsets.only(
-                                    bottom: MediaQuery.of(context).viewInsets.bottom,
+                                    bottom: MediaQuery.of(context)
+                                        .viewInsets
+                                        .bottom,
                                   ),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(top: 5, bottom: 5),
+                                        padding: const EdgeInsets.only(
+                                            top: 5, bottom: 5),
                                         child: Column(
                                           children: [
                                             Text(
-                                              AppLocalizations.of(context)!.txt_enter_the_verification_code_from,
-                                              style: Theme.of(context).primaryTextTheme.subtitle2,
+                                              AppLocalizations.of(context)!
+                                                  .txt_enter_the_verification_code_from,
+                                              style: Theme.of(context)
+                                                  .primaryTextTheme
+                                                  .headlineSmall,
                                             ),
                                             Text(
-                                              AppLocalizations.of(context)!.txt_the_phone_we_just_sent_you,
-                                              style: Theme.of(context).primaryTextTheme.subtitle2,
+                                              AppLocalizations.of(context)!
+                                                  .txt_the_phone_we_just_sent_you,
+                                              style: Theme.of(context)
+                                                  .primaryTextTheme
+                                                  .headlineSmall,
                                             )
                                           ],
                                         ),
@@ -144,19 +165,37 @@ class _VerifyOtpScreenState extends BaseRouteState {
                                       Padding(
                                         padding: const EdgeInsets.only(top: 10),
                                         child: PinPut(
-                                          textStyle: TextStyle(color: Colors.black),
-                                          inputDecoration: InputDecoration(border: InputBorder.none, counterText: AppLocalizations.of(context)!.txt_check_your_mail_for_otp, enabledBorder: InputBorder.none, focusedBorder: InputBorder.none),
+                                          textStyle:
+                                              TextStyle(color: Colors.black),
+                                          inputDecoration: InputDecoration(
+                                              border: InputBorder.none,
+                                              counterText: AppLocalizations.of(
+                                                      context)!
+                                                  .txt_check_your_mail_for_otp,
+                                              enabledBorder: InputBorder.none,
+                                              focusedBorder: InputBorder.none),
                                           autofocus: false,
                                           fieldsCount: 6,
                                           controller: _pinPutController,
-                                          submittedFieldDecoration: _pinPutDecoration.copyWith(
-                                            border: Border.all(width: 0, color: Theme.of(context).primaryColor),
-                                            borderRadius: BorderRadius.circular(5.0),
+                                          submittedFieldDecoration:
+                                              _pinPutDecoration.copyWith(
+                                            border: Border.all(
+                                                width: 0,
+                                                color: Theme.of(context)
+                                                    .primaryColor),
+                                            borderRadius:
+                                                BorderRadius.circular(5.0),
                                           ),
-                                          selectedFieldDecoration: _pinPutDecoration,
-                                          followingFieldDecoration: _pinPutDecoration.copyWith(
-                                            borderRadius: BorderRadius.circular(5.0),
-                                            border: Border.all(color: Theme.of(context).primaryColor, width: 1),
+                                          selectedFieldDecoration:
+                                              _pinPutDecoration,
+                                          followingFieldDecoration:
+                                              _pinPutDecoration.copyWith(
+                                            borderRadius:
+                                                BorderRadius.circular(5.0),
+                                            border: Border.all(
+                                                color: Theme.of(context)
+                                                    .primaryColor,
+                                                width: 1),
                                           ),
                                         ),
                                       ),
@@ -192,7 +231,9 @@ class _VerifyOtpScreenState extends BaseRouteState {
         if (isConnected) {
           showOnlyLoaderDialog();
 
-          await apiHelper?.verifyOtp(email, _pinPutController.text.trim()).then((result) {
+          await apiHelper
+              ?.verifyOtp(email, _pinPutController.text.trim())
+              .then((result) {
             if (result.status == "1") {
               hideLoader();
               Navigator.of(context).push(MaterialPageRoute(
@@ -210,9 +251,13 @@ class _VerifyOtpScreenState extends BaseRouteState {
           showNetworkErrorSnackBar(_scaffoldKey);
         }
       } else if (email.isEmpty) {
-        showSnackBar(snackBarMessage: AppLocalizations.of(context)!.txt_please_enter_email);
+        showSnackBar(
+            snackBarMessage:
+                AppLocalizations.of(context)!.txt_please_enter_email);
       } else if (_pinPutController.text.isEmpty) {
-        showSnackBar(snackBarMessage: AppLocalizations.of(context)!.txt_please_enter_otp);
+        showSnackBar(
+            snackBarMessage:
+                AppLocalizations.of(context)!.txt_please_enter_otp);
       }
     } catch (e) {
       print("Exception - verifyOtpScreen.dart - _verifyOtp():" + e.toString());

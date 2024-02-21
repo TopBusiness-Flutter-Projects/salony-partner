@@ -49,7 +49,7 @@ class APIHelper {
   }
 
   Future<dynamic> addExpert(
-      int id, String staffName, String staffDescription, File _Image) async {
+      int id, String staffName, String staffDescription, File? _Image) async {
     try {
       Response response;
       var dio = Dio();
@@ -78,7 +78,7 @@ class APIHelper {
     }
   }
 
-  Future<dynamic> addGallery(int id, File _Image) async {
+  Future<dynamic> addGallery(int id, File? _Image) async {
     try {
       Response response;
       var dio = Dio();
@@ -107,7 +107,7 @@ class APIHelper {
   }
 
   Future<dynamic> addProduct(int id, String productName, String price,
-      String quantity, String description, File product_image) async {
+      String quantity, String description, File? product_image) async {
     try {
       Response response;
       var dio = Dio();
@@ -139,7 +139,7 @@ class APIHelper {
     }
   }
 
-  Future<dynamic> addService(int id, String serviceName, File _Image) async {
+  Future<dynamic> addService(int id, String serviceName, File? _Image) async {
     try {
       Response response;
       var dio = Dio();
@@ -148,7 +148,7 @@ class APIHelper {
         'service_name': serviceName,
         'service_image': _Image != null
             ? await MultipartFile.fromFile(_Image.path.toString())
-            : null,
+            : null
       });
 
       response = await dio.post('${global.baseUrl}add_service',
@@ -191,12 +191,12 @@ class APIHelper {
     }
   }
 
-  Future<dynamic> bookingConfirm(int id) async {
+  Future<dynamic> bookingConfirm(int id, int inDoorVal) async {
     try {
       final response = await http.post(
         Uri.parse("${global.baseUrl}booking_confirm"),
         headers: await global.getApiHeaders(false),
-        body: json.encode({"order_id": id}),
+        body: json.encode({"order_id": id, "in_door_val": inDoorVal}),
       );
 
       dynamic recordList;
@@ -503,7 +503,7 @@ class APIHelper {
   }
 
   Future<dynamic> editExpert(int vendorId, String staffName,
-      String staffDescription, File _Image, int staffId) async {
+      String staffDescription, File? _Image, int staffId) async {
     try {
       Response response;
       var dio = Dio();
@@ -542,7 +542,7 @@ class APIHelper {
       String quantity,
       String description,
       int vendorId,
-      File productImage) async {
+      File? productImage) async {
     try {
       Response response;
       var dio = Dio();
@@ -577,7 +577,7 @@ class APIHelper {
   }
 
   Future<dynamic> editService(
-      int vendorId, String serviceName, File _Image, int serviceId) async {
+      int vendorId, String serviceName, File? _Image, int serviceId) async {
     try {
       Response response;
       var dio = Dio();
@@ -702,9 +702,9 @@ class APIHelper {
       final response = await http.post(
         Uri.parse("${global.baseUrl}booking_details"),
         headers: await global.getApiHeaders(false),
-        body: json.encode({"order_id": id, "lang": global.languageCode}),
+        body: json.encode({"order_id": id}),
       );
-
+      print('order_id : $id');
       dynamic recordList;
       if (response.statusCode == 200) {
         if (json.decode(response.body)["data"] != null) {
@@ -1041,7 +1041,10 @@ class APIHelper {
       final response = await http.post(
         Uri.parse("${global.baseUrl}partner_profile"),
         headers: await global.getApiHeaders(false),
-        body: json.encode({"vendor_id": id, "lang": global.languageCode}),
+        body: json.encode({
+          "vendor_id": id,
+          // "lang": global.languageCode,
+        }),
       );
 
       dynamic recordList;
@@ -1231,7 +1234,7 @@ class APIHelper {
     String vendorLoc,
     String description,
     String vendorEmail,
-    File image,
+    File? image,
   ) async {
     try {
       Response response;
@@ -1261,7 +1264,7 @@ class APIHelper {
       } else {
         recordList = null;
       }
-
+      print(response.data.toString());
       return getAPIResultDio(response, recordList);
     } catch (e) {
       print("Exception - updateProfile(): " + e.toString());

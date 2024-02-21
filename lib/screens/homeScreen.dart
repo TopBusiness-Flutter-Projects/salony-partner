@@ -158,13 +158,13 @@ class _HomeScreenState extends BaseRouteState {
                                     '${global.user.vendor_name?.toUpperCase()}',
                                     style: Theme.of(context)
                                         .primaryTextTheme
-                                        .headline2,
+                                        .displayMedium,
                                   ),
                                   Text(
                                     '${global.user.owner_name?.toUpperCase()}',
                                     style: Theme.of(context)
                                         .primaryTextTheme
-                                        .headline5,
+                                        .headlineSmall,
                                   ),
                                 ],
                               ),
@@ -183,13 +183,13 @@ class _HomeScreenState extends BaseRouteState {
                                     '${global.user.vendor_name?.toUpperCase()}',
                                     style: Theme.of(context)
                                         .primaryTextTheme
-                                        .headline2,
+                                        .displayMedium,
                                   ),
                                   Text(
                                     '${global.user.owner_name?.toUpperCase()}',
                                     style: Theme.of(context)
                                         .primaryTextTheme
-                                        .headline5,
+                                        .headlineSmall,
                                   ),
                                 ],
                               ),
@@ -211,7 +211,7 @@ class _HomeScreenState extends BaseRouteState {
                             : EdgeInsets.only(left: 10, top: 10),
                         child: Text(
                           AppLocalizations.of(context)!.lbl_weekly_earn,
-                          style: Theme.of(context).primaryTextTheme.caption,
+                          style: Theme.of(context).primaryTextTheme.bodySmall,
                         ),
                       ),
                       _homeData?.day1Details?.earning == 0 &&
@@ -233,7 +233,7 @@ class _HomeScreenState extends BaseRouteState {
                                       .txt_weekly_earn_will_shown_here,
                                   style: Theme.of(context)
                                       .primaryTextTheme
-                                      .subtitle2,
+                                      .titleSmall,
                                 ),
                               ),
                             )
@@ -274,13 +274,13 @@ class _HomeScreenState extends BaseRouteState {
                                     AppLocalizations.of(context)!.lbl_total,
                                     style: Theme.of(context)
                                         .primaryTextTheme
-                                        .subtitle2,
+                                        .titleSmall,
                                   ),
                                 ),
                                 Text(AppLocalizations.of(context)!.lbl_services,
                                     style: Theme.of(context)
                                         .primaryTextTheme
-                                        .subtitle2),
+                                        .titleSmall),
                                 Padding(
                                   padding: const EdgeInsets.only(top: 5),
                                   child: _isDataLoaded
@@ -290,7 +290,7 @@ class _HomeScreenState extends BaseRouteState {
                                               : '0',
                                           style: Theme.of(context)
                                               .primaryTextTheme
-                                              .overline
+                                              .labelSmall
                                               ?.copyWith(color: Colors.blue),
                                         )
                                       : Center(
@@ -316,14 +316,14 @@ class _HomeScreenState extends BaseRouteState {
                                     AppLocalizations.of(context)!.lbl_pending,
                                     style: Theme.of(context)
                                         .primaryTextTheme
-                                        .subtitle2,
+                                        .titleSmall,
                                   ),
                                 ),
                                 Text(
                                   AppLocalizations.of(context)!.lbl_services,
                                   style: Theme.of(context)
                                       .primaryTextTheme
-                                      .subtitle2,
+                                      .titleSmall,
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.only(top: 5),
@@ -334,7 +334,7 @@ class _HomeScreenState extends BaseRouteState {
                                               : '0',
                                           style: Theme.of(context)
                                               .primaryTextTheme
-                                              .overline
+                                              .labelSmall
                                               ?.copyWith(
                                                   color: Color(0xFFFBD18B)),
                                         )
@@ -361,13 +361,13 @@ class _HomeScreenState extends BaseRouteState {
                                     AppLocalizations.of(context)!.lbl_completed,
                                     style: Theme.of(context)
                                         .primaryTextTheme
-                                        .subtitle2,
+                                        .titleSmall,
                                   ),
                                 ),
                                 Text(AppLocalizations.of(context)!.lbl_services,
                                     style: Theme.of(context)
                                         .primaryTextTheme
-                                        .subtitle2),
+                                        .titleSmall),
                                 Padding(
                                   padding: const EdgeInsets.only(top: 5),
                                   child: _isDataLoaded
@@ -377,7 +377,7 @@ class _HomeScreenState extends BaseRouteState {
                                               : '0',
                                           style: Theme.of(context)
                                               .primaryTextTheme
-                                              .overline
+                                              .labelSmall
                                               ?.copyWith(
                                                   color: Color(0xFF49EC97)),
                                         )
@@ -394,10 +394,10 @@ class _HomeScreenState extends BaseRouteState {
           ),
           _isDataLoaded
               ? Container(
-                  margin: EdgeInsets.only(bottom: 15, top: 5),
-                  height: MediaQuery.of(context).size.height * 0.30,
+                  margin: EdgeInsets.all(15),
+                  // height: MediaQuery.of(context).size.height * 0.30,
                   width: MediaQuery.of(context).size.width - 25,
-                  padding: EdgeInsets.only(),
+                  padding: EdgeInsets.all(10),
                   child: Card(
                     elevation: 15,
                     child: SingleChildScrollView(
@@ -408,7 +408,8 @@ class _HomeScreenState extends BaseRouteState {
                             child: Text(
                               AppLocalizations.of(context)!
                                   .lbl_complete_our_goals,
-                              style: Theme.of(context).primaryTextTheme.caption,
+                              style:
+                                  Theme.of(context).primaryTextTheme.bodySmall,
                             ),
                           ),
                           Padding(
@@ -429,7 +430,8 @@ class _HomeScreenState extends BaseRouteState {
                                 : Center(
                                     child: CircularProgressIndicator(),
                                   ),
-                          )
+                          ),
+                          SizedBox(height: 10)
                         ],
                       ),
                     ),

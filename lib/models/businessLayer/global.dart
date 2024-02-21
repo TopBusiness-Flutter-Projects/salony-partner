@@ -35,7 +35,7 @@ List<String> rtlLanguageCodeLList = [
 ];
 String? languageCode;
 
-bool isRTL = false;
+bool isRTL = true;
 Future<Map<String, String>> getApiHeaders(bool authorizationRequired) async {
   Map<String, String> apiHeader = new Map<String, String>();
   if (authorizationRequired) {

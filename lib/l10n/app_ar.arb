@@ -509,196 +509,196 @@
     "lbl_min_service_amount": "الحد الأدنى لمبلغ الخدمة",
     "@lbl_min_service_amount": {
         "description": "الحد الأدنى لمبلغ الخدمة"
-    },
-  
-"hnt_min_service_amount": "250",
-    "@hnt_min_service_amount": {
-        "description": "Min Service Amount"
-    },
-    "lbl_select_usesRestriction": "Select Uses-restriction",
-    "@lbl_select_usesRestriction": {
-        "description": "Select Uses-restriction"
-    },
-    "hnt_usesRestriction": "Uses-Restriction",
-    "@hnt_usesRestriction": {
-        "description": "Uses-Restriction"
-    },
-    "lbl_select_start_date": "Select Start Date",
-    "@lbl_select_start_date": {
-        "description": "Select Start Date"
-    },
-    "hnt_select_start_date": "Start Date",
-    "@hnt_select_start_date": {
-        "description": "Start Date"
-    },
-    "lbl_select__end_date": "Select End Date",
-    "@lbl_select__end_date": {
-        "description": "Select End Date"
-    },
-    "hnt_select_end_date": "End Date",
-    "@hnt_select_end_date": {
-        "description": "End Date"
-    },
-    "txt_please_enter_offer_price": "Please enter offer price",
-    "@txt_please_enter_offer_price": {
-        "description": "Please enter offer price"
-    },
-    "txt_pleae_enter_min_service_price": "Please enter min service price",
-    "@txt_pleae_enter_min_service_price": {
-        "description": "Please enter min service price"
-    },
-    "txt_please_enter_coupon_number": "Please enter coupon number",
-    "@txt_please_enter_coupon_number": {
-        "description": "Please enter coupon number"
-    },
-    "txt_please_enter_usesRestriction": "Please enter user restriction",
-    "@txt_please_enter_usesRestriction": {
-        "description": "Please enter user restriction"
-    },
-    "txt_please_select_coupon_type": "Please select coupon type",
-    "@txt_please_select_coupon_type": {
-        "description": "Please select coupon type"
-    },
-    "txt_please_select_start_date": "Please select start date",
-    "@txt_please_select_start_date": {
-        "description": "Please select start date"
-    },
-    "txt_please_select_end_date": "Please select end date",
-    "@txt_please_select_end_date": {
-        "description": "Please select end date"
-    },
-    "lbl_gallery": "Gallery",
-    "@lbl_gallery": {
-        "description": "Gallery"
-    },
-    "txt_gallery_will_shown_here": "Gallery List will be shown here",
-    "@txt_gallery_will_shown_here": {
-        "description": "Gallery List will be shown here"
-    },
-    "btn_add_new_gallery": "ADD NEW GALLERY +",
-    "@btn_add_new_gallery": {
-        "description": "ADD NEW GALLERY +"
-    },
-    "lbl_delete_gallery": "Delete Gallery",
-    "@lbl_delete_gallery": {
-        "description": "Delete Gallery"
-    },
-    "txt_confirmation_message_for_delete_gallery": "Are you sure you want to delete this Gallery ?",
-    "@txt_confirmation_message_for_delete_gallery": {
-        "description": "Are you sure you want to delete this Gallery ?"
-    },
-    "lbl_products": "Products",
-    "@lbl_products": {
-        "description": "Products"
-    },
-    "txt_products_will_shown_here": "Product List will be shown here",
-    "@txt_products_will_shown_here": {
-        "description": "Product List will be shown here"
-    },
-    "btn_add_new_product": "ADD NEW PRODUCT+ ",
-    "@btn_add_new_product": {
-        "description": "ADD NEW PRODUCT+ "
-    },
-    "lbl_delete_product": "Delete Product",
-    "@lbl_delete_product": {
-        "description": "Delete Product"
-    },
-    "txt_confirmation_message_for_delete_product": "Are you sure you want to delete this Product ?",
-    "@txt_confirmation_message_for_delete_product": {
-        "description": "Are you sure you want to delete this Product ?"
-    },
-    "btn_save_gallery": "SAVE GALLERY +",
+    },"hnt_min_service_amount": "250",
+"@hnt_min_service_amount": {
+"description": "الحد الأدنى لمبلغ الخدمة"
+},
+"lbl_select_usesRestriction": "اختر قيد الاستخدام",
+"@lbl_select_usesRestriction": {
+"description": "اختر قيد الاستخدام"
+},
+"hnt_usesRestriction": "قيد الاستخدام",
+"@hnt_usesRestriction": {
+"description": "قيد الاستخدام"
+},
+"lbl_select_start_date": "اختر تاريخ البدء",
+"@lbl_select_start_date": {
+"description": "اختر تاريخ البدء"
+},
+"hnt_select_start_date": "تاريخ البدء",
+"@hnt_select_start_date": {
+"description": "تاريخ البدء"
+},
+"lbl_select__end_date": "اختر تاريخ الانتهاء",
+"@lbl_select__end_date": {
+"description": "اختر تاريخ الانتهاء"
+},
+"hnt_select_end_date": "تاريخ الانتهاء",
+"@hnt_select_end_date": {
+"description": "تاريخ الانتهاء"
+},
+"txt_please_enter_offer_price": "يرجى إدخال سعر العرض",
+"@txt_please_enter_offer_price": {
+"description": "يرجى إدخال سعر العرض"
+},
+"txt_pleae_enter_min_service_price": "يرجى إدخال الحد الأدنى لسعر الخدمة",
+"@txt_pleae_enter_min_service_price": {
+"description": "يرجى إدخال الحد الأدنى لسعر الخدمة"
+},
+"txt_please_enter_coupon_number": "يرجى إدخال رقم القسيمة",
+"@txt_please_enter_coupon_number": {
+"description": "يرجى إدخال رقم القسيمة"
+},
+"txt_please_enter_usesRestriction": "يرجى إدخال قيد الاستخدام",
+"@txt_please_enter_usesRestriction": {
+"description": "يرجى إدخال قيد الاستخدام"
+},
+"txt_please_select_coupon_type": "يرجى تحديد نوع القسيمة",
+"@txt_please_select_coupon_type": {
+"description": "يرجى تحديد نوع القسيمة"
+},
+"txt_please_select_start_date": "يرجى تحديد تاريخ البدء",
+"@txt_please_select_start_date": {
+"description": "يرجى تحديد تاريخ البدء"
+},
+"txt_please_select_end_date": "يرجى تحديد تاريخ الانتهاء",
+"@txt_please_select_end_date": {
+"description": "يرجى تحديد تاريخ الانتهاء"
+},
+"lbl_gallery": "المعرض",
+"@lbl_gallery": {
+"description": "المعرض"
+},
+"txt_gallery_will_shown_here": "سيتم عرض قائمة المعارض هنا",
+"@txt_gallery_will_shown_here": {
+"description": "سيتم عرض قائمة المعارض هنا"
+},
+"btn_add_new_gallery": "إضافة معرض جديد +",
+"@btn_add_new_gallery": {
+"description": "إضافة معرض جديد +"
+},
+"lbl_delete_gallery": "حذف المعرض",
+"@lbl_delete_gallery": {
+"description": "حذف المعرض"
+},
+"txt_confirmation_message_for_delete_gallery": "هل أنت متأكد أنك تريد حذف هذا المعرض؟",
+"@txt_confirmation_message_for_delete_gallery": {
+"description": "هل أنت متأكد أنك تريد حذف هذا المعرض؟"
+},
+"lbl_products": "المنتجات",
+"@lbl_products": {
+"description": "المنتجات"
+},
+"txt_products_will_shown_here": "سيتم عرض قائمة المنتجات هنا",
+"@txt_products_will_shown_here": {
+"description": "سيتم عرض قائمة المنتجات هنا"
+},
+"btn_add_new_product": "إضافة منتج جديد +",
+"@btn_add_new_product": {
+"description": "إضافة منتج جديد +"
+},
+"lbl_delete_product": "حذف المنتج",
+"@lbl_delete_product": {
+"description": "حذف المنتج"
+},
+"txt_confirmation_message_for_delete_product": "هل أنت متأكد أنك تريد حذف هذا المنتج؟",
+"@txt_confirmation_message_for_delete_product": {
+"description": "هل أنت متأكد أنك تريد حذف هذا المنتج؟"
+},
+
+
+    "btn_save_gallery": "حفظ المعرض +",
     "@btn_save_gallery": {
-        "description": "SAVE GALLERY +"
+        "description": "حفظ المعرض +"
     },
-    "lbl_Add_gallery": "Add Gallery",
-    "@lbl_Add_gallery": {
-        "description": "Add Gallery"
-    },
-    "btn_save_product": "SAVE  PRODUCT + ",
-    "@btn_save_product": {
-        "description": "SAVE  PRODUCT + "
-    },
-    "lbl_edit_product": "Edit Product",
-    "@lbl_edit_product": {
-        "description": "Edit Product"
-    },
-    "lbl_add_product": "Add Product",
-    "@lbl_add_product": {
-        "description": "Add Product"
-    },
-    "lbl_product_name": "Product Name",
-    "@lbl_product_name": {
-        "description": "Product Name"
-    },
+ "lbl_Add_gallery": "إضافة معرض",
+"@lbl_Add_gallery": {
+"description": "إضافة معرض"
+},
+"btn_save_product": "حفظ المنتج +",
+"@btn_save_product": {
+"description": "حفظ المنتج +"
+},
+"lbl_edit_product": "تحرير المنتج",
+"@lbl_edit_product": {
+"description": "تحرير المنتج"
+},
+"lbl_add_product": "إضافة منتج",
+"@lbl_add_product": {
+"description": "إضافة منتج"
+},
+"lbl_product_name": "اسم المنتج",
+"@lbl_product_name": {
+"description": "اسم المنتج"
+},
     "hnt_product_name": "شامبو",
     "@hnt_product_name": {
         "description": "شامبو"
     },
-    "lbl_quantity": "Quantity",
-    "@lbl_quantity": {
-        "description": "Quantity"
-    },
-    "hnt_quantity": "100L",
-    "@hnt_quantity": {
-        "description": "100L"
-    },
-    "txt_please_enter_quantity": "Please enter quantity",
-    "@txt_please_enter_quantity": {
-        "description": "Please enter quantity"
-    },
-    "lbl_beautyon": "Beautyon",
-    "@lbl_beautyon": {
-        "description": "Beautyon"
-    },
-    "lbl_loading": "Loading...",
-    "@lbl_loading": {
-        "description": "loading"
-    },
-    "lbl_orders": "Orders",
-    "@lbl_orders": {
-        "description": "Orders"
-    },
-    "lbl_qty": "Qty",
-    "@lbl_qty": {
-        "description": "Qty"
-    },
-    "txt_orders_will_shown_here": "Orders will be shown here",
-    "@txt_orders_will_shown_here": {
-        "description": "Orders will be shown here"
-    },
-    "lbl_confirm_order": "Confirm Order",
-    "@lbl_confirm_order": {
-        "description": "Confirm Order"
-    },
-    "txt_confirmation_message_for_confirm_order": "Are you sure you want to Confirm this Order ?",
-    "@txt_confirmation_message_for_confirm_order": {
-        "description": "Are you sure you want to Confirm this Order ?"
-    },
-    "btn_save_setting": "SAVE SETTINGS",
-    "@btn_save_setting": {
-        "description": "SAVE SETTINGS"
-    },
-    "lbl_settings": "Settings",
-    "@lbl_settings": {
-        "description": "Settings"
-    },
-    "lbl_shop_open": "Shop Open",
-    "@lbl_shop_open": {
-        "description": "Shop Open"
-    },
-    "lbl_help_and_support": "Help & Support ",
-    "@lbl_help_and_support": {
-        "description": "Help & Support "
-    },
-    "lbl_faq": "FAQ",
-    "@lbl_faq": {
-        "description": "FAQ"
-    },
-    "txt_faq_will_shown_here": "Faqs will be shown here",
-    "@txt_faq_will_shown_here": {
-        "description": "Faqs will be shown here"
-    },
+ "lbl_quantity": "الكمية",
+"@lbl_quantity": {
+"description": "الكمية"
+},
+"hnt_quantity": "100 لتر",
+"@hnt_quantity": {
+"description": "100 لتر"
+},
+"txt_please_enter_quantity": "يرجى إدخال الكمية",
+"@txt_please_enter_quantity": {
+"description": "يرجى إدخال الكمية"
+},
+"lbl_beautyon": "بيوتيون",
+"@lbl_beautyon": {
+"description": "بيوتيون"
+},
+"lbl_loading": "جار التحميل...",
+"@lbl_loading": {
+"description": "جار التحميل..."
+},
+"lbl_orders": "الطلبات",
+"@lbl_orders": {
+"description": "الطلبات"
+},
+"lbl_qty": "الكمية",
+"@lbl_qty": {
+"description": "الكمية"
+},
+"txt_orders_will_shown_here": "سيتم عرض الطلبات هنا",
+"@txt_orders_will_shown_here": {
+"description": "سيتم عرض الطلبات هنا"
+},
+"lbl_confirm_order": "تأكيد الطلب",
+"@lbl_confirm_order": {
+"description": "تأكيد الطلب"
+},
+"txt_confirmation_message_for_confirm_order": "هل أنت متأكد أنك تريد تأكيد هذا الطلب؟",
+"@txt_confirmation_message_for_confirm_order": {
+"description": "هل أنت متأكد أنك تريد تأكيد هذا الطلب؟"
+},
+"btn_save_setting": "حفظ الإعدادات",
+"@btn_save_setting": {
+"description": "حفظ الإعدادات"
+},
+"lbl_settings": "الإعدادات",
+"@lbl_settings": {
+"description": "الإعدادات"
+},
+"lbl_shop_open": "المتجر مفتوح",
+"@lbl_shop_open": {
+"description": "المتجر مفتوح"
+},
+"lbl_help_and_support": "المساعدة والدعم",
+"@lbl_help_and_support": {
+"description": "المساعدة والدعم"
+},
+"lbl_faq": "الأسئلة الشائعة",
+"@lbl_faq": {
+"description": "الأسئلة الشائعة"
+},
+"txt_faq_will_shown_here": "سيتم عرض الأسئلة الشائعة هنا",
+"@txt_faq_will_shown_here": {
+"description": "سيتم عرض الأسئلة الشائعة هنا"
+},
    "lbl_change_password": "تغيير كلمة المرور",
     "@lbl_change_password": {
         "description": "تغيير كلمة المرور"
@@ -860,10 +860,12 @@
         "description": "إرسال الرمز"
     },
     "btn_submit": "إرسال",
+       "btn_submit": "إرسال",
      "lbl_gofresha":"Salony Partner",
     "@lbl_gofresha":{
       "description": "Salony Partner"
-    }, "txt_total_admin_share_sent_by_vendor": "إجمالي الحصة الإدارية المرسلة من قبل البائع",
+    },
+  "txt_total_admin_share_sent_by_vendor": "إجمالي الحصة الإدارية المرسلة من قبل البائع",
     "@txt_total_admin_share_sent_by_vendor": {
         "description": "إجمالي الحصة الإدارية المرسلة من قبل البائع"
     },
@@ -938,12 +940,10 @@
     },"lbl_add_expert": "إضافة خبير",
     "@lbl_add_expert": {
         "description": "إضافة خبير"
-    }
-, "txt_successfully_changed_your_profile": "تم تغيير ملفك الشخصي بنجاح",
+    }, "txt_successfully_changed_your_profile": "تم تغيير ملفك الشخصي بنجاح",
     "@txt_successfully_changed_your_profile": {
         "description": "تم تغيير ملفك الشخصي بنجاح"
-    }
-, "txt_successfully_changed_your_password": "تم تغيير كلمة المرور بنجاح",
+    }, "txt_successfully_changed_your_password": "تم تغيير كلمة المرور بنجاح",
     "@txt_successfully_changed_your_password": {
         "description": "تم تغيير كلمة المرور بنجاح"
     }, "txt_successfully_add_your_new_service": "تمت إضافة الخدمة الجديدة بنجاح",

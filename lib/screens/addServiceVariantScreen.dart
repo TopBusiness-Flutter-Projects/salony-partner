@@ -10,9 +10,12 @@ class AddServiceVariantScreen extends BaseRoute {
   final ServiceVariant? serviceVariant;
   final int serviceId;
 
-  AddServiceVariantScreen(this.serviceId, {a, o, this.serviceVariant}) : super(a: a, o: o, r: 'AddServiceVariantScreen');
+  AddServiceVariantScreen(this.serviceId, {a, o, this.serviceVariant})
+      : super(a: a, o: o, r: 'AddServiceVariantScreen');
   @override
-  _AddServiceVariantVariantScreenState createState() => new _AddServiceVariantVariantScreenState(this.serviceVariant, this.serviceId);
+  _AddServiceVariantVariantScreenState createState() =>
+      new _AddServiceVariantVariantScreenState(
+          this.serviceVariant, this.serviceId);
 }
 
 class _AddServiceVariantVariantScreenState extends BaseRouteState {
@@ -26,178 +29,214 @@ class _AddServiceVariantVariantScreenState extends BaseRouteState {
   ServiceVariant _serviceVariant = new ServiceVariant();
   var dropdownval;
 
-  _AddServiceVariantVariantScreenState(this.serviceVariant, this.serviceId) : super();
+  _AddServiceVariantVariantScreenState(this.serviceVariant, this.serviceId)
+      : super();
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-        onWillPop: () async {
-          Navigator.of(context).pop();
-          return false;
-        },
-        child: Scaffold(
-            bottomNavigationBar: SafeArea(
-              child: Container(
-                margin: EdgeInsets.only(top: 15, left: 10, right: 10),
-                width: MediaQuery.of(context).size.width,
-                height: 50,
-                child: TextButton(
-                  onPressed: () {
-                    FocusScope.of(context).unfocus();
-                    _addServiceVariant();
-                  },
-                  child: Text(
-                    AppLocalizations.of(context)!.btn_save_service_variant,
-                  ),
-                ),
-                decoration: BoxDecoration(color: Theme.of(context).primaryColor, borderRadius: BorderRadius.all(Radius.circular(10))),
+      onWillPop: () async {
+        Navigator.of(context).pop();
+        return false;
+      },
+      child: Scaffold(
+        bottomNavigationBar: SafeArea(
+          child: Container(
+            margin: EdgeInsets.only(top: 15, left: 10, right: 10),
+            width: MediaQuery.of(context).size.width,
+            height: 50,
+            child: TextButton(
+              onPressed: () {
+                FocusScope.of(context).unfocus();
+                _addServiceVariant();
+              },
+              child: Text(
+                AppLocalizations.of(context)!.btn_save_service_variant,
               ),
             ),
-            resizeToAvoidBottomInset: false,
-            body: GestureDetector(
-              onTap: () {
-                FocusManager.instance.primaryFocus?.unfocus();
-              },
-              child: SafeArea(
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height,
-                  child: Stack(
-                    children: [
-                      Container(
-                        height: 100,
-                        width: MediaQuery.of(context).size.width,
-                        child: Stack(
-                          children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width,
-                              child: ColorFiltered(
-                                colorFilter: ColorFilter.mode(
-                                  Theme.of(context).primaryColor,
-                                  BlendMode.screen,
-                                ),
-                                child: Image.asset(
-                                  'assets/banner.jpg',
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
+            decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+                borderRadius: BorderRadius.all(Radius.circular(10))),
+          ),
+        ),
+        resizeToAvoidBottomInset: false,
+        body: GestureDetector(
+          onTap: () {
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
+          child: SafeArea(
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: Stack(
+                children: [
+                  Container(
+                    height: 100,
+                    width: MediaQuery.of(context).size.width,
+                    child: Stack(
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          child: ColorFiltered(
+                            colorFilter: ColorFilter.mode(
+                              Theme.of(context).primaryColor,
+                              BlendMode.screen,
                             ),
-                            Padding(
-                              padding: EdgeInsets.only(bottom: 15, left: 10, top: 10),
-                              child: GestureDetector(
-                                onTap: () {
-                                  Navigator.of(context).pop();
-                                },
-                                child: Row(
-                                  children: [
-                                    Icon(
-                                      Icons.keyboard_arrow_left_outlined,
-                                      color: Colors.black,
-                                    ),
-                                    Text(
-                                      AppLocalizations.of(context)!.lbl_back,
-                                      style: TextStyle(color: Colors.black, fontSize: 17.5),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+                            child: Image.asset(
+                              'assets/banner.jpg',
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                          margin: EdgeInsets.only(top: 80),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 10.0, right: 10),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
+                        ),
+                        Padding(
+                          padding:
+                              EdgeInsets.only(bottom: 15, left: 10, top: 10),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Row(
                               children: [
-                                Container(
-                                    margin: EdgeInsets.only(top: 30, bottom: 10),
-                                    child: Text(
-                                      AppLocalizations.of(context)!.lbl_add_service_variant,
-                                      style: Theme.of(context).primaryTextTheme.displaySmall,
-                                    )),
-                                Expanded(
-                                  child: SingleChildScrollView(
-                                    physics: AlwaysScrollableScrollPhysics(),
-                                    child: Padding(
-                                      padding: EdgeInsets.only(
-                                        top: 15,
-                                        bottom: MediaQuery.of(context).viewInsets.bottom,
-                                      ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            margin: EdgeInsets.only(top: 10),
-                                            child: Text(
-                                              AppLocalizations.of(context)!.lbl_variant,
-                                              style: Theme.of(context).primaryTextTheme.titleSmall,
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(top: 5),
-                                            child: TextFormField(
-                                              textCapitalization: TextCapitalization.words,
-                                              controller: _cServiceName,
-                                              decoration: InputDecoration(hintText: AppLocalizations.of(context)!.hnt_service_name, contentPadding: EdgeInsets.only(top: 5, left: 10, right: 10)),
-                                            ),
-                                          ),
-                                          Container(
-                                            margin: EdgeInsets.only(top: 10),
-                                            child: Text(
-                                              AppLocalizations.of(context)!.lbl_price,
-                                              style: Theme.of(context).primaryTextTheme.titleSmall,
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(top: 5),
-                                            child: TextFormField(
-                                              controller: _cServicePrice,
-                                              keyboardType: TextInputType.number,
-                                              decoration: InputDecoration(
-                                                hintText: '${global.currency.currency_sign}' + AppLocalizations.of(context)!.hnt_price,
-                                                contentPadding: EdgeInsets.only(top: 10, left: 10, right: 10),
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            margin: EdgeInsets.only(top: 10),
-                                            child: Text(
-                                              AppLocalizations.of(context)!.lbl_time,
-                                              style: Theme.of(context).primaryTextTheme.titleSmall,
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(top: 5),
-                                            child: TextFormField(
-                                              controller: _cServiceTime,
-                                              keyboardType: TextInputType.number,
-                                              decoration: InputDecoration(
-                                                hintText: AppLocalizations.of(context)!.hnt_time,
-                                                contentPadding: EdgeInsets.only(top: 10, left: 10, right: 10),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
+                                Icon(
+                                  Icons.keyboard_arrow_left_outlined,
+                                  color: Colors.black,
+                                ),
+                                Text(
+                                  AppLocalizations.of(context)!.lbl_back,
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 17.5),
                                 ),
                               ],
                             ),
-                          ))
-                    ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                ),
+                  Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20)),
+                      ),
+                      margin: EdgeInsets.only(top: 80),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 10.0, right: 10),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Container(
+                                margin: EdgeInsets.only(top: 30, bottom: 10),
+                                child: Text(
+                                  AppLocalizations.of(context)!
+                                      .lbl_add_service_variant,
+                                  style: Theme.of(context)
+                                      .primaryTextTheme
+                                      .displaySmall,
+                                )),
+                            Expanded(
+                              child: SingleChildScrollView(
+                                physics: AlwaysScrollableScrollPhysics(),
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                    top: 15,
+                                    bottom: MediaQuery.of(context)
+                                        .viewInsets
+                                        .bottom,
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        margin: EdgeInsets.only(top: 10),
+                                        child: Text(
+                                          AppLocalizations.of(context)!
+                                              .lbl_variant,
+                                          style: Theme.of(context)
+                                              .primaryTextTheme
+                                              .titleSmall,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 5),
+                                        child: TextFormField(
+                                          textCapitalization:
+                                              TextCapitalization.words,
+                                          controller: _cServiceName,
+                                          decoration: InputDecoration(
+                                              hintText:
+                                                  AppLocalizations.of(context)!
+                                                      .hnt_service_name,
+                                              contentPadding: EdgeInsets.only(
+                                                  top: 5, left: 10, right: 10)),
+                                        ),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 10),
+                                        child: Text(
+                                          AppLocalizations.of(context)!
+                                              .lbl_price,
+                                          style: Theme.of(context)
+                                              .primaryTextTheme
+                                              .titleSmall,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 5),
+                                        child: TextFormField(
+                                          controller: _cServicePrice,
+                                          keyboardType: TextInputType.number,
+                                          decoration: InputDecoration(
+                                            hintText:
+                                                '${global.currency.currency_sign}' +
+                                                    AppLocalizations.of(
+                                                            context)!
+                                                        .hnt_price,
+                                            contentPadding: EdgeInsets.only(
+                                                top: 10, left: 10, right: 10),
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 10),
+                                        child: Text(
+                                          AppLocalizations.of(context)!
+                                              .lbl_time,
+                                          style: Theme.of(context)
+                                              .primaryTextTheme
+                                              .titleSmall,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 5),
+                                        child: TextFormField(
+                                          controller: _cServiceTime,
+                                          keyboardType: TextInputType.number,
+                                          decoration: InputDecoration(
+                                            hintText:
+                                                AppLocalizations.of(context)!
+                                                    .hnt_time,
+                                            contentPadding: EdgeInsets.only(
+                                                top: 10, left: 10, right: 10),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ))
+                ],
               ),
             ),
+          ),
+        ),
       ),
     );
   }
@@ -222,7 +261,8 @@ class _AddServiceVariantVariantScreenState extends BaseRouteState {
       );
       return _picked;
     } catch (e) {
-      print("Exception - addServiceVariantScreen.dart - selectTime(): " + e.toString());
+      print("Exception - addServiceVariantScreen.dart - selectTime(): " +
+          e.toString());
       return null;
     }
   }
@@ -238,7 +278,9 @@ class _AddServiceVariantVariantScreenState extends BaseRouteState {
       }
       _serviceVariant.varient = _cServiceName.text.trim();
       _serviceVariant.service_id = serviceId;
-      if (_cServiceName.text.isNotEmpty && _cServicePrice.text.isNotEmpty && _cServiceTime.text.isNotEmpty) {
+      if (_cServiceName.text.isNotEmpty &&
+          _cServicePrice.text.isNotEmpty &&
+          _cServiceTime.text.isNotEmpty) {
         bool isConnected = await br.checkConnectivity();
         if (isConnected) {
           showOnlyLoaderDialog();
@@ -283,14 +325,21 @@ class _AddServiceVariantVariantScreenState extends BaseRouteState {
           showNetworkErrorSnackBar(_scaffoldKey);
         }
       } else if (_cServiceName.text.isEmpty) {
-        showSnackBar(snackBarMessage: AppLocalizations.of(context)!.txt_please_enter_name);
+        showSnackBar(
+            snackBarMessage:
+                AppLocalizations.of(context)!.txt_please_enter_name);
       } else if (_cServicePrice.text.isEmpty) {
-        showSnackBar(snackBarMessage: AppLocalizations.of(context)!.txt_please_enter_price);
+        showSnackBar(
+            snackBarMessage:
+                AppLocalizations.of(context)!.txt_please_enter_price);
       } else if (_cServiceTime.text.isEmpty) {
-        showSnackBar(snackBarMessage: AppLocalizations.of(context)!.txt_please_enter_time);
+        showSnackBar(
+            snackBarMessage:
+                AppLocalizations.of(context)!.txt_please_enter_time);
       }
     } catch (e) {
-      print("Exception - addServiceVariantScreen.dart - _addServiceVariant():" + e.toString());
+      print("Exception - addServiceVariantScreen.dart - _addServiceVariant():" +
+          e.toString());
     }
   }
 

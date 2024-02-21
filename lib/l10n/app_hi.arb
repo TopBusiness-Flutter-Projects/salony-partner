@@ -603,9 +603,9 @@
     "@txt_confirmation_message_for_delete_product": {
       "description": "Are you sure you want to delete this Product ?"
     },
-    "btn_save_gallery":"SAVE GALLERY +",
+    "btn_save_gallery":"حفظ المعرض +",
     "@btn_save_gallery": {
-      "description": "SAVE GALLERY +"
+      "description": "حفظ المعرض +"
     },
     "lbl_Add_gallery":"Add Gallery",
     "@lbl_Add_gallery": {
@@ -775,9 +775,9 @@
     "@lbl_accept": {
       "description": "Accept"
     },
-    "lbl_ok":"OK",
+    "lbl_ok":"تأكيد",
     "@lbl_ok": {
-      "description": "OK"
+      "description": "تأكيد"
     },
     "lbl_date_and_time":"Date & Time",
     "@lbl_date_and_time": {

@@ -8,9 +8,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:shimmer/shimmer.dart';
 
 class AppointmentHistoryScreen extends BaseRoute {
-  AppointmentHistoryScreen({a, o}) : super(a: a, o: o, r: 'AppointmentHistoryScreen');
+  AppointmentHistoryScreen({a, o})
+      : super(a: a, o: o, r: 'AppointmentHistoryScreen');
   @override
-  _AppointmentHistoryScreenState createState() => new _AppointmentHistoryScreenState();
+  _AppointmentHistoryScreenState createState() =>
+      new _AppointmentHistoryScreenState();
 }
 
 class _AppointmentHistoryScreenState extends BaseRouteState {
@@ -47,7 +49,9 @@ class _AppointmentHistoryScreenState extends BaseRouteState {
             Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20)),
                 ),
                 margin: EdgeInsets.only(top: 80),
                 height: MediaQuery.of(context).size.height,
@@ -59,14 +63,20 @@ class _AppointmentHistoryScreenState extends BaseRouteState {
                     children: [
                       Container(
                         margin: EdgeInsets.only(top: 30, bottom: 10),
-                        child: Text(AppLocalizations.of(context)!.lbl_appointment_history, style: Theme.of(context).primaryTextTheme.headline3),
+                        child: Text(
+                            AppLocalizations.of(context)!
+                                .lbl_appointment_history,
+                            style: Theme.of(context)
+                                .primaryTextTheme
+                                .displaySmall),
                       ),
                       _isDataLoaded
                           ? _appointmentHistoryList.length > 0
                               ? Expanded(
                                   child: ListView.builder(
                                       itemCount: _appointmentHistoryList.length,
-                                      itemBuilder: (BuildContext context, int index) {
+                                      itemBuilder:
+                                          (BuildContext context, int index) {
                                         return GestureDetector(
                                           onTap: () {
                                             _detailDialog(index);
@@ -75,44 +85,100 @@ class _AppointmentHistoryScreenState extends BaseRouteState {
                                             margin: EdgeInsets.only(top: 8),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment: MainAxisAlignment.center,
-                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
                                               children: [
                                                 Padding(
-                                                  padding: global.isRTL ? EdgeInsets.only(right: 5) : EdgeInsets.only(left: 5),
+                                                  padding: global.isRTL
+                                                      ? EdgeInsets.only(
+                                                          right: 5)
+                                                      : EdgeInsets.only(
+                                                          left: 5),
                                                   child: CircleAvatar(
-                                                    child: _appointmentHistoryList[index].user == null
-                                                        ? CircleAvatar(radius: 25, backgroundImage: AssetImage('assets/userImage.png'))
-                                                        : _appointmentHistoryList[index].user?.image == 'N/A'
-                                                            ? CircleAvatar(radius: 25, backgroundImage: AssetImage('assets/userImage.png'))
+                                                    child: _appointmentHistoryList[
+                                                                    index]
+                                                                .user ==
+                                                            null
+                                                        ? CircleAvatar(
+                                                            radius: 25,
+                                                            backgroundImage:
+                                                                AssetImage(
+                                                                    'assets/userImage.png'))
+                                                        : _appointmentHistoryList[
+                                                                        index]
+                                                                    .user
+                                                                    ?.image ==
+                                                                'N/A'
+                                                            ? CircleAvatar(
+                                                                radius: 25,
+                                                                backgroundImage:
+                                                                    AssetImage(
+                                                                        'assets/userImage.png'))
                                                             : CachedNetworkImage(
-                                                                imageUrl: global.baseUrlForImage + _appointmentHistoryList[index].user!.image!,
-                                                                imageBuilder: (context, imageProvider) => CircleAvatar(
+                                                                imageUrl: global
+                                                                        .baseUrlForImage +
+                                                                    _appointmentHistoryList[
+                                                                            index]
+                                                                        .user!
+                                                                        .image!,
+                                                                imageBuilder: (context,
+                                                                        imageProvider) =>
+                                                                    CircleAvatar(
                                                                   radius: 25,
-                                                                  backgroundImage: imageProvider,
+                                                                  backgroundImage:
+                                                                      imageProvider,
                                                                 ),
-                                                                placeholder: (context, url) => Center(child: CircularProgressIndicator()),
-                                                                errorWidget: (context, url, error) => Icon(Icons.error),
+                                                                placeholder: (context,
+                                                                        url) =>
+                                                                    Center(
+                                                                        child:
+                                                                            CircularProgressIndicator()),
+                                                                errorWidget: (context,
+                                                                        url,
+                                                                        error) =>
+                                                                    Icon(Icons
+                                                                        .error),
                                                               ),
                                                     radius: 25,
                                                   ),
                                                 ),
                                                 Expanded(
                                                   child: Padding(
-                                                    padding: global.isRTL ? EdgeInsets.only(right: 10.0, top: 5) : EdgeInsets.only(left: 10.0, top: 5),
+                                                    padding: global.isRTL
+                                                        ? EdgeInsets.only(
+                                                            right: 10.0, top: 5)
+                                                        : EdgeInsets.only(
+                                                            left: 10.0, top: 5),
                                                     child: Column(
-                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
                                                       children: [
                                                         Container(
                                                             child: Text(
-                                                          _appointmentHistoryList[index].user != null ? '${_appointmentHistoryList[index].user?.name}' : 'No Name',
-                                                          style: Theme.of(context).primaryTextTheme.subtitle2,
+                                                          _appointmentHistoryList[
+                                                                          index]
+                                                                      .user !=
+                                                                  null
+                                                              ? '${_appointmentHistoryList[index].user?.name}'
+                                                              : 'No Name',
+                                                          style: Theme.of(
+                                                                  context)
+                                                              .primaryTextTheme
+                                                              .headlineSmall,
                                                         )),
                                                         Padding(
-                                                          padding: const EdgeInsets.only(top: 2),
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .only(top: 2),
                                                           child: Text(
                                                             '${_appointmentHistoryList[index].serviceDate} \n${_appointmentHistoryList[index].serviceTime}',
-                                                            style: Theme.of(context).primaryTextTheme.subtitle1,
+                                                            style: Theme.of(
+                                                                    context)
+                                                                .primaryTextTheme
+                                                                .subtitle1,
                                                           ),
                                                         ),
                                                       ],
@@ -121,23 +187,34 @@ class _AppointmentHistoryScreenState extends BaseRouteState {
                                                 ),
                                                 Container(
                                                   width: 80,
-                                                  margin: EdgeInsets.only(right: 5),
-                                                  padding: const EdgeInsets.only(top: 15),
+                                                  margin:
+                                                      EdgeInsets.only(right: 5),
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 15),
                                                   child: Column(
-                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
                                                     children: [
                                                       Text(
                                                         '${global.currency.currency_sign}${_appointmentHistoryList[index].totalPrice}',
-                                                        style: Theme.of(context).primaryTextTheme.subtitle2,
+                                                        style: Theme.of(context)
+                                                            .primaryTextTheme
+                                                            .headlineSmall,
                                                       ),
                                                       Container(
                                                         height: 40,
                                                         width: 118,
                                                         child: Text(
                                                           '${_appointmentHistoryList[index].statustext}',
-                                                          style: Theme.of(context).primaryTextTheme.subtitle1,
+                                                          style: Theme.of(
+                                                                  context)
+                                                              .primaryTextTheme
+                                                              .subtitle1,
                                                           maxLines: 2,
-                                                          overflow: TextOverflow.ellipsis,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
                                                         ),
                                                       )
                                                     ],
@@ -151,8 +228,12 @@ class _AppointmentHistoryScreenState extends BaseRouteState {
                                 )
                               : Center(
                                   child: Padding(
-                                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height / 3),
-                                    child: Text(AppLocalizations.of(context)!.txt_appointment_history_will_be_shown_here),
+                                    padding: EdgeInsets.only(
+                                        top:
+                                            MediaQuery.of(context).size.height /
+                                                3),
+                                    child: Text(AppLocalizations.of(context)!
+                                        .txt_appointment_history_will_be_shown_here),
                                   ),
                                 )
                           : Expanded(child: _shimmer())
@@ -187,7 +268,9 @@ class _AppointmentHistoryScreenState extends BaseRouteState {
         showNetworkErrorSnackBar(_scaffoldKey);
       }
     } catch (e) {
-      print("Exception - appointmentHistoryScreen.dart - getAppointmentHistory():" + e.toString());
+      print(
+          "Exception - appointmentHistoryScreen.dart - getAppointmentHistory():" +
+              e.toString());
     }
   }
 
@@ -197,7 +280,8 @@ class _AppointmentHistoryScreenState extends BaseRouteState {
       _isDataLoaded = true;
       setState(() {});
     } catch (e) {
-      print("Exception - appointmentHistoryScreen.dart - init():" + e.toString());
+      print(
+          "Exception - appointmentHistoryScreen.dart - init():" + e.toString());
     }
   }
 
@@ -219,7 +303,8 @@ class _AppointmentHistoryScreenState extends BaseRouteState {
                 o: widget.observer,
               ));
     } catch (e) {
-      print('Exception: appointmentHistoryScreen: _detailDialog(): ${e.toString()}');
+      print(
+          'Exception: appointmentHistoryScreen: _detailDialog(): ${e.toString()}');
     }
   }
 
@@ -252,13 +337,16 @@ class _AppointmentHistoryScreenState extends BaseRouteState {
                               width: MediaQuery.of(context).size.width,
                               height: 30,
                               child: Card(
-                                margin: EdgeInsets.only(bottom: 5, left: 5, top: 5),
+                                margin:
+                                    EdgeInsets.only(bottom: 5, left: 5, top: 5),
                               ),
                             ),
                             SizedBox(
                               width: MediaQuery.of(context).size.width,
                               height: 30,
-                              child: Card(margin: EdgeInsets.only(bottom: 5, left: 5, top: 5)),
+                              child: Card(
+                                  margin: EdgeInsets.only(
+                                      bottom: 5, left: 5, top: 5)),
                             )
                           ],
                         ),
