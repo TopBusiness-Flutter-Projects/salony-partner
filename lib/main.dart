@@ -164,17 +164,25 @@ class MyAppState extends State<MyApp> {
               navigatorObservers: <NavigatorObserver>[observer],
               theme: nativeTheme(),
               locale: provider.locale,
-              supportedLocales: L10n.all,
+              supportedLocales: [
+                Locale("ar", "AE"),
+                // OR Locale('ar', 'AE') OR Other RTL locales
+              ],
               localizationsDelegates: [
                 AppLocalizations.delegate,
                 GlobalMaterialLocalizations.delegate,
                 GlobalCupertinoLocalizations.delegate,
                 GlobalWidgetsLocalizations.delegate,
               ],
-              home: SplashScreen(
-                a: analytics,
-                o: observer,
-              ));
+              home: Builder(builder: (context) {
+                return Directionality(
+                  textDirection: TextDirection.rtl,
+                  child: SplashScreen(
+                    a: analytics,
+                    o: observer,
+                  ),
+                );
+              }));
         },
       );
 }

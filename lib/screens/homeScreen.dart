@@ -198,61 +198,63 @@ class _HomeScreenState extends BaseRouteState {
                   ),
                 )
               : _shimmer1(),
-          _isDataLoaded
-              ? Card(
-                  elevation: 5,
-                  margin: EdgeInsets.only(left: 12, right: 10, top: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: global.isRTL
-                            ? EdgeInsets.only(right: 10, top: 10)
-                            : EdgeInsets.only(left: 10, top: 10),
-                        child: Text(
-                          AppLocalizations.of(context)!.lbl_weekly_earn,
-                          style: Theme.of(context).primaryTextTheme.bodySmall,
-                        ),
-                      ),
-                      _homeData?.day1Details?.earning == 0 &&
-                              _homeData?.day2Details?.earning == 0 &&
-                              _homeData?.day3Details?.earning == 0 &&
-                              _homeData?.day4Details?.earning == 0 &&
-                              _homeData?.day5Details?.earning == 0 &&
-                              _homeData?.day6Details?.earning == 0 &&
-                              _homeData?.day7Details?.earning == 0
-                          ? Container(
-                              width: MediaQuery.of(context).size.width,
-                              height: MediaQuery.of(context).size.height -
-                                  ((MediaQuery.of(context).size.height * 0.33) +
-                                      50 +
-                                      220),
-                              child: Center(
-                                child: Text(
-                                  AppLocalizations.of(context)!
-                                      .txt_weekly_earn_will_shown_here,
-                                  style: Theme.of(context)
-                                      .primaryTextTheme
-                                      .titleSmall,
-                                ),
-                              ),
-                            )
-                          : Container(
-                              margin: EdgeInsets.only(
-                                  top: 5, left: 55, right: 30, bottom: 5),
-                              width: MediaQuery.of(context).size.width,
-                              height: MediaQuery.of(context).size.height -
-                                  ((MediaQuery.of(context).size.height * 0.33) +
-                                      50 +
-                                      220),
-                              child: _isDataLoaded
-                                  ? _charts()
-                                  : Center(
-                                      child: CircularProgressIndicator(),
-                                    ))
-                    ],
-                  ))
-              : _shimmer4(),
+          // _isDataLoaded
+          //     ? Container(
+          //         alignment: Alignment.center,
+          //         child: Card(
+          //             elevation: 5,
+          //             margin: EdgeInsets.all(10),
+          //             child: Column(
+          //               crossAxisAlignment: CrossAxisAlignment.center,
+          //               children: [
+          //                 Padding(
+          //                   padding: EdgeInsets.only(right: 10, top: 10),
+          //                   child: Text(
+          //                     AppLocalizations.of(context)!.lbl_weekly_earn,
+          //                     style:
+          //                         Theme.of(context).primaryTextTheme.bodySmall,
+          //                   ),
+          //                 ),
+          //                 _homeData?.day1Details?.earning == 0 &&
+          //                         _homeData?.day2Details?.earning == 0 &&
+          //                         _homeData?.day3Details?.earning == 0 &&
+          //                         _homeData?.day4Details?.earning == 0 &&
+          //                         _homeData?.day5Details?.earning == 0 &&
+          //                         _homeData?.day6Details?.earning == 0 &&
+          //                         _homeData?.day7Details?.earning == 0
+          //                     ? Container(
+          //                         width: MediaQuery.of(context).size.width,
+          //                         // height: MediaQuery.of(context).size.width,
+          //                         child: Center(
+          //                           child: Text(
+          //                             AppLocalizations.of(context)!
+          //                                 .txt_weekly_earn_will_shown_here,
+          //                             style: Theme.of(context)
+          //                                 .primaryTextTheme
+          //                                 .titleSmall,
+          //                           ),
+          //                         ),
+          //                       )
+          //                     : Container(
+          //                         margin: EdgeInsets.all(5),
+          //                         width: MediaQuery.of(context).size.width,
+          //                         height: MediaQuery.of(context).size.width,
+          //                         child: _isDataLoaded
+          //                             // ?
+          //                             //  Container(
+          //                             //     height: 45,
+          //                             //     color: Colors.red,
+          //                             //     width: double.infinity,
+          //                             //   )
+          //                             //    //
+          //                             ? _charts()
+          //                             : Center(
+          //                                 child: CircularProgressIndicator(),
+          //                               ))
+          //               ],
+          //             )),
+          //       )
+          //     : _shimmer4(),
           Padding(
             padding:
                 const EdgeInsets.only(top: 25, left: 10, right: 10, bottom: 20),
@@ -396,12 +398,13 @@ class _HomeScreenState extends BaseRouteState {
               ? Container(
                   margin: EdgeInsets.all(15),
                   // height: MediaQuery.of(context).size.height * 0.30,
-                  width: MediaQuery.of(context).size.width - 25,
+                  width: MediaQuery.of(context).size.width,
                   padding: EdgeInsets.all(10),
                   child: Card(
                     elevation: 15,
                     child: SingleChildScrollView(
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(top: 25),
@@ -641,9 +644,12 @@ class _HomeScreenState extends BaseRouteState {
       ),
     );
 
-    return BarChart(
-      barChartData,
-      swapAnimationDuration: Duration(milliseconds: 500),
+    return Container(
+      height: MediaQuery.of(context).size.width,
+      child: BarChart(
+        barChartData,
+        swapAnimationDuration: Duration(milliseconds: 500),
+      ),
     );
   }
 
