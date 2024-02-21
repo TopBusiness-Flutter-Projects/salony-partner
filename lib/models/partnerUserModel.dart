@@ -24,7 +24,7 @@ class CurrentUser with JsonParsable {
   List<VendorTiming> weekly_time = [];
   int? cityadmin_id;
 
-  int? type;
+  dynamic type;
   String? vendor_logo;
 
   String? name;
@@ -32,13 +32,13 @@ class CurrentUser with JsonParsable {
   String? lastname;
   String? image;
   String? email;
-  int? otp;
+  dynamic otp;
   String? facebook_id;
   DateTime? email_verified_at;
   String? password;
   String? device_id;
-  int? wallet_credits;
-  int? rewards;
+  dynamic wallet_credits;
+  dynamic rewards;
   bool? phone_verified;
   String? referral_code;
   String? remember_token;

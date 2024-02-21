@@ -28,7 +28,7 @@ class _SignInScreenState extends BaseRouteState {
   bool _isValidate = false;
   var _fPassword = new FocusNode();
 
-  TextEditingController _cEmail = new TextEditingController();
+  TextEditingController _cPhone = new TextEditingController();
   TextEditingController _cPassword = new TextEditingController();
   TextEditingController _cForgotEmail = new TextEditingController();
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -140,7 +140,7 @@ class _SignInScreenState extends BaseRouteState {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  AppLocalizations.of(context)!.lblEmail,
+                                  'رقم الهاتف',
                                   style: Theme.of(context)
                                       .primaryTextTheme
                                       .titleSmall,
@@ -148,20 +148,18 @@ class _SignInScreenState extends BaseRouteState {
                                 Padding(
                                   padding: const EdgeInsets.only(top: 5),
                                   child: TextFormField(
-                                    keyboardType: TextInputType.emailAddress,
+                                    keyboardType: TextInputType.phone,
                                     onEditingComplete: () {
                                       FocusScope.of(context)
                                           .requestFocus(_fPassword);
                                     },
-                                    controller: _cEmail,
+                                    controller: _cPhone,
                                     onChanged: (val) {
-                                      _isValidate =
-                                          EmailValidator.validate(val);
+                                      _isValidate = true;
                                     },
                                     decoration: InputDecoration(
-                                      hintText: AppLocalizations.of(context)!
-                                          .hnt_email,
-                                      prefixIcon: Icon(Icons.mail),
+                                      hintText: 'أدخل رقم الهاتف',
+                                      prefixIcon: Icon(Icons.phone),
                                       contentPadding: EdgeInsets.only(top: 5),
                                     ),
                                   ),
@@ -321,7 +319,7 @@ class _SignInScreenState extends BaseRouteState {
   void initState() {
     super.initState();
     if (global.sp.getString('isRememberMeEmail') != null) {
-      _cEmail.text = global.sp.getString('isRememberMeEmail')!;
+      _cPhone.text = global.sp.getString('isRememberMeEmail')!;
       _isRemember = true;
       _isValidate = true;
     }
@@ -421,11 +419,11 @@ class _SignInScreenState extends BaseRouteState {
   _loginWithEmail() async {
     try {
       FocusScope.of(context).unfocus();
-      user.vendor_email = _cEmail.text.trim();
+      user.vendor_phone = _cPhone.text.trim();
       user.vendor_password = _cPassword.text.trim();
       user.device_id = global.appDeviceId;
 
-      if (_cEmail.text.isNotEmpty &&
+      if (_cPhone.text.isNotEmpty &&
           _cPassword.text.isNotEmpty &&
           _cPassword.text.trim().length >= 2 &&
           _isValidate) {
@@ -439,7 +437,7 @@ class _SignInScreenState extends BaseRouteState {
                 br.saveUser(global.user);
                 if (_isRemember) {
                   await global.sp
-                      .setString('isRememberMeEmail', _cEmail.text.trim());
+                      .setString('isRememberMeEmail', _cPhone.text.trim());
                 }
                 hideLoader();
 
@@ -459,12 +457,12 @@ class _SignInScreenState extends BaseRouteState {
         } else {
           showNetworkErrorSnackBar(_scaffoldKey);
         }
-      } else if (_cEmail.text.isEmpty) {
+      } else if (_cPhone.text.isEmpty) {
         showSnackBar(snackBarMessage: 'Please enter valid Email Id');
       } else if (_cPassword.text.isEmpty || _cPassword.text.trim().length < 2) {
         showSnackBar(
             snackBarMessage: 'Password should be of minimun 2 characters');
-      } else if (_cEmail.text.isEmpty || !_isValidate) {
+      } else if (_cPhone.text.isEmpty || !_isValidate) {
         showSnackBar(snackBarMessage: 'Please enter valid email');
       }
     } catch (e) {
