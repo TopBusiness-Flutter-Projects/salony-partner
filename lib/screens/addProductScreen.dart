@@ -6,9 +6,13 @@ import 'package:app/models/businessLayer/baseRoute.dart';
 import 'package:app/models/businessLayer/global.dart' as global;
 import 'package:app/models/productModel.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
+import '../models/mainscervices.dart';
 
 class AddProductScreen extends BaseRoute {
   final Product? product;
@@ -52,8 +56,12 @@ class _AddProductScreenState extends BaseRouteState {
               height: 50,
               child: TextButton(
                 onPressed: () {
-                  FocusScope.of(context).unfocus();
-                  _addProducts();
+                  if (selectedValue == null) {
+                    Fluttertoast.showToast(msg: 'من فضلك اختر نوع الخدمة');
+                  } else {
+                    FocusScope.of(context).unfocus();
+                    _addProducts();
+                  }
                 },
                 child: Text(
                   AppLocalizations.of(context)!.btn_save_product,
@@ -209,6 +217,75 @@ class _AddProductScreenState extends BaseRouteState {
                                           ),
                                         ),
                                       ),
+                                      //!
+                                      Container(
+                                        margin: EdgeInsets.only(top: 10),
+                                        child: Text(
+                                          'نوع الخدمة',
+                                          style: Theme.of(context)
+                                              .primaryTextTheme
+                                              .titleSmall,
+                                        ),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 10),
+                                        child: Center(
+                                          child: DropdownButtonHideUnderline(
+                                            child:
+                                                DropdownButton2<MainServices>(
+                                              isExpanded: true,
+                                              hint: Text(
+                                                'اختر نوع الخدمه',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  color: Theme.of(context)
+                                                      .hintColor,
+                                                ),
+                                              ),
+                                              items: items
+                                                  .map((MainServices item) =>
+                                                      DropdownMenuItem<
+                                                          MainServices>(
+                                                        value: item,
+                                                        child: Text(
+                                                          item.name ?? '',
+                                                          style:
+                                                              const TextStyle(
+                                                            fontSize: 14,
+                                                          ),
+                                                        ),
+                                                      ))
+                                                  .toList(),
+                                              value: selectedValue,
+                                              onChanged: (MainServices? value) {
+                                                setState(() {
+                                                  selectedValue = value;
+                                                });
+                                              },
+                                              buttonStyleData: ButtonStyleData(
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            12),
+                                                    // color: Colors.red,
+                                                    border: Border.all(
+                                                        color: Colors.grey,
+                                                        width: 0.5)),
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: 16),
+                                                // height: 40,
+                                                // width: 140,
+                                              ),
+                                              menuItemStyleData:
+                                                  const MenuItemStyleData(
+                                                      // height: 40,
+                                                      ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      //!
+
                                       Text(
                                         AppLocalizations.of(context)!
                                             .lbl_description,
@@ -255,9 +332,7 @@ class _AddProductScreenState extends BaseRouteState {
                                             FocusScope.of(context).unfocus();
                                           },
                                           decoration: InputDecoration(
-                                            hintText:
-                                                AppLocalizations.of(context)!
-                                                    .hnt_quantity,
+                                            hintText: 'الكمية',
                                             contentPadding: EdgeInsets.only(
                                                 top: 5, left: 10, right: 10),
                                           ),
@@ -405,6 +480,33 @@ class _AddProductScreenState extends BaseRouteState {
   void initState() {
     super.initState();
     init();
+    _getMainProducts();
+  }
+
+  List<MainServices> items = [];
+  MainServices? selectedValue;
+  _getMainProducts() async {
+    try {
+      bool isConnected = await br.checkConnectivity();
+      if (isConnected) {
+        showOnlyLoaderDialog();
+        await apiHelper?.getMainServices(type: 'product').then((result) {
+          if (result.status == "1") {
+            items = result.recordList;
+            setState(() {});
+            hideLoader();
+          } else {
+            hideLoader();
+            showSnackBar(snackBarMessage: '${result.message}');
+          }
+        });
+      } else {
+        showNetworkErrorSnackBar(_scaffoldKey);
+      }
+    } catch (e) {
+      print("Exception - _getMainProducts.dart - _getMainProducts():" +
+          e.toString());
+    }
   }
 
   _addProducts() async {
@@ -414,6 +516,7 @@ class _AddProductScreenState extends BaseRouteState {
       _product?.price = _cPrice.text.trim();
       _product?.quantity = _cQuantity.text.trim();
       _product?.description = _cDescription.text.trim();
+
       if (_cProductName.text.isNotEmpty &&
           _cPrice.text.isNotEmpty &&
           _cDescription.text.isNotEmpty &&
@@ -426,6 +529,7 @@ class _AddProductScreenState extends BaseRouteState {
             if (_tImage != null) {
               await apiHelper
                   ?.addProduct(
+                      mainProductId: selectedValue!.id!,
                       _product!.vendor_id!,
                       _product!.product_name!,
                       _product!.price!,

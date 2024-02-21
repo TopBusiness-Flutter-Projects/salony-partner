@@ -3,11 +3,14 @@ import 'dart:io';
 import 'package:app/dialogs/saveServiceDialog.dart';
 import 'package:app/models/businessLayer/baseRoute.dart';
 import 'package:app/models/businessLayer/global.dart' as global;
+import 'package:app/models/mainscervices.dart';
 import 'package:app/models/serviceModel.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class AddServiceScreen extends BaseRoute {
   final Service? service;
@@ -44,8 +47,12 @@ class _AddServiceScreenState extends BaseRouteState {
             height: 50,
             child: TextButton(
               onPressed: () {
-                FocusScope.of(context).unfocus();
-                _addService();
+                if (selectedValue == null) {
+                  Fluttertoast.showToast(msg: 'من فضلك اختر التصنيف');
+                } else {
+                  FocusScope.of(context).unfocus();
+                  _addService();
+                }
               },
               child: Text(
                 AppLocalizations.of(context)!.btn_save_service,
@@ -168,6 +175,72 @@ class _AddServiceScreenState extends BaseRouteState {
                                         ),
                                       ),
                                     ),
+
+                                    //!
+                                    Container(
+                                      margin: EdgeInsets.only(top: 10),
+                                      child: Text(
+                                        'نوع الخدمة',
+                                        style: Theme.of(context)
+                                            .primaryTextTheme
+                                            .titleSmall,
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 10),
+                                      child: Center(
+                                        child: DropdownButtonHideUnderline(
+                                          child: DropdownButton2<MainServices>(
+                                            isExpanded: true,
+                                            hint: Text(
+                                              'اختر نوع الخدمه',
+                                              style: TextStyle(
+                                                fontSize: 14,
+                                                color:
+                                                    Theme.of(context).hintColor,
+                                              ),
+                                            ),
+                                            items: items
+                                                .map((MainServices item) =>
+                                                    DropdownMenuItem<
+                                                        MainServices>(
+                                                      value: item,
+                                                      child: Text(
+                                                        item.name ?? '',
+                                                        style: const TextStyle(
+                                                          fontSize: 14,
+                                                        ),
+                                                      ),
+                                                    ))
+                                                .toList(),
+                                            value: selectedValue,
+                                            onChanged: (MainServices? value) {
+                                              setState(() {
+                                                selectedValue = value;
+                                              });
+                                            },
+                                            buttonStyleData: ButtonStyleData(
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(12),
+                                                  // color: Colors.red,
+                                                  border: Border.all(
+                                                      color: Colors.grey,
+                                                      width: 0.5)),
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 16),
+                                              // height: 40,
+                                              // width: 140,
+                                            ),
+                                            menuItemStyleData:
+                                                const MenuItemStyleData(
+                                                    // height: 40,
+                                                    ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    //!
                                     Container(
                                       margin: EdgeInsets.only(top: 10),
                                       child: Text(
@@ -299,6 +372,7 @@ class _AddServiceScreenState extends BaseRouteState {
   void initState() {
     super.initState();
     _init();
+    _getMainServices();
   }
 
   _addService() async {
@@ -313,8 +387,8 @@ class _AddServiceScreenState extends BaseRouteState {
           if (_service.service_id == null) {
             if (_tImage != null) {
               await apiHelper
-                  ?.addService(
-                      _service.vendor_id!, _service.service_name!, _tImage)
+                  ?.addService(_service.vendor_id!, _service.service_name!,
+                      selectedValue!.id!, _tImage)
                   .then((result) {
                 if (result.status == "1") {
                   hideLoader();
@@ -366,6 +440,32 @@ class _AddServiceScreenState extends BaseRouteState {
     } catch (e) {
       print(
           "Exception - addServicesScreen.dart - _addService():" + e.toString());
+    }
+  }
+
+  List<MainServices> items = [];
+  MainServices? selectedValue;
+  _getMainServices() async {
+    try {
+      bool isConnected = await br.checkConnectivity();
+      if (isConnected) {
+        showOnlyLoaderDialog();
+        await apiHelper?.getMainServices().then((result) {
+          if (result.status == "1") {
+            items = result.recordList;
+            setState(() {});
+            hideLoader();
+          } else {
+            hideLoader();
+            showSnackBar(snackBarMessage: '${result.message}');
+          }
+        });
+      } else {
+        showNetworkErrorSnackBar(_scaffoldKey);
+      }
+    } catch (e) {
+      print("Exception - _getMainServices.dart - _getMainServices():" +
+          e.toString());
     }
   }
 
