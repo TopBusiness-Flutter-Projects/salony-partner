@@ -25,6 +25,8 @@ import 'package:app/models/userRequestModel.dart';
 import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 
+import '../mainscervices.dart';
+
 class APIHelper {
   Future<dynamic> addCoupon(Coupon coupon) async {
     try {
@@ -107,7 +109,8 @@ class APIHelper {
   }
 
   Future<dynamic> addProduct(int id, String productName, String price,
-      String quantity, String description, File? product_image) async {
+      String quantity, String description, File? product_image,
+      {required int mainProductId}) async {
     try {
       Response response;
       var dio = Dio();
@@ -117,6 +120,7 @@ class APIHelper {
         'price': price,
         'quantity': quantity,
         'description': description,
+        "m_product_id": mainProductId,
         'product_image': product_image != null
             ? await MultipartFile.fromFile(product_image.path.toString())
             : null,
@@ -139,13 +143,17 @@ class APIHelper {
     }
   }
 
-  Future<dynamic> addService(int id, String serviceName, File? _Image) async {
+  Future<dynamic> addService(
+      int id, String serviceName, int m_service_id, File? _Image) async {
     try {
       Response response;
       var dio = Dio();
+      print('vendor_id: $id');
+
       var formData = FormData.fromMap({
         'vendor_id': id,
         'service_name': serviceName,
+        "m_service_id": m_service_id,
         'service_image': _Image != null
             ? await MultipartFile.fromFile(_Image.path.toString())
             : null
@@ -1288,6 +1296,33 @@ class APIHelper {
       return getAPIResult(response, recordList);
     } catch (e) {
       print("Exception - verifyOtp(): " + e.toString());
+    }
+  }
+
+//!
+  Future<dynamic> getMainServices({String type = 'service'}) async {
+    try {
+      final response = await http.get(
+        Uri.parse(
+            "https://salon.motaweron.com/api/get_main_services?type=$type"),
+        headers: await global.getApiHeaders(false),
+      );
+
+      dynamic recordList;
+      if (response.statusCode == 200) {
+        if (json.decode(response.body)["data"] != null) {
+          recordList = List<MainServices>.from(json
+              .decode(response.body)["data"]
+              .map((x) => MainServices.fromJson(x)));
+        } else {
+          recordList = null;
+        }
+      } else {
+        recordList = null;
+      }
+      return getAPIResult(response, recordList);
+    } catch (e) {
+      print("Exception - MainServices(): " + e.toString());
     }
   }
 }
