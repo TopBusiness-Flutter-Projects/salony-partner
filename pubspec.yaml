@@ -46,7 +46,7 @@ dependencies:
   permission_handler: ^10.0.0
   image_picker: ^0.8.6
   cached_network_image: ^3.0.0
-  dio: 4.0.6
+  dio: ^4.0.6
   date_format: ^2.0.4
   email_validator: ^2.1.17
   shimmer: ^2.0.0

@@ -199,9 +199,6 @@ class _AppointmentHistoryScreenState extends BaseRouteState {
                                                     children: [
                                                       Text(
                                                         '${global.currency.currency_sign}${_appointmentHistoryList[index].totalPrice}',
-                                                        style: Theme.of(context)
-                                                            .primaryTextTheme
-                                                            .headlineSmall,
                                                       ),
                                                       Container(
                                                         height: 40,

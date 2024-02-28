@@ -9,6 +9,10 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../models/DistrictModel.dart';
+import '../models/city_model.dart';
+import '../models/region_model.dart';
+
 class SignUpScreen extends BaseRoute {
   SignUpScreen({a, o}) : super(a: a, o: o, r: 'SignUpScreen');
 

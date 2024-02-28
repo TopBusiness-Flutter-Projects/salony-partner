@@ -1195,6 +1195,9 @@ class APIHelper {
       String device_id,
       String vendor_phone,
       String vendor_address,
+      String region,
+      String city,
+      String area,
       String description,
       File vendor_image) async {
     try {
@@ -1213,6 +1216,9 @@ class APIHelper {
         'vendor_image': vendor_image != null
             ? await MultipartFile.fromFile(vendor_image.path.toString())
             : null,
+        "region": region,
+        "area": area,
+        "city": city
       });
 
       response = await dio.post('${global.baseUrl}partner_register',
@@ -1299,7 +1305,6 @@ class APIHelper {
     }
   }
 
-//!
   Future<dynamic> getMainServices({String type = 'service'}) async {
     try {
       final response = await http.get(
@@ -1323,6 +1328,93 @@ class APIHelper {
       return getAPIResult(response, recordList);
     } catch (e) {
       print("Exception - MainServices(): " + e.toString());
+    }
+  }
+
+//! address
+  Future<List<dynamic>> getRegions() async {
+    try {
+      Response response;
+      var dio = Dio();
+
+      response = await dio.get('https://salon.motaweron.com/api/getRegions',
+          queryParameters: {
+            // 'lang': global.languageCode,
+          },
+          options: Options(
+            headers: await global.getApiHeaders(false),
+          ));
+      List<dynamic> recordList;
+      if (response.statusCode == 200) {
+        final data = response.data;
+        recordList = data;
+        print("88888 : ${recordList.length}");
+        return recordList;
+      } else {
+        recordList = [];
+      }
+      return getAPIResult(response, recordList);
+    } catch (e) {
+      print("Exception - getRegions(): " + e.toString());
+      return [];
+    }
+  }
+
+  Future<List<dynamic>> getCities({required int id}) async {
+    try {
+      Response response;
+      var dio = Dio();
+
+      response = await dio.get(
+          'https://salon.motaweron.com/api/getCitiesByRegion?region_id=$id',
+          queryParameters: {
+            // 'lang': global.languageCode,
+          },
+          options: Options(
+            headers: await global.getApiHeaders(false),
+          ));
+      List<dynamic> recordList;
+      if (response.statusCode == 200) {
+        final data = response.data;
+        recordList = data;
+        print("88888 : ${recordList.length}");
+        return recordList;
+      } else {
+        recordList = [];
+      }
+      return getAPIResult(response, recordList);
+    } catch (e) {
+      print("Exception - getCities(): " + e.toString());
+      return [];
+    }
+  }
+
+  Future<List<dynamic>> getDistrict({required int cityId}) async {
+    try {
+      Response response;
+      var dio = Dio();
+
+      response = await dio.get(
+          'https://salon.motaweron.com/api/getDistrictsByCity?city_id=$cityId',
+          queryParameters: {
+            // 'lang': global.languageCode,
+          },
+          options: Options(
+            headers: await global.getApiHeaders(false),
+          ));
+      List<dynamic> recordList;
+      if (response.statusCode == 200) {
+        final data = response.data;
+        recordList = data;
+        print("88888 : ${recordList.length}");
+        return recordList;
+      } else {
+        recordList = [];
+      }
+      return getAPIResult(response, recordList);
+    } catch (e) {
+      print("Exception - getCities(): " + e.toString());
+      return [];
     }
   }
 }

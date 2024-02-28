@@ -287,7 +287,9 @@ class _ProfileScreenState extends BaseRouteState {
                                                   .primaryColor,
                                             ),
                                             title: Text(
-                                              '${_user?.vendor_address}',
+                                              _user?.region == null
+                                                  ? '${_user?.vendor_address}'
+                                                  : '${_user?.region ?? ''}, ${_user?.city ?? ''}${_user?.area == null ? '' : ","}  ${_user?.area ?? ''}',
                                               style: Theme.of(context)
                                                   .primaryTextTheme
                                                   .titleMedium,

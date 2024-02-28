@@ -66,7 +66,7 @@ class _BottomNavigationWidgetState extends BaseRouteState {
             ],
             iconData: [
               Icons.home,
-              Icons.message,
+              Icons.scatter_plot_rounded,
               Icons.menu_book,
               Icons.person
             ],
