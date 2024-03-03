@@ -142,7 +142,7 @@ class _CouponListScreenState extends BaseRouteState {
                                                                             style: Theme.of(context).primaryTextTheme.titleSmall,
                                                                           )
                                                                         : Text(
-                                                                            '${global.currency.currency_sign} ${_couponList[index].amount} off',
+                                                                            '${global.currency.currency_sign ?? 'SAR'} ${_couponList[index].amount} off',
                                                                             style: Theme.of(context).primaryTextTheme.titleSmall,
                                                                           )
                                                                   ],

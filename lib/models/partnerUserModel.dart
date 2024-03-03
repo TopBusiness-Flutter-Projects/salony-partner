@@ -16,6 +16,7 @@ class CurrentUser with JsonParsable {
   String? vendor_name;
   String? owner_name;
   String? vendor_email;
+
   String? vendor_password;
   String? vendor_address;
   File? vendor_image;
@@ -52,6 +53,9 @@ class CurrentUser with JsonParsable {
   String? user_password;
   dynamic user_image;
   String? fb_id;
+  String? region;
+  String? city;
+  String? area;
   String? online_status;
   List<Review>? review = [];
 
@@ -111,10 +115,16 @@ class CurrentUser with JsonParsable {
             ? MultipartFile.fromFile(user_image.path.toString())
             : null,
         'vendor_logo': vendor_logo != null ? vendor_logo : null,
+        "city": city,
+        "region": region,
+        "area": area,
       };
 
   CurrentUser.fromJson(Map<String, dynamic> json) {
     try {
+      region = json['region'] ?? null;
+      city = json['city'] ?? null;
+      area = json['area'] ?? null;
       id = json['vendor_id'] != null ? parseField(json['vendor_id']) : null;
       vendor_phone = json['vendor_phone'] != null ? json['vendor_phone'] : null;
       vendor_name = json['vendor_name'] != null ? json['vendor_name'] : null;

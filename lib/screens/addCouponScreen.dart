@@ -312,7 +312,7 @@ class _AddCouponScreenState extends BaseRouteState {
                                       keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
                                         hintText:
-                                            '${global.currency.currency_sign}' +
+                                            '${global.currency.currency_sign ?? 'SAR'}' +
                                                 AppLocalizations.of(context)!
                                                     .hnt_min_service_amount,
                                         contentPadding: EdgeInsets.only(

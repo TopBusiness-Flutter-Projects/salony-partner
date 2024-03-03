@@ -5,9 +5,14 @@ import 'package:app/models/businessLayer/global.dart' as global;
 import 'package:app/models/partnerUserModel.dart';
 import 'package:app/screens/signInScreen.dart';
 import 'package:app/widgets/bottomNavigationBar.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../models/DistrictModel.dart';
+import '../models/city_model.dart';
+import '../models/region_model.dart';
 
 class GeneralInformationScreen extends BaseRoute {
   final String email;
@@ -212,16 +217,260 @@ class _GeneralInformationScreenState extends BaseRouteState {
                                         ),
                                       ),
                                     ),
+                                    //!  address
                                     Container(
                                       margin: EdgeInsets.only(top: 10),
                                       child: Text(
-                                        AppLocalizations.of(context)!
-                                            .lbl_address,
-                                        style: Theme.of(context)
-                                            .primaryTextTheme
-                                            .titleSmall,
+                                        'عنوان الصالون',
                                       ),
                                     ),
+
+                                    Container(
+                                      margin: EdgeInsets.only(
+                                          top: 15), // color: Colors.red,
+                                      // height: 10,
+                                      child:
+                                          DropdownButtonFormField2<RegionModel>(
+                                        isExpanded: true,
+                                        decoration: InputDecoration(
+                                          // Add Horizontal padding using menuItemStyleData.padding so it matches
+                                          // the menu padding when button's width is not specified.
+                                          contentPadding:
+                                              const EdgeInsets.symmetric(
+                                                  vertical: 16),
+                                          border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                          ),
+                                          // Add more decoration..
+                                        ),
+                                        hint: const Text(
+                                          'اختر منطقتك',
+                                          style: TextStyle(fontSize: 14),
+                                        ),
+                                        items: regions
+                                            .map((item) =>
+                                                DropdownMenuItem<RegionModel>(
+                                                  value: item,
+                                                  child: Text(
+                                                    item.nameAr ?? '',
+                                                    style: const TextStyle(
+                                                      fontSize: 14,
+                                                    ),
+                                                  ),
+                                                ))
+                                            .toList(),
+                                        validator: (value) {
+                                          if (value == null) {
+                                            return 'من فضلك اختر بلدك';
+                                          }
+                                          return null;
+                                        },
+                                        onChanged: (value) {
+                                          cities = [];
+                                          districts = [];
+                                          regionModel = value;
+                                          cityModel = null;
+                                          districtModel = null;
+                                          setState(() {});
+
+                                          _getCities(id: value!.regionId ?? 1);
+
+                                          //Do something when selected item is changed.
+                                        },
+                                        onSaved: (value) {
+                                          regionModel = value;
+                                        },
+                                        buttonStyleData: const ButtonStyleData(
+                                          padding: EdgeInsets.only(right: 8),
+                                        ),
+                                        iconStyleData: const IconStyleData(
+                                          icon: Icon(
+                                            Icons.arrow_drop_down,
+                                            color: Colors.black45,
+                                          ),
+                                          iconSize: 24,
+                                        ),
+                                        dropdownStyleData: DropdownStyleData(
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                          ),
+                                        ),
+                                        menuItemStyleData:
+                                            const MenuItemStyleData(
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 16),
+                                        ),
+                                      ),
+                                    ),
+                                    // cities.isEmpty
+                                    //     ? Container()
+                                    //     :
+                                    Container(
+                                      margin: EdgeInsets.only(
+                                          top: 15), // color: Colors.red,
+                                      child:
+                                          DropdownButtonFormField2<CityModel>(
+                                        isExpanded: true,
+                                        decoration: InputDecoration(
+                                          contentPadding:
+                                              const EdgeInsets.symmetric(
+                                                  vertical: 16),
+                                          border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                          ),
+                                          // Add more decoration..
+                                        ),
+                                        hint: const Text(
+                                          'اختر مدينتك',
+                                          style: TextStyle(fontSize: 14),
+                                        ),
+                                        value: cityModel ?? null,
+                                        items: cities
+                                            .map((item) =>
+                                                DropdownMenuItem<CityModel>(
+                                                  value: item,
+                                                  child: Text(
+                                                    item.nameAr ?? '',
+                                                    style: const TextStyle(
+                                                      fontSize: 14,
+                                                    ),
+                                                  ),
+                                                ))
+                                            .toList(),
+                                        validator: (value) {
+                                          if (value == null) {
+                                            return 'من فضلك اختر مدينتك';
+                                          }
+                                          return null;
+                                        },
+                                        onChanged: (value) {
+                                          districts = [];
+                                          cityModel = value;
+                                          districtModel = null;
+
+                                          setState(() {});
+
+                                          (value!.cityId != null)
+                                              ? _getDistrict(
+                                                  cityId: value.cityId!)
+                                              : districtModel = null;
+                                          //Do something when selected item is changed.
+                                        },
+                                        onSaved: (value) {
+                                          cityModel = value;
+                                        },
+                                        buttonStyleData: const ButtonStyleData(
+                                          padding: EdgeInsets.only(right: 8),
+                                        ),
+                                        iconStyleData: const IconStyleData(
+                                          icon: Icon(
+                                            Icons.arrow_drop_down,
+                                            color: Colors.black45,
+                                          ),
+                                          iconSize: 24,
+                                        ),
+                                        dropdownStyleData: DropdownStyleData(
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                          ),
+                                        ),
+                                        menuItemStyleData:
+                                            const MenuItemStyleData(
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 16),
+                                        ),
+                                      ),
+                                    ),
+                                    districts.isEmpty
+                                        ? Container()
+                                        : Container(
+                                            margin: EdgeInsets.only(
+                                                top: 15), // color: Colors.red,
+                                            // height: 10,
+                                            child: DropdownButtonFormField2<
+                                                DistrictModel>(
+                                              isExpanded: true,
+                                              decoration: InputDecoration(
+                                                // Add Horizontal padding using menuItemStyleData.padding so it matches
+                                                // the menu padding when button's width is not specified.
+                                                contentPadding:
+                                                    const EdgeInsets.symmetric(
+                                                        vertical: 16),
+                                                border: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(15),
+                                                ),
+                                                // Add more decoration..
+                                              ),
+                                              hint: const Text(
+                                                'اختر الحي',
+                                                style: TextStyle(fontSize: 14),
+                                              ),
+                                              value: districtModel ?? null,
+                                              items: districts
+                                                  .map((item) =>
+                                                      DropdownMenuItem<
+                                                          DistrictModel>(
+                                                        value: item,
+                                                        child: Text(
+                                                          item.nameAr ?? '',
+                                                          style:
+                                                              const TextStyle(
+                                                            fontSize: 14,
+                                                          ),
+                                                        ),
+                                                      ))
+                                                  .toList(),
+                                              validator: (value) {
+                                                if (value == null) {
+                                                  return 'من فضلك اختر الحي';
+                                                }
+                                                return null;
+                                              },
+                                              onChanged: (value) {
+                                                //Do something when selected item is changed.
+                                                districtModel = value;
+                                              },
+                                              onSaved: (value) {
+                                                districtModel = value;
+                                              },
+                                              buttonStyleData:
+                                                  const ButtonStyleData(
+                                                padding:
+                                                    EdgeInsets.only(right: 8),
+                                              ),
+                                              iconStyleData:
+                                                  const IconStyleData(
+                                                icon: Icon(
+                                                  Icons.arrow_drop_down,
+                                                  color: Colors.black45,
+                                                ),
+                                                iconSize: 24,
+                                              ),
+                                              dropdownStyleData:
+                                                  DropdownStyleData(
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(15),
+                                                ),
+                                              ),
+                                              menuItemStyleData:
+                                                  const MenuItemStyleData(
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: 16),
+                                              ),
+                                            ),
+                                          ),
+
+                                    Container(
+                                        margin: EdgeInsets.only(top: 10),
+                                        child: Text(
+                                          'عنوان الصالون بالتفاصيل',
+                                        )),
                                     Padding(
                                       padding: const EdgeInsets.only(top: 5),
                                       child: TextFormField(
@@ -244,9 +493,6 @@ class _GeneralInformationScreenState extends BaseRouteState {
                                       child: Text(
                                         AppLocalizations.of(context)!
                                             .lbl_saloon_type,
-                                        style: Theme.of(context)
-                                            .primaryTextTheme
-                                            .titleSmall,
                                       ),
                                     ),
                                     Padding(
@@ -303,9 +549,9 @@ class _GeneralInformationScreenState extends BaseRouteState {
                                       child: Text(
                                         AppLocalizations.of(context)!
                                             .lbl_description,
-                                        style: Theme.of(context)
+                                        /*style: Theme.of(context)
                                             .primaryTextTheme
-                                            .titleSmall,
+                                            .titleSmall,*/
                                       ),
                                     ),
                                     Padding(
@@ -329,9 +575,9 @@ class _GeneralInformationScreenState extends BaseRouteState {
                                       child: Text(
                                         AppLocalizations.of(context)!
                                             .lbl_upload_image,
-                                        style: Theme.of(context)
+                                        /*style: Theme.of(context)
                                             .primaryTextTheme
-                                            .titleSmall,
+                                            .titleSmall,*/
                                       ),
                                     ),
                                     Padding(
@@ -435,6 +681,8 @@ class _GeneralInformationScreenState extends BaseRouteState {
 
   @override
   void initState() {
+    _getRegions();
+
     super.initState();
   }
 
@@ -459,7 +707,8 @@ class _GeneralInformationScreenState extends BaseRouteState {
           _cOwnerName.text.isNotEmpty &&
           _cAddress.text.isNotEmpty &&
           _cDescription.text.isNotEmpty &&
-          _tImage != null) {
+          _tImage != null &&
+          regionModel != null) {
         bool isConnected = await br.checkConnectivity();
         if (isConnected) {
           showOnlyLoaderDialog();
@@ -473,6 +722,9 @@ class _GeneralInformationScreenState extends BaseRouteState {
                   user.device_id!,
                   user.vendor_phone!,
                   user.vendor_address!,
+                  regionModel?.nameAr ?? '',
+                  cityModel?.nameAr ?? '',
+                  districtModel?.nameAr ?? '',
                   user.description!,
                   _tImage!)
               .then((result) {
@@ -484,9 +736,7 @@ class _GeneralInformationScreenState extends BaseRouteState {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (BuildContext context) => BottomNavigationWidget(
-                    a: widget.analytics,
-                    o: widget.observer,
-                  ),
+                      a: widget.analytics, o: widget.observer),
                 ),
               );
             } else {
@@ -581,6 +831,73 @@ class _GeneralInformationScreenState extends BaseRouteState {
       print(
           "Exception - generalInformationScreen.dart - _showCupertinoModalSheet():" +
               e.toString());
+    }
+  }
+
+  RegionModel? regionModel;
+  CityModel? cityModel;
+  DistrictModel? districtModel;
+  List<RegionModel> regions = [];
+  List<CityModel> cities = [];
+  List<DistrictModel> districts = [];
+  bool _isRegionsLoaded = false;
+  bool _isCitiesLoaded = false;
+  bool _isDistrictsLoaded = false;
+
+  _getRegions() async {
+    try {
+      bool isConnected = await br.checkConnectivity();
+      if (isConnected) {
+        await apiHelper!.getRegions().then((result) {
+          if (result != null) {
+            regions = result.map((e) => RegionModel.fromJson(e)).toList();
+          }
+          _isRegionsLoaded = true;
+          setState(() {});
+        });
+      } else {
+        showNetworkErrorSnackBar(_scaffoldKey);
+      }
+    } catch (e) {
+      print("Exception - homeScreen.dart - _getProducts():" + e.toString());
+    }
+  }
+
+  _getCities({required int id}) async {
+    try {
+      bool isConnected = await br.checkConnectivity();
+      if (isConnected) {
+        await apiHelper!.getCities(id: id).then((result) {
+          if (result != null) {
+            cities = result.map((e) => CityModel.fromJson(e)).toList();
+          }
+          _isCitiesLoaded = true;
+          setState(() {});
+        });
+      } else {
+        showNetworkErrorSnackBar(_scaffoldKey);
+      }
+    } catch (e) {
+      print("Exception - homeScreen.dart - _getProducts():" + e.toString());
+    }
+  }
+
+  _getDistrict({required int cityId}) async {
+    try {
+      bool isConnected = await br.checkConnectivity();
+      if (isConnected) {
+        await apiHelper!.getDistrict(cityId: cityId).then((result) {
+          if (result != null) {
+            districts = result.map((e) => DistrictModel.fromJson(e)).toList();
+          }
+          _isDistrictsLoaded = true;
+          setState(() {});
+        });
+      } else {
+        showNetworkErrorSnackBar(_scaffoldKey);
+      }
+    } catch (e) {
+      print("Exception - getDistrict():" + e.toString());
     }
   }
 }

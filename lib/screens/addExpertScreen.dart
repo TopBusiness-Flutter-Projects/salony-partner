@@ -154,9 +154,9 @@ class _AddExpertScreenState extends BaseRouteState {
                                       Text(
                                         AppLocalizations.of(context)!
                                             .lbl_expert_name,
-                                        style: Theme.of(context)
-                                            .primaryTextTheme
-                                            .headlineSmall,
+                                        // style: Theme.of(context)
+                                        //     .primaryTextTheme
+                                        //     .headlineSmall,,
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.only(top: 5),

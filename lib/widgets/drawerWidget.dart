@@ -68,7 +68,6 @@ class _DrawerWidgetState extends BaseRouteState {
                   global.user.vendor_phone != null
                       ? '${global.user.vendor_phone ?? ''}'
                       : '',
-                  style: Theme.of(context).primaryTextTheme.headlineSmall,
                 ),
               ),
             ),
@@ -214,7 +213,7 @@ class _DrawerWidgetState extends BaseRouteState {
               padding: const EdgeInsets.only(),
               child: ListTile(
                 leading: Icon(
-                  CupertinoIcons.option,
+                  Icons.storage_rounded,
                   color: Colors.white,
                   size: 22,
                 ),
@@ -257,29 +256,29 @@ class _DrawerWidgetState extends BaseRouteState {
                 },
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(),
-              child: ListTile(
-                leading: Icon(
-                  Icons.settings,
-                  color: Colors.white,
-                  size: 22,
-                ),
-                title: Text(
-                  AppLocalizations.of(context)!.lbl_settings,
-                  style: Theme.of(context).primaryTextTheme.labelLarge,
-                ),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                        builder: (context) => SettingScreen(
-                              a: widget.analytics,
-                              o: widget.observer,
-                            )),
-                  );
-                },
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.only(),
+            //   child: ListTile(
+            //     leading: Icon(
+            //       Icons.settings,
+            //       color: Colors.white,
+            //       size: 22,
+            //     ),
+            //     title: Text(
+            //       AppLocalizations.of(context)!.lbl_settings,
+            //       style: Theme.of(context).primaryTextTheme.labelLarge,
+            //     ),
+            //     onTap: () {
+            //       Navigator.of(context).push(
+            //         MaterialPageRoute(
+            //             builder: (context) => SettingScreen(
+            //                   a: widget.analytics,
+            //                   o: widget.observer,
+            //                 )),
+            //       );
+            //     },
+            //   ),
+            // ),
             // Padding(
             //   padding: const EdgeInsets.only(),
             //   child: ListTile(

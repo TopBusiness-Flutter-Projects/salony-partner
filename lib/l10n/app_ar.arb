@@ -655,9 +655,9 @@
 "@lbl_loading": {
 "description": "جار التحميل..."
 },
-"lbl_orders": "الطلبات",
+"lbl_orders": "قائمة المنتجات",
 "@lbl_orders": {
-"description": "الطلبات"
+"description": "قائمة المنتجات"
 },
 "lbl_qty": "الكمية",
 "@lbl_qty": {

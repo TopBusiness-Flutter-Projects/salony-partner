@@ -165,9 +165,9 @@ class _AddProductScreenState extends BaseRouteState {
                                       Text(
                                         AppLocalizations.of(context)!
                                             .lbl_product_name,
-                                        style: Theme.of(context)
-                                            .primaryTextTheme
-                                            .headlineSmall,
+                                        // style: Theme.of(context)
+                                        //     .primaryTextTheme
+                                        //     .headlineSmall,,
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.only(
@@ -191,9 +191,9 @@ class _AddProductScreenState extends BaseRouteState {
                                       ),
                                       Text(
                                         AppLocalizations.of(context)!.lbl_price,
-                                        style: Theme.of(context)
-                                            .primaryTextTheme
-                                            .headlineSmall,
+                                        // style: Theme.of(context)
+                                        //     .primaryTextTheme
+                                        //     .headlineSmall,,
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.only(
@@ -208,7 +208,7 @@ class _AddProductScreenState extends BaseRouteState {
                                           },
                                           decoration: InputDecoration(
                                             hintText:
-                                                '${global.currency.currency_sign}' +
+                                                '${global.currency.currency_sign ?? 'SAR'}' +
                                                     AppLocalizations.of(
                                                             context)!
                                                         .hnt_price,
@@ -221,7 +221,7 @@ class _AddProductScreenState extends BaseRouteState {
                                       Container(
                                         margin: EdgeInsets.only(top: 10),
                                         child: Text(
-                                          'نوع الخدمة',
+                                          'تصنيف المنتج',
                                           style: Theme.of(context)
                                               .primaryTextTheme
                                               .titleSmall,
@@ -235,7 +235,7 @@ class _AddProductScreenState extends BaseRouteState {
                                                 DropdownButton2<MainServices>(
                                               isExpanded: true,
                                               hint: Text(
-                                                'اختر نوع الخدمه',
+                                                'اختر تصنيف المنتج',
                                                 style: TextStyle(
                                                   fontSize: 14,
                                                   color: Theme.of(context)
@@ -289,9 +289,9 @@ class _AddProductScreenState extends BaseRouteState {
                                       Text(
                                         AppLocalizations.of(context)!
                                             .lbl_description,
-                                        style: Theme.of(context)
-                                            .primaryTextTheme
-                                            .headlineSmall,
+                                        // style: Theme.of(context)
+                                        //     .primaryTextTheme
+                                        //     .headlineSmall,,
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.only(
@@ -318,9 +318,9 @@ class _AddProductScreenState extends BaseRouteState {
                                       Text(
                                         AppLocalizations.of(context)!
                                             .lbl_quantity,
-                                        style: Theme.of(context)
-                                            .primaryTextTheme
-                                            .headlineSmall,
+                                        // style: Theme.of(context)
+                                        //     .primaryTextTheme
+                                        //     .headlineSmall,,
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.only(
@@ -341,9 +341,9 @@ class _AddProductScreenState extends BaseRouteState {
                                       Text(
                                         AppLocalizations.of(context)!
                                             .lbl_upload_image,
-                                        style: Theme.of(context)
-                                            .primaryTextTheme
-                                            .headlineSmall,
+                                        // style: Theme.of(context)
+                                        //     .primaryTextTheme
+                                        //     .headlineSmall,
                                       ),
                                       Container(
                                         decoration: BoxDecoration(

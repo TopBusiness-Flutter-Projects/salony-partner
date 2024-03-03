@@ -31,19 +31,13 @@ class _RequestScreenState extends BaseRouteState {
             body: Stack(
           children: [
             Container(
-              height: 100,
-              width: MediaQuery.of(context).size.width,
-              child: ColorFiltered(
-                colorFilter: ColorFilter.mode(
-                  Theme.of(context).primaryColor,
-                  BlendMode.screen,
-                ),
-                child: Image.asset(
-                  'assets/banner.jpg',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
+                height: 100,
+                width: MediaQuery.of(context).size.width,
+                child: ColorFiltered(
+                    colorFilter: ColorFilter.mode(
+                        Theme.of(context).primaryColor, BlendMode.screen),
+                    child:
+                        Image.asset('assets/banner.jpg', fit: BoxFit.cover))),
             Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -314,7 +308,7 @@ class _RequestScreenState extends BaseRouteState {
                                                                 left: 15,
                                                                 right: 5),
                                                         child: Text(
-                                                          '${global.currency.currency_sign}${_userRequest[index].total_price}',
+                                                          '${global.currency.currency_sign ?? 'SAR'}${_userRequest[index].total_price}',
                                                           style: Theme.of(
                                                                   context)
                                                               .primaryTextTheme
