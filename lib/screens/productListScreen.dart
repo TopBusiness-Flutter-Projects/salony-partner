@@ -273,7 +273,7 @@ class _ProductListScreenState extends BaseRouteState {
                                                                 bottom: 2),
                                                         child: Center(
                                                             child: Text(
-                                                          '${global.currency.currency_sign} ${_productList[index].price}',
+                                                          '${global.currency.currency_sign ?? 'SAR'} ${_productList[index].price}',
                                                           style: Theme.of(
                                                                   context)
                                                               .primaryTextTheme

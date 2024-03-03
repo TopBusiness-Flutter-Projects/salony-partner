@@ -40,7 +40,7 @@ class _BottomNavigationWidgetState extends BaseRouteState {
       },
       child: Scaffold(
         bottomNavigationBar: Container(
-          height: 61,
+          height: MediaQuery.of(context).size.width / 7,
           width: MediaQuery.of(context).size.width,
           margin: EdgeInsets.only(bottom: Platform.isIOS ? 16 : 0),
           child: RollingNavBar.iconData(

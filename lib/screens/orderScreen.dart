@@ -44,23 +44,19 @@ class _OrderScreenState extends BaseRouteState {
           child: Stack(
             children: [
               Container(
-                height: 100,
+                height: MediaQuery.of(context).size.width / 4,
                 width: MediaQuery.of(context).size.width,
                 child: Stack(
                   children: [
                     Container(
-                      width: MediaQuery.of(context).size.width,
-                      child: ColorFiltered(
-                        colorFilter: ColorFilter.mode(
-                          Theme.of(context).primaryColor,
-                          BlendMode.screen,
-                        ),
-                        child: Image.asset(
-                          'assets/banner.jpg',
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
+                        width: MediaQuery.of(context).size.width,
+                        child: ColorFiltered(
+                            colorFilter: ColorFilter.mode(
+                              Theme.of(context).primaryColor,
+                              BlendMode.screen,
+                            ),
+                            child: Image.asset('assets/banner.jpg',
+                                fit: BoxFit.cover))),
                     Padding(
                       padding: EdgeInsets.only(bottom: 15, left: 10, top: 10),
                       child: GestureDetector(
@@ -123,10 +119,9 @@ class _OrderScreenState extends BaseRouteState {
                                     child: ListView.builder(
                                         itemCount: _orderList.length,
                                         shrinkWrap: true,
-                                        itemBuilder:
-                                            (BuildContext context, int index) {
+                                        physics: const BouncingScrollPhysics(),
+                                        itemBuilder: (context, index) {
                                           return Container(
-                                            // height: 123,
                                             padding: const EdgeInsets.only(
                                                 bottom: 8),
                                             child: Card(
@@ -295,8 +290,16 @@ class _OrderScreenState extends BaseRouteState {
                                                             }
                                                           },
                                                           child: Container(
-                                                            height: 30,
-                                                            width: 130,
+                                                            height: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width /
+                                                                12,
+                                                            width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width /
+                                                                4,
                                                             decoration: BoxDecoration(
                                                                 color: _orderList[index].statustext == "Pending"
                                                                     ? Colors.amber
@@ -340,7 +343,7 @@ class _OrderScreenState extends BaseRouteState {
                                                             style: TextStyle(
                                                                 color: Colors
                                                                     .grey[600],
-                                                                fontSize: 13),
+                                                                fontSize: 12),
                                                           ),
                                                         ),
                                                         Padding(
@@ -364,58 +367,53 @@ class _OrderScreenState extends BaseRouteState {
                                                                 CrossAxisAlignment
                                                                     .center,
                                                             children: <Widget>[
-                                                              SizedBox(
-                                                                child:
-                                                                    Container(
-                                                                  width: 40,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    borderRadius: global
-                                                                            .isRTL
-                                                                        ? BorderRadius
-                                                                            .only(
-                                                                            topRight:
-                                                                                new Radius.circular(5.0),
-                                                                            bottomRight:
-                                                                                new Radius.circular(5.0),
-                                                                          )
-                                                                        : BorderRadius
-                                                                            .only(
-                                                                            topLeft:
-                                                                                new Radius.circular(5.0),
-                                                                            bottomLeft:
-                                                                                new Radius.circular(5.0),
-                                                                          ),
-                                                                    color: Colors
-                                                                            .grey[
-                                                                        350],
-                                                                    border:
-                                                                        new Border
-                                                                            .all(
+                                                              Flexible(
+                                                                child: SizedBox(
+                                                                  child:
+                                                                      Container(
+                                                                    width: 40,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      borderRadius: global
+                                                                              .isRTL
+                                                                          ? BorderRadius
+                                                                              .only(
+                                                                              topRight: new Radius.circular(5.0),
+                                                                              bottomRight: new Radius.circular(5.0),
+                                                                            )
+                                                                          : BorderRadius
+                                                                              .only(
+                                                                              topLeft: new Radius.circular(5.0),
+                                                                              bottomLeft: new Radius.circular(5.0),
+                                                                            ),
                                                                       color: Colors
                                                                               .grey[
-                                                                          350]!,
+                                                                          350],
+                                                                      border:
+                                                                          new Border
+                                                                              .all(
+                                                                        color: Colors
+                                                                            .grey[350]!,
+                                                                      ),
                                                                     ),
-                                                                  ),
-                                                                  height: 25,
-                                                                  child: Center(
-                                                                    child: Text(
-                                                                      AppLocalizations.of(
-                                                                              context)!
-                                                                          .lbl_qty,
-                                                                      style: TextStyle(
-                                                                          color: Colors
-                                                                              .black,
-                                                                          fontWeight: FontWeight
-                                                                              .w500,
-                                                                          fontSize:
-                                                                              13),
+                                                                    height: 25,
+                                                                    child:
+                                                                        Center(
+                                                                      child:
+                                                                          Text(
+                                                                        AppLocalizations.of(context)!
+                                                                            .lbl_qty,
+                                                                        style: TextStyle(
+                                                                            color:
+                                                                                Colors.black,
+                                                                            fontWeight: FontWeight.w500,
+                                                                            fontSize: 13),
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
                                                               ),
                                                               Container(
-                                                                height: 25,
                                                                 width: 40,
                                                                 child: Center(
                                                                   child: Text(
@@ -492,41 +490,36 @@ class _OrderScreenState extends BaseRouteState {
                                                                       CrossAxisAlignment
                                                                           .center,
                                                                   children: <Widget>[
-                                                                    SizedBox(
+                                                                    Flexible(
                                                                       child:
-                                                                          Container(
-                                                                        width:
-                                                                            70,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          borderRadius: global.isRTL
-                                                                              ? BorderRadius.only(
-                                                                                  topRight: new Radius.circular(5.0),
-                                                                                  bottomRight: new Radius.circular(5.0),
-                                                                                )
-                                                                              : BorderRadius.only(
-                                                                                  topLeft: new Radius.circular(5.0),
-                                                                                  bottomLeft: new Radius.circular(5.0),
-                                                                                ),
-                                                                          color:
-                                                                              Colors.grey[350],
-                                                                          border:
-                                                                              new Border.all(
-                                                                            color:
-                                                                                Colors.grey[350]!,
-                                                                          ),
-                                                                        ),
-                                                                        height:
-                                                                            25,
+                                                                          SizedBox(
                                                                         child:
-                                                                            Center(
+                                                                            Container(
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            borderRadius: global.isRTL
+                                                                                ? BorderRadius.only(
+                                                                                    topRight: new Radius.circular(5.0),
+                                                                                    bottomRight: new Radius.circular(5.0),
+                                                                                  )
+                                                                                : BorderRadius.only(
+                                                                                    topLeft: new Radius.circular(5.0),
+                                                                                    bottomLeft: new Radius.circular(5.0),
+                                                                                  ),
+                                                                            color:
+                                                                                Colors.grey[350],
+                                                                            border:
+                                                                                new Border.all(
+                                                                              color: Colors.grey[350]!,
+                                                                            ),
+                                                                          ),
                                                                           child:
-                                                                              Text(
-                                                                            '${_orderList[index].order?.payment_status}',
-                                                                            style: TextStyle(
-                                                                                color: Colors.black,
-                                                                                fontWeight: FontWeight.w500,
-                                                                                fontSize: 13),
+                                                                              Center(
+                                                                            child:
+                                                                                Text(
+                                                                              '${_orderList[index].order?.payment_status == 'COD' ? "السعر" : "السعر"}',
+                                                                              style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 13),
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -539,7 +532,7 @@ class _OrderScreenState extends BaseRouteState {
                                                                           Center(
                                                                         child:
                                                                             Text(
-                                                                          "${global.currency.currency_sign}${_orderList[index].total_price}",
+                                                                          "${global.currency.currency_sign ?? 'SAR'}${_orderList[index].total_price}",
                                                                           style: TextStyle(
                                                                               color: Colors.black,
                                                                               fontWeight: FontWeight.w500,

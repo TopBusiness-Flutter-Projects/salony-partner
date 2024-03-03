@@ -578,7 +578,7 @@ class _ServiceListScreenState extends BaseRouteState {
                             left: 5, right: 2, top: 2, bottom: 2),
                         child: Center(
                             child: Text(
-                          '${global.currency.currency_sign} ${_serviceVariant[i].price}',
+                          '${global.currency.currency_sign ?? 'SAR'} ${_serviceVariant[i].price}',
                           overflow: TextOverflow.ellipsis,
                         )),
                       ),

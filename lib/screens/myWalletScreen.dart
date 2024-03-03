@@ -182,7 +182,7 @@ class _MyWalletScreenState extends BaseRouteState {
                                                   bottom: 2),
                                               child: Center(
                                                   child: Text(
-                                                '${global.currency.currency_sign} ${_myWallet?.total_price}',
+                                                '${global.currency.currency_sign ?? 'SAR'} ${_myWallet?.total_price}',
                                                 overflow: TextOverflow.ellipsis,
                                               )),
                                             ),
@@ -243,7 +243,7 @@ class _MyWalletScreenState extends BaseRouteState {
                                                           : EdgeInsets.only(
                                                               left: 10),
                                                       child: Text(
-                                                        '${global.currency.currency_sign}${_myWallet?.share_sent_amount}',
+                                                        '${global.currency.currency_sign ?? 'SAR'}${_myWallet?.share_sent_amount}',
                                                         style: Theme.of(context)
                                                             .primaryTextTheme
                                                             .titleMedium,
@@ -321,7 +321,7 @@ class _MyWalletScreenState extends BaseRouteState {
                                                             : EdgeInsets.only(
                                                                 left: 10),
                                                         child: Text(
-                                                          '${global.currency.currency_sign}${_myWallet?.share_sent_pending_amount}',
+                                                          '${global.currency.currency_sign ?? 'SAR'}${_myWallet?.share_sent_pending_amount}',
                                                           style: Theme.of(
                                                                   context)
                                                               .primaryTextTheme
@@ -404,7 +404,7 @@ class _MyWalletScreenState extends BaseRouteState {
                                                                 left: 10),
                                                         child: Expanded(
                                                           child: Text(
-                                                            "${global.currency.currency_sign}${_myWallet?.share_given_amount}",
+                                                            "${global.currency.currency_sign ?? 'SAR'}${_myWallet?.share_given_amount}",
                                                             style: Theme.of(
                                                                     context)
                                                                 .primaryTextTheme
@@ -487,7 +487,7 @@ class _MyWalletScreenState extends BaseRouteState {
                                                                 left: 10),
                                                         child: Expanded(
                                                           child: Text(
-                                                            "${global.currency.currency_sign}${_myWallet?.share_given_pending_amount}",
+                                                            "${global.currency.currency_sign ?? 'SAR'}${_myWallet?.share_given_pending_amount}",
                                                             style: Theme.of(
                                                                     context)
                                                                 .primaryTextTheme

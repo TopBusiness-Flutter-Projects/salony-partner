@@ -164,10 +164,6 @@ class _AppointmentHistoryScreenState extends BaseRouteState {
                                                                   null
                                                               ? '${_appointmentHistoryList[index].user?.name}'
                                                               : 'No Name',
-                                                          style: Theme.of(
-                                                                  context)
-                                                              .primaryTextTheme
-                                                              .headlineSmall,
                                                         )),
                                                         Padding(
                                                           padding:
@@ -198,7 +194,7 @@ class _AppointmentHistoryScreenState extends BaseRouteState {
                                                             .start,
                                                     children: [
                                                       Text(
-                                                        '${global.currency.currency_sign}${_appointmentHistoryList[index].totalPrice}',
+                                                        '${global.currency.currency_sign ?? 'SAR'}${_appointmentHistoryList[index].totalPrice}',
                                                       ),
                                                       Container(
                                                         height: 40,

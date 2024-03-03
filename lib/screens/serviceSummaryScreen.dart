@@ -331,7 +331,7 @@ class _ServiceSummaryScreenState extends BaseRouteState {
                                                   ),
                                                 ),
                                                 Text(
-                                                  '${global.currency.currency_sign}${bookingDetail.items[index].price}',
+                                                  '${global.currency.currency_sign ?? 'SAR'}${bookingDetail.items[index].price}',
                                                   style: Theme.of(context)
                                                       .primaryTextTheme
                                                       .subtitle1,
@@ -382,7 +382,7 @@ class _ServiceSummaryScreenState extends BaseRouteState {
                                                 CrossAxisAlignment.end,
                                             children: [
                                               Text(
-                                                  '${global.currency.currency_sign}${bookingDetail.total_price}',
+                                                  '${global.currency.currency_sign ?? 'SAR'}${bookingDetail.total_price}',
                                                   style: Theme.of(context)
                                                       .primaryTextTheme
                                                       .subtitle2),
@@ -393,8 +393,8 @@ class _ServiceSummaryScreenState extends BaseRouteState {
                                                       bookingDetail
                                                                   .coupon_discount !=
                                                               null
-                                                          ? '-${global.currency.currency_sign} ${bookingDetail.coupon_discount}'
-                                                          : '-${global.currency.currency_sign}0',
+                                                          ? '-${global.currency.currency_sign ?? 'SAR'} ${bookingDetail.coupon_discount}'
+                                                          : '-${global.currency.currency_sign ?? 'SAR'}0',
                                                       style: Theme.of(context)
                                                           .primaryTextTheme
                                                           .subtitle2)),
@@ -420,7 +420,7 @@ class _ServiceSummaryScreenState extends BaseRouteState {
                                                   .primaryTextTheme
                                                   .subtitle2),
                                           Text(
-                                              '${global.currency.currency_sign}${bookingDetail.rem_price}',
+                                              '${global.currency.currency_sign ?? 'SAR'}${bookingDetail.rem_price}',
                                               style: Theme.of(context)
                                                   .primaryTextTheme
                                                   .subtitle2)

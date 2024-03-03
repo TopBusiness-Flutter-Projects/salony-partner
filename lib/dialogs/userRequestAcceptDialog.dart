@@ -55,7 +55,7 @@ class _UserRequestAcceptDialogState extends BaseRouteState {
                                   Navigator.of(context).push(MaterialPageRoute(
                                       builder: (context) =>
                                           ServiceSummaryScreen(
-                                            _bookingDetail!,
+                                            _bookingDetail ?? BookingDetail(),
                                             a: widget.analytics,
                                             o: widget.observer,
                                           )));
@@ -168,7 +168,7 @@ class _UserRequestAcceptDialogState extends BaseRouteState {
                                         _bookingDetail?.in_door_val = value;
                                       },
                                       // focusNode: FocusNode(),
-                                      // autofocus: true,
+                                      autofocus: true,
                                       //validate  + controller
                                       decoration: InputDecoration(
                                         hintText:
@@ -339,7 +339,7 @@ class _UserRequestAcceptDialogState extends BaseRouteState {
               ),
             ),
             Text(
-              '${global.currency.currency_sign} ${_bookingDetail?.items[i].price}',
+              '${global.currency.currency_sign ?? 'SAR'} ${_bookingDetail?.items[i].price}',
               style: Theme.of(context).primaryTextTheme.subtitle1,
             )
           ],
@@ -375,14 +375,14 @@ class _UserRequestAcceptDialogState extends BaseRouteState {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                    '${global.currency.currency_sign}${_bookingDetail?.total_price}',
+                    '${global.currency.currency_sign ?? 'SAR'}${_bookingDetail?.total_price}',
                     style: Theme.of(context).primaryTextTheme.subtitle2),
                 Padding(
                     padding: EdgeInsets.only(top: 3),
                     child: Text(
                         _bookingDetail?.coupon_discount != null
-                            ? '-${global.currency.currency_sign} ${_bookingDetail?.coupon_discount}'
-                            : '-${global.currency.currency_sign}0',
+                            ? '-${global.currency.currency_sign ?? 'SAR'} ${_bookingDetail?.coupon_discount}'
+                            : '-${global.currency.currency_sign ?? 'SAR'}0',
                         style: Theme.of(context).primaryTextTheme.subtitle2)),
               ],
             ),
@@ -403,7 +403,7 @@ class _UserRequestAcceptDialogState extends BaseRouteState {
             Text(AppLocalizations.of(context)!.lbl_total,
                 style: Theme.of(context).primaryTextTheme.subtitle2),
             Text(
-                '${global.currency.currency_sign} ${_bookingDetail?.rem_price}',
+                '${global.currency.currency_sign ?? 'SAR'} ${_bookingDetail?.rem_price}',
                 style: Theme.of(context).primaryTextTheme.subtitle2)
           ],
         ),

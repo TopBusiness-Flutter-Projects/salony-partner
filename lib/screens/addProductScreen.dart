@@ -208,7 +208,7 @@ class _AddProductScreenState extends BaseRouteState {
                                           },
                                           decoration: InputDecoration(
                                             hintText:
-                                                '${global.currency.currency_sign}' +
+                                                '${global.currency.currency_sign ?? 'SAR'}' +
                                                     AppLocalizations.of(
                                                             context)!
                                                         .hnt_price,

@@ -191,7 +191,7 @@ class _AddServiceVariantVariantScreenState extends BaseRouteState {
                                           keyboardType: TextInputType.number,
                                           decoration: InputDecoration(
                                             hintText:
-                                                '${global.currency.currency_sign}' +
+                                                '${global.currency.currency_sign ?? 'SAR'}' +
                                                     AppLocalizations.of(
                                                             context)!
                                                         .hnt_price,

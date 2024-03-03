@@ -736,9 +736,7 @@ class _GeneralInformationScreenState extends BaseRouteState {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (BuildContext context) => BottomNavigationWidget(
-                    a: widget.analytics,
-                    o: widget.observer,
-                  ),
+                      a: widget.analytics, o: widget.observer),
                 ),
               );
             } else {
