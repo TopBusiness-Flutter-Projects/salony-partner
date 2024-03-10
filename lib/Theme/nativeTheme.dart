@@ -196,6 +196,7 @@ ThemeData nativeTheme() {
         actionsIconTheme: IconThemeData(color: Color(0xFFFF6860), size: 30),
         iconTheme: IconThemeData(color: Color(0xFFFF6860), size: 24),
       ),
+      useMaterial3: false,
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
             padding: MaterialStateProperty.all(

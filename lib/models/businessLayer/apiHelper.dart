@@ -1309,7 +1309,7 @@ class APIHelper {
     try {
       final response = await http.get(
         Uri.parse(
-            "https://salon.motaweron.com/api/get_main_services?type=$type"),
+            "https://salony.topbusiness.io/api/get_main_services?type=$type"),
         headers: await global.getApiHeaders(false),
       );
 
@@ -1337,7 +1337,7 @@ class APIHelper {
       Response response;
       var dio = Dio();
 
-      response = await dio.get('https://salon.motaweron.com/api/getRegions',
+      response = await dio.get('https://salony.topbusiness.io/api/getRegions',
           queryParameters: {
             // 'lang': global.languageCode,
           },
@@ -1366,7 +1366,7 @@ class APIHelper {
       var dio = Dio();
 
       response = await dio.get(
-          'https://salon.motaweron.com/api/getCitiesByRegion?region_id=$id',
+          'https://salony.topbusiness.io/api/getCitiesByRegion?region_id=$id',
           queryParameters: {
             // 'lang': global.languageCode,
           },
@@ -1395,7 +1395,7 @@ class APIHelper {
       var dio = Dio();
 
       response = await dio.get(
-          'https://salon.motaweron.com/api/getDistrictsByCity?city_id=$cityId',
+          'https://salony.topbusiness.io/api/getDistrictsByCity?city_id=$cityId',
           queryParameters: {
             // 'lang': global.languageCode,
           },
