@@ -341,9 +341,9 @@
     "@txt_confirmation_message_for_delete_Coupon": {
         "description": "هل أنت متأكد أنك تريد حذف هذه القسيمة؟"
     },
-    "lbl_add_service_variant": "إضافة متغير الخدمة",
+    "lbl_add_service_variant": "إضافة تصنيفات الخدمة",
     "@lbl_add_service_variant": {
-        "description": "إضافة متغير الخدمة"
+        "description": "إضافة تصنيفات الخدمة"
     },
     "txt_service_will_shown_here": "سيتم عرض قائمة الخدمات هنا",
     "@txt_service_will_shown_here": {

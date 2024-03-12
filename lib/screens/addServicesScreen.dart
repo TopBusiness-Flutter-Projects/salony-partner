@@ -464,6 +464,7 @@ class _AddServiceScreenState extends BaseRouteState {
         showNetworkErrorSnackBar(_scaffoldKey);
       }
     } catch (e) {
+      hideLoader();
       print("Exception - _getMainServices.dart - _getMainServices():" +
           e.toString());
     }

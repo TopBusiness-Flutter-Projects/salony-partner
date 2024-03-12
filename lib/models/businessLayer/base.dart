@@ -18,7 +18,8 @@ class Base extends StatefulWidget {
   BaseState createState() => BaseState();
 }
 
-class BaseState extends State<Base> with TickerProviderStateMixin, WidgetsBindingObserver {
+class BaseState extends State<Base>
+    with TickerProviderStateMixin, WidgetsBindingObserver {
   bool bannerAdLoaded = false;
 
   APIHelper? apiHelper;
@@ -86,7 +87,8 @@ class BaseState extends State<Base> with TickerProviderStateMixin, WidgetsBindin
         backgroundColor: Colors.grey,
       ));
     } catch (e) {
-      print("Exception -  base.dart - showNetworkErrorSnackBar():" + e.toString());
+      print("Exception -  base.dart - showNetworkErrorSnackBar():" +
+          e.toString());
     }
   }
 
@@ -147,7 +149,6 @@ class BaseState extends State<Base> with TickerProviderStateMixin, WidgetsBindin
                       style: TextStyle(color: Colors.red),
                     ),
                     onPressed: () {
-
                       return Navigator.of(context).pop(false);
                     },
                   ),

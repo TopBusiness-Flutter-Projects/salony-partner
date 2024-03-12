@@ -9,6 +9,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:shimmer/shimmer.dart';
 
+import 'edit_working_dayes.dart';
+
 class ProfileScreen extends BaseRoute {
   ProfileScreen({a, o}) : super(a: a, o: o, r: 'ProfileScreen');
   @override
@@ -39,21 +41,67 @@ class _ProfileScreenState extends BaseRouteState {
                         top: 15, bottom: 15, left: 10, right: 10),
                     width: MediaQuery.of(context).size.width,
                     height: 50,
-                    child: TextButton(
-                      onPressed: () {
-                        FocusScope.of(context).unfocus();
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => UpdateProfileScreen(
-                                  _user!,
-                                  a: widget.analytics,
-                                  o: widget.observer,
-                                )));
-                      },
-                      child: Text(
-                          AppLocalizations.of(context)!.btn_update_profile),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Flexible(
+                          fit: FlexFit.tight,
+                          child: InkWell(
+                            onTap: () {
+                              FocusScope.of(context).unfocus();
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => UpdateProfileScreen(
+                                        _user!,
+                                        a: widget.analytics,
+                                        o: widget.observer,
+                                      )));
+                            },
+                            child: Container(
+                              alignment: Alignment.center,
+                              padding: EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                  color: Color(0xFFFF6860),
+                                  borderRadius: BorderRadius.circular(12)),
+                              margin: EdgeInsets.all(5),
+                              child: Text(
+                                AppLocalizations.of(context)!
+                                    .btn_update_profile,
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            FocusScope.of(context).unfocus();
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => EditWorkingDayes(
+                                      _user!,
+                                      a: widget.analytics,
+                                      o: widget.observer,
+                                    )));
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            padding: EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                                color: Colors.blue,
+                                borderRadius: BorderRadius.circular(12)),
+                            margin: EdgeInsets.all(5),
+                            child: Text(
+                              'تعديل ساعات العمل',
+                              style:
+                                  TextStyle(fontSize: 14, color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                     decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColor,
+                        // color: Theme.of(context).primaryColor,
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                   )
                 : SizedBox(),

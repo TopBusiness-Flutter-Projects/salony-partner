@@ -22,6 +22,7 @@ import 'package:app/models/reviewModel.dart';
 import 'package:app/models/serviceModel.dart';
 import 'package:app/models/serviceVariantModel.dart';
 import 'package:app/models/userRequestModel.dart';
+import 'package:app/models/working_days.dart';
 import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 
@@ -1309,7 +1310,7 @@ class APIHelper {
     try {
       final response = await http.get(
         Uri.parse(
-            "https://salon.motaweron.com/api/get_main_services?type=$type"),
+            "https://salony.topbusiness.io/api/get_main_services?type=$type"),
         headers: await global.getApiHeaders(false),
       );
 
@@ -1337,7 +1338,7 @@ class APIHelper {
       Response response;
       var dio = Dio();
 
-      response = await dio.get('https://salon.motaweron.com/api/getRegions',
+      response = await dio.get('https://salony.topbusiness.io/api/getRegions',
           queryParameters: {
             // 'lang': global.languageCode,
           },
@@ -1366,7 +1367,7 @@ class APIHelper {
       var dio = Dio();
 
       response = await dio.get(
-          'https://salon.motaweron.com/api/getCitiesByRegion?region_id=$id',
+          'https://salony.topbusiness.io/api/getCitiesByRegion?region_id=$id',
           queryParameters: {
             // 'lang': global.languageCode,
           },
@@ -1395,7 +1396,7 @@ class APIHelper {
       var dio = Dio();
 
       response = await dio.get(
-          'https://salon.motaweron.com/api/getDistrictsByCity?city_id=$cityId',
+          'https://salony.topbusiness.io/api/getDistrictsByCity?city_id=$cityId',
           queryParameters: {
             // 'lang': global.languageCode,
           },
@@ -1415,6 +1416,40 @@ class APIHelper {
     } catch (e) {
       print("Exception - getCities(): " + e.toString());
       return [];
+    }
+  }
+
+  ///! edit
+
+  Future<dynamic> editWorkingDaysTimes(
+      {required int time_slot_id,
+      required String open_hour,
+      required String close_hour,
+      required int status}) async {
+    try {
+      final response = await http.post(
+        Uri.parse("${global.baseUrl}update_time_slot"),
+        headers: await global.getApiHeaders(false),
+        body: json.encode({
+          "time_slot_id": time_slot_id,
+          "open_hour": open_hour,
+          "close_hour": close_hour,
+          "status": status
+        }),
+      );
+
+      dynamic recordList;
+      if (response.statusCode == 200 &&
+          json.decode(response.body) != null &&
+          json.decode(response.body)["data"] != null) {
+        recordList =
+            WorkingDaysModel.fromJson(json.decode(response.body)["data"]);
+      } else {
+        recordList = null;
+      }
+      return getAPIResult(response, recordList);
+    } catch (e) {
+      print("Exception - setting(): " + e.toString());
     }
   }
 }
