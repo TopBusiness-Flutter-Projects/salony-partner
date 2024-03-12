@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:app/models/businessLayer/global.dart' as global;
 
 import '../models/businessLayer/baseRoute.dart';
 import '../models/partnerUserModel.dart';
-import '../widgets/bottomNavigationBar.dart';
+import '../widgets/edit_working_days.dart';
 
 class EditWorkingDayes extends BaseRoute {
   final CurrentUser userFromProfile;
@@ -19,43 +19,6 @@ class _EditWorkingDayesState extends BaseRouteState {
   CurrentUser userFromProfile;
 
   _EditWorkingDayesState(this.userFromProfile) : super();
-  TimeOfDay selectedTime = TimeOfDay.now();
-  Future<void> _selectStartTime(BuildContext context) async {
-    final TimeOfDay? picked_s = await showTimePicker(
-        context: context,
-        initialTime: selectedTime,
-        builder: (context, child) {
-          return MediaQuery(
-            data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
-            child: child!,
-          );
-        });
-
-    if (picked_s != null && picked_s != selectedTime)
-      setState(() {
-        selectedTime = picked_s;
-      });
-    setState(() {});
-  }
-
-  TimeOfDay selectedTimeEnd = TimeOfDay.now();
-  Future<void> _selectEndTime(BuildContext context) async {
-    final TimeOfDay? picked_s = await showTimePicker(
-        context: context,
-        initialTime: selectedTimeEnd,
-        builder: (context, child) {
-          return MediaQuery(
-            data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
-            child: child!,
-          );
-        });
-
-    if (picked_s != null && picked_s != selectedTimeEnd)
-      setState(() {
-        selectedTimeEnd = picked_s;
-      });
-    setState(() {});
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,86 +42,21 @@ class _EditWorkingDayesState extends BaseRouteState {
             ),
             leading: IconButton(
                 onPressed: () {
-                  Scaffold.of(context).showBottomSheet((context) => Container(
-                        height: MediaQuery.of(context).size.width,
-                        width: double.infinity,
-                        alignment: Alignment.center,
-                        child: SingleChildScrollView(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                  child: Text(userFromProfile
-                                      .weekly_time[index].days!)),
-                              // Text(
-                              //   "${localizations.formatTimeOfDay(userFromProfile.weekly_time[index].open_hour!)} - ${localizations.formatTimeOfDay(userFromProfile.weekly_time[index].close_hour!)}",
-                              // ),
-                              SizedBox(
-                                  height:
-                                      MediaQuery.of(context).size.width / 12),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Text(
-                                          'من : ${localizations.formatTimeOfDay(selectedTime)}'),
-                                      IconButton(
-                                          onPressed: () {
-                                            _selectEndTime(context);
-                                            setState(() {});
-                                          },
-                                          icon: Icon(Icons.watch_later_rounded))
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      Text(
-                                          'إلي : ${localizations.formatTimeOfDay(selectedTimeEnd)}'),
-                                      IconButton(
-                                          onPressed: () {
-                                            _selectStartTime(context);
-                                            setState(() {});
-                                          },
-                                          icon: Icon(Icons.watch_later_rounded))
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  MaterialButton(
-                                    color: Color(0xFFFF6860),
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  BottomNavigationWidget(
-                                                    a: widget.analytics,
-                                                    o: widget.observer,
-                                                  )));
-                                      //nav to navigation bar and
-                                    },
-                                    child: Text('حفظ'),
-                                  ),
-                                  MaterialButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: Text('إلغاء'),
-                                  )
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                      ));
+                  Scaffold.of(context).showBottomSheet(
+                      enableDrag: true,
+                      backgroundColor: Colors.blueGrey.shade100,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(12),
+                        topLeft: Radius.circular(12),
+                      )), (BuildContext context) {
+                    return WorkingDaysWidget(
+                      userFromProfile: userFromProfile,
+                      a: widget.analytics,
+                      o: widget.observer,
+                      index: index,
+                    );
+                  });
                 },
                 icon: Icon(CupertinoIcons.pencil_ellipsis_rectangle)),
           );

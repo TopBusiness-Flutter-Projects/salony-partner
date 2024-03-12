@@ -48,8 +48,6 @@ class BaseRouteState extends BaseState with RouteAware {
     _sendAnalyticsEvent();
   }
 
- 
-
   Future<void> _sendAnalyticsEvent() async {
     await widget.observer?.analytics.logEvent(
       name: widget.routeName!,
