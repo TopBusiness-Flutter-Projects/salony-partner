@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:app/models/businessLayer/baseRoute.dart';
 import 'package:app/models/businessLayer/global.dart' as global;
 import 'package:app/models/serviceVariantModel.dart';
 import 'package:app/screens/serviceListScreen.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -224,6 +227,106 @@ class _AddServiceVariantVariantScreenState extends BaseRouteState {
                                           ),
                                         ),
                                       ),
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                              width: 2,
+                                              color: Theme.of(context)
+                                                  .inputDecorationTheme
+                                                  .enabledBorder!
+                                                  .borderSide
+                                                  .color),
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(10),
+                                          ),
+                                        ),
+                                        margin: EdgeInsets.only(top: 5),
+                                        height: 300,
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                        child: _tImage == null
+                                            ? serviceVariant == null
+                                                ? GestureDetector(
+                                                    onTap: () {
+                                                      _showCupertinoModalSheet();
+                                                      setState(() {});
+                                                    },
+                                                    child: Center(
+                                                        child: Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Icon(
+                                                          Icons.image,
+                                                          size: 55,
+                                                          color: Theme.of(
+                                                                  context)
+                                                              .primaryTextTheme
+                                                              .displayLarge!
+                                                              .color,
+                                                        ),
+                                                        Text(AppLocalizations
+                                                                .of(context)!
+                                                            .lbl_tap_to_add_image)
+                                                      ],
+                                                    )),
+                                                  )
+                                                : GestureDetector(
+                                                    onTap: () {
+                                                      _showCupertinoModalSheet();
+                                                    },
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.all(
+                                                              Radius.circular(
+                                                                  10)),
+                                                      child: CachedNetworkImage(
+                                                        imageUrl: global
+                                                                .baseUrlForImage +
+                                                            serviceVariant!
+                                                                .varient_image!,
+                                                        imageBuilder: (context,
+                                                                imageProvider) =>
+                                                            Container(
+                                                          height: 90,
+                                                          decoration: BoxDecoration(
+                                                              image: DecorationImage(
+                                                                  fit: BoxFit
+                                                                      .contain,
+                                                                  image:
+                                                                      imageProvider)),
+                                                        ),
+                                                        placeholder: (context,
+                                                                url) =>
+                                                            Center(
+                                                                child:
+                                                                    CircularProgressIndicator()),
+                                                        errorWidget: (context,
+                                                                url, error) =>
+                                                            Icon(Icons.error),
+                                                      ),
+                                                    ),
+                                                  )
+                                            : GestureDetector(
+                                                onTap: () {
+                                                  _showCupertinoModalSheet();
+                                                },
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(10)),
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
+                                                        image: DecorationImage(
+                                                            image: FileImage(
+                                                                _tImage!),
+                                                            fit: BoxFit
+                                                                .contain)),
+                                                  ),
+                                                ),
+                                              ),
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -267,6 +370,55 @@ class _AddServiceVariantVariantScreenState extends BaseRouteState {
     }
   }
 
+  File? _tImage;
+  _showCupertinoModalSheet() {
+    try {
+      FocusScope.of(context).unfocus();
+      showCupertinoModalPopup(
+        context: context,
+        builder: (BuildContext context) => CupertinoActionSheet(
+          title: Text(AppLocalizations.of(context)!.lbl_action),
+          actions: [
+            CupertinoActionSheetAction(
+              child: Text(AppLocalizations.of(context)!.lbl_take_picture,
+                  style: TextStyle(color: Color(0xFF171D2C))),
+              onPressed: () async {
+                Navigator.pop(context);
+                showOnlyLoaderDialog();
+                _tImage = await br.openCamera();
+                hideLoader();
+
+                setState(() {});
+              },
+            ),
+            CupertinoActionSheetAction(
+              child: Text(AppLocalizations.of(context)!.lbl_choose_from_library,
+                  style: TextStyle(color: Color(0xFF171D2C))),
+              onPressed: () async {
+                Navigator.pop(context);
+                showOnlyLoaderDialog();
+                _tImage = await br.selectImageFromGallery();
+                hideLoader();
+
+                setState(() {});
+              },
+            )
+          ],
+          cancelButton: CupertinoActionSheetAction(
+            child: Text(AppLocalizations.of(context)!.lbl_cancel,
+                style: TextStyle(color: Color(0xFFFA692C))),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ),
+      );
+    } catch (e) {
+      print("Exception - addServicesScreen.dart - _showCupertinoModalSheet():" +
+          e.toString());
+    }
+  }
+
   _addServiceVariant() async {
     try {
       _serviceVariant.vendor_id = global.user.id;
@@ -278,6 +430,8 @@ class _AddServiceVariantVariantScreenState extends BaseRouteState {
       }
       _serviceVariant.varient = _cServiceName.text.trim();
       _serviceVariant.service_id = serviceId;
+      // _serviceVariant.varient_image = _tImage;
+
       if (_cServiceName.text.isNotEmpty &&
           _cServicePrice.text.isNotEmpty &&
           _cServiceTime.text.isNotEmpty) {
@@ -286,7 +440,9 @@ class _AddServiceVariantVariantScreenState extends BaseRouteState {
           showOnlyLoaderDialog();
 
           if (_serviceVariant.varient_id == null) {
-            await apiHelper?.addServiceVariant(_serviceVariant).then((result) {
+            await apiHelper
+                ?.addServiceVariant(_serviceVariant, _tImage)
+                .then((result) {
               if (result != null) {
                 if (result.status == "1") {
                   hideLoader();

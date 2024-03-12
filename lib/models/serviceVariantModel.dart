@@ -1,3 +1,5 @@
+import 'dart:io';
+
 class ServiceVariant {
   int? vendor_id;
   String? varient;
@@ -5,6 +7,7 @@ class ServiceVariant {
   int? time;
   int? service_id;
   int? varient_id;
+  String? varient_image;
 
   ServiceVariant();
 
@@ -14,11 +17,13 @@ class ServiceVariant {
         'price': price != null ? price : null,
         'varient': varient != null ? varient : null,
         'time': time != null ? time : null,
-        'varient_id': varient_id != null ? varient_id : null
+        'varient_id': varient_id != null ? varient_id : null,
+        "varient_image": varient_image ?? null
       };
 
   ServiceVariant.fromJson(Map<String, dynamic> json) {
     try {
+      varient_image = json['varient_image'];
       vendor_id = json['vendor_id'] != null ? json['vendor_id'] : null;
       service_id = json['service_id'] != null ? json['service_id'] : null;
       price = json['price'] != null ? json['price'] : null;
