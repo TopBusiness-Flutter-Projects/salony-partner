@@ -177,26 +177,43 @@ class APIHelper {
     }
   }
 
-  Future<dynamic> addServiceVariant(ServiceVariant serviceVariant) async {
+  Future<dynamic> addServiceVariant(
+      ServiceVariant serviceVariant, File? v_image) async {
     try {
-      final response = await http.post(
-        Uri.parse("${global.baseUrl}add_servicevariant"),
-        headers: await global.getApiHeaders(false),
-        body: json.encode(serviceVariant),
-      );
+      Response response;
+      var dio = Dio();
+      var formData = FormData.fromMap({
+        'vendor_id':
+            serviceVariant.vendor_id != null ? serviceVariant.vendor_id : null,
+        'service_id': serviceVariant.service_id != null
+            ? serviceVariant.service_id
+            : null,
+        'price': serviceVariant.price != null ? serviceVariant.price : null,
+        'varient':
+            serviceVariant.varient != null ? serviceVariant.varient : null,
+        'time': serviceVariant.time != null ? serviceVariant.time : null,
+        'varient_id': serviceVariant.varient_id != null
+            ? serviceVariant.varient_id
+            : null,
+        'varient_image': v_image != null
+            ? await MultipartFile.fromFile(v_image.path.toString())
+            : null
+      });
 
+      response = await dio.post("${global.baseUrl}add_servicevariant",
+          data: formData,
+          options: Options(
+            headers: await global.getApiHeaders(false),
+          ));
       dynamic recordList;
-      if (response.statusCode == 200 &&
-          json.decode(response.body) != null &&
-          json.decode(response.body)["data"] != null) {
-        recordList =
-            ServiceVariant.fromJson(json.decode(response.body)["data"]);
+      if (response.statusCode == 200 && response.data["status"] == "1") {
+        recordList = Service.fromJson(response.data['data']);
       } else {
         recordList = null;
       }
-      return getAPIResult(response, recordList);
+      return getAPIResultDio(response, recordList);
     } catch (e) {
-      print("Exception - addServiceVariant(): " + e.toString());
+      print("Exception - addService(): " + e.toString());
     }
   }
 
