@@ -156,8 +156,7 @@ class _NotificationScreenState extends BaseRouteState {
                                                               ),
                                                             )
                                                           : CachedNetworkImage(
-                                                              imageUrl: global
-                                                                      .baseUrlForImage +
+                                                              imageUrl:
                                                                   _notificationList[
                                                                           index]
                                                                       .image!,
@@ -176,8 +175,10 @@ class _NotificationScreenState extends BaseRouteState {
                                                               errorWidget: (context,
                                                                       url,
                                                                       error) =>
-                                                                  Icon(Icons
-                                                                      .error),
+                                                                  Image.asset(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      'assets/logo.png'),
                                                             ),
                                                       radius: 28,
                                                     ),
