@@ -938,6 +938,7 @@ class APIHelper {
 
   Future<dynamic> getNotification(int id) async {
     try {
+      print(id);
       final response = await http.post(
         Uri.parse("${global.baseUrl}notifications"),
         headers: await global.getApiHeaders(false),

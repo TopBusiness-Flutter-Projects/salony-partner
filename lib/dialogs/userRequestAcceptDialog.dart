@@ -153,9 +153,9 @@ class _UserRequestAcceptDialogState extends BaseRouteState {
                         ..._widgetList(),
                         isFromAppointmentHistory
                             ? Container()
-                            : (_bookingDetail?.in_door == 1)
-                                ? Container()
-                                : Container(
+                            : (_bookingDetail?.in_door == 0 &&
+                                    _bookingDetail!.statustext == 'Pending')
+                                ? Container(
                                     // height: 50,
                                     child: TextFormField(
                                       validator: (value) {
@@ -179,6 +179,7 @@ class _UserRequestAcceptDialogState extends BaseRouteState {
                                       keyboardType: TextInputType.number,
                                     ),
                                   )
+                                : Container()
                       ]
                     : [
                         Center(
@@ -251,6 +252,7 @@ class _UserRequestAcceptDialogState extends BaseRouteState {
                     )));
           } else {
             Navigator.of(context).pop();
+
             showSnackBar(snackBarMessage: '${result.message}');
           }
         });
