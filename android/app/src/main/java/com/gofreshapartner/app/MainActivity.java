@@ -1,4 +1,4 @@
-package com.gofreshapartner.app;
+package com.topbusiness.salony_partner;
 
 import io.flutter.embedding.android.FlutterActivity;
 
