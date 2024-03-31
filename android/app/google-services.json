@@ -4,57 +4,12 @@
     "project_id": "gofresha-2b68d",
     "storage_bucket": "gofresha-2b68d.appspot.com"
   },
-  "client": [
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:496857907520:android:ee5e4d70fa7a4abe823aa5",
-        "android_client_info": {
-          "package_name": "com.gofresha.app"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "496857907520-08dhemfphme3bedmpcf1he38qjpnpg0k.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.gofresha.app",
-            "certificate_hash": "48f97620ed433b637b0cf57774c84f25aa69d7c7"
-          }
-        },
-        {
-          "client_id": "496857907520-addhb2gmnflt13e6eetchsgsftmfq86p.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.gofresha.app",
-            "certificate_hash": "503d61c841587184ad3aa27de435ef7cd298d785"
-          }
-        },
-        {
-          "client_id": "496857907520-gh6t6gvv16ugdfo7sb5l201pohios1ua.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAXnB5scgzIimTCjXVydCRAhAo6eguYN6U"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "496857907520-gh6t6gvv16ugdfo7sb5l201pohios1ua.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
+  "client": [ 
     {
       "client_info": {
         "mobilesdk_app_id": "1:496857907520:android:bc4080f6ee0cc0d2823aa5",
         "android_client_info": {
-          "package_name": "com.gofreshapartner.app"
+          "package_name": "com.topbusiness.salony_partner"
         }
       },
       "oauth_client": [
@@ -62,7 +17,7 @@
           "client_id": "496857907520-58kvjfk049f175djbm5llgespqop66n1.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.gofreshapartner.app",
+            "package_name": "com.topbusiness.salony_partner",
             "certificate_hash": "72e453f6036ab3fe4040ac68982190f0a1a84b75"
           }
         },
@@ -70,7 +25,7 @@
           "client_id": "496857907520-o0gm36eh7hsh701muura3hcnp2c5c7ku.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.gofreshapartner.app",
+            "package_name": "com.topbusiness.salony_partner",
             "certificate_hash": "48f97620ed433b637b0cf57774c84f25aa69d7c7"
           }
         },
