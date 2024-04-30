@@ -27,16 +27,16 @@
 	<key>NSCalendarsUsageDescription</key>
 	<string>$this app needs access to your calender to pick a date.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>$this app needs access to your camera for click picture and save.</string>
+	<string>$this app needs access to your camera for click picture and save for products and services.</string>
 
-	<key>NSMicrophoneUsageDescription</key>
-	<string>$this app needs access to your microphone for video.</string>
-	<key>NSMotionUsageDescription</key>
-	<string>$this app needs access to your motion in video </string>
+	<!-- <key>NSMicrophoneUsageDescription</key>
+	<string>$this app needs access to your microphone for video.</string> -->
+	<!-- <key>NSMotionUsageDescription</key>
+	<string>$this app needs access to your motion in video </string> -->
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Open gallery for image selection</string>
-	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>$this app needs access to your speech recognition in video</string>
+	<string>Open gallery for image selection for products and services.</string>
+	<!-- <key>NSSpeechRecognitionUsageDescription</key>
+	<string>$this app needs access to your speech recognition in video</string> -->
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>
