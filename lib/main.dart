@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:app/Theme/nativeTheme.dart';
-import 'package:app/l10n/l10n.dart';
 import 'package:app/provider/local_provider.dart';
 import 'package:app/screens/splashScreen.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -13,6 +12,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
+
 ///!test
 late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 AndroidNotificationChannel channel = const AndroidNotificationChannel(
