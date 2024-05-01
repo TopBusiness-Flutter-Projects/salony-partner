@@ -144,7 +144,7 @@ class _HelpAndSupportScreenState extends BaseRouteState {
                                                                 const EdgeInsets
                                                                     .all(8.0),
                                                             child: Text(
-                                                              '${_faqList[index].answer}',
+                                                              '${_faqList[index].answer ?? 'answer'}',
                                                               style: Theme.of(
                                                                       context)
                                                                   .primaryTextTheme
@@ -153,7 +153,7 @@ class _HelpAndSupportScreenState extends BaseRouteState {
                                                           )
                                                         ],
                                                         title: Text(
-                                                          '${index + 1}. ${_faqList[index].question}',
+                                                          '${index + 1}. ${_faqList[index].question ?? 'question'}',
                                                         )),
                                                   );
                                                 }),
