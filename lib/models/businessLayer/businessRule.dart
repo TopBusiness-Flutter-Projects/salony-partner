@@ -43,7 +43,8 @@ class BusinessRule {
 
       return isConnected;
     } catch (e) {
-      print('Exception - businessRule.dart - checkConnectivity(): ' + e.toString());
+      print('Exception - businessRule.dart - checkConnectivity(): ' +
+          e.toString());
     }
     return false;
   }
@@ -64,7 +65,8 @@ class BusinessRule {
 
         CroppedFile? _byteData = await _cropImage(imageFile.path);
         if (_byteData != null) {
-          File? _compressedImage = await _imageCompress(_byteData, imageFile.path);
+          File? _compressedImage =
+              await _imageCompress(_byteData, imageFile.path);
 
           return _compressedImage;
         } else {
@@ -94,14 +96,16 @@ class BusinessRule {
 
         CroppedFile? _byteData = await _cropImage(imageFile.path);
         if (_byteData != null) {
-          File? _compressedImage = await _imageCompress(_byteData, imageFile.path);
+          File? _compressedImage =
+              await _imageCompress(_byteData, imageFile.path);
           return _compressedImage;
         } else {
           return null;
         }
       }
     } catch (e) {
-      print("Exception - businessRule.dart - selectImageFromGallery()" + e.toString());
+      print("Exception - businessRule.dart - selectImageFromGallery()" +
+          e.toString());
     }
     return null;
   }
@@ -109,22 +113,21 @@ class BusinessRule {
   Future<CroppedFile?> _cropImage(String sourcePath) async {
     try {
       CroppedFile? _croppedFile = await ImageCropper().cropImage(
-        sourcePath: sourcePath,
-        aspectRatio: CropAspectRatio(ratioX: 1, ratioY: 1),
-        uiSettings: [
-          AndroidUiSettings(
-            initAspectRatio: CropAspectRatioPreset.original,
-            backgroundColor: Colors.white,
-            toolbarColor: Colors.black,
-            dimmedLayerColor: Colors.white,
-            toolbarWidgetColor: Colors.white,
-            cropGridColor: Colors.white,
-            activeControlsWidgetColor: Color(0xFF46A9FC),
-            cropFrameColor: Color(0xFF46A9FC),
-            lockAspectRatio: true,
-          ),
-        ]
-      );
+          sourcePath: sourcePath,
+          aspectRatio: CropAspectRatio(ratioX: 1, ratioY: 1),
+          uiSettings: [
+            AndroidUiSettings(
+              initAspectRatio: CropAspectRatioPreset.original,
+              backgroundColor: Colors.white,
+              toolbarColor: Colors.black,
+              dimmedLayerColor: Colors.white,
+              toolbarWidgetColor: Colors.white,
+              cropGridColor: Colors.white,
+              activeControlsWidgetColor: Color(0xFF46A9FC),
+              cropFrameColor: Color(0xFF46A9FC),
+              lockAspectRatio: true,
+            ),
+          ]);
 
       return _croppedFile;
     } catch (e) {
@@ -154,7 +157,8 @@ class BusinessRule {
     try {
       global.sp = await SharedPreferences.getInstance();
     } catch (e) {
-      print("Exception - businessRule.dart - getSharedPreferences():" + e.toString());
+      print("Exception - businessRule.dart - getSharedPreferences():" +
+          e.toString());
     }
   }
 

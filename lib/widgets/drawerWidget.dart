@@ -26,6 +26,7 @@ class DrawerWidget extends BaseRoute {
 
 class _DrawerWidgetState extends BaseRouteState {
   _DrawerWidgetState() : super();
+  GlobalKey<ScaffoldState>? _scaffoldKey;
 
   @override
   Widget build(BuildContext context) {
@@ -342,6 +343,23 @@ class _DrawerWidgetState extends BaseRouteState {
                 },
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.only(),
+              child: ListTile(
+                leading: Icon(
+                  Icons.delete,
+                  color: Colors.white,
+                  size: 22,
+                ),
+                title: Text(
+                  AppLocalizations.of(context)!.lbl_sign_delete,
+                  style: Theme.of(context).primaryTextTheme.labelLarge,
+                ),
+                onTap: () {
+                  _confirmationDeleteDialog();
+                },
+              ),
+            ),
           ],
         ),
       ),
@@ -391,5 +409,67 @@ class _DrawerWidgetState extends BaseRouteState {
             ],
           );
         });
+  }
+
+  Future _confirmationDeleteDialog() async {
+    showDialog(
+        context: context,
+        builder: (_) {
+          return AlertDialog(
+            title: Text(
+              'حذف الحساب',
+            ),
+            content: Text('هل تريد حذف الحساب ؟'),
+            actions: [
+              TextButton(
+                child: Text(AppLocalizations.of(context)!.lbl_no),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+              TextButton(
+                child: Text(AppLocalizations.of(context)!.lbl_yes),
+                onPressed: () async {
+                  deleteAccount().then((e) {
+                    print('000000 ${global.user.id.toString()}');
+                    global.sp.remove("currentUser");
+                    //!delete account  deleteAccount
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                          builder: (context) => SignInScreen(
+                                a: widget.analytics,
+                                o: widget.observer,
+                              )),
+                    );
+                  });
+                },
+              )
+            ],
+          );
+        });
+  }
+
+  deleteAccount() async {
+    try {
+      bool isConnected = await br.checkConnectivity();
+      if (isConnected) {
+        showOnlyLoaderDialog();
+        await apiHelper?.deleteAccount(global.user.id!).then((result) {
+          print('0000 ${global.user.id.toString()}');
+          if (result.status == "1") {
+            print('0000 ${global.user.id.toString()}');
+
+            setState(() {});
+
+            hideLoader();
+          } else {
+            hideLoader();
+            showSnackBar(snackBarMessage: '${result.message}');
+          }
+        });
+      } else {
+        showNetworkErrorSnackBar(_scaffoldKey!);
+      }
+    } catch (e) {
+      print("Exception - deleteaccount.dart " + e.toString());
+    }
   }
 }

@@ -17,12 +17,14 @@ class APIResult<T> {
     this.error,
   });
 
-  factory APIResult.fromJson(Map<String, dynamic> json, T _recordList) => new APIResult(
+  factory APIResult.fromJson(Map<String, dynamic> json, T _recordList) =>
+      new APIResult(
         status: json["status"].toString(),
         isDisplayMessage: json['isDisplayMessage'],
         message: json["message"],
         recordList: _recordList,
-        totalRecords: json["totalRecords"] != null ? json["totalRecords"] : null,
+        totalRecords:
+            json["totalRecords"] != null ? json["totalRecords"] : null,
         value: json["value"] == null ? null : json["value"],
         error: json["error"] != null ? Error.fromJson(json["error"]) : null,
       );
