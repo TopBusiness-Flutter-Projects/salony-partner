@@ -930,9 +930,14 @@
     "txt_your_new_expert": "الخبير الجديد الخاص بك",
     "@txt_your_new_expert": {
         "description": "الخبير الجديد الخاص بك"
-    },  "lbl_sign_out": "تسجيل الخروج",
+    }, 
+     "lbl_sign_out": "تسجيل الخروج",
     "@lbl_sign_out": {
         "description": "تسجيل الخروج"
+    },
+     "lbl_sign_delete": "حذف الحساب",
+    "@lbl_sign_delete": {
+        "description": "حذف الحساب"
     },
     "txt_confirmation_message_for_sign_out": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
     "@txt_confirmation_message_for_sign_out": {

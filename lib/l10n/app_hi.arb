@@ -948,6 +948,12 @@
     "@lbl_sign_out": {
       "description": "Sign Out"
     },
+
+    
+    "lbl_sign_delete": "delete account",
+    "@lbl_sign_delete": {
+        "description": "delete account"
+    },
     "txt_confirmation_message_for_sign_out":"Are you sure you want to Sign Out?",
     "@txt_confirmation_message_for_sign_out": {
       "description": "Are you sure you want to Sign Out?"

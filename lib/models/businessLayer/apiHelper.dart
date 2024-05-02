@@ -1304,6 +1304,35 @@ class APIHelper {
     }
   }
 
+  Future<dynamic> deleteAccount(
+    int vendor_id,
+  ) async {
+    try {
+      Response response;
+      var dio = Dio();
+      var formData = FormData.fromMap({
+        'id': vendor_id,
+      });
+
+      response = await dio.post('${global.baseUrl}del_partners',
+          data: formData,
+          options: Options(
+            headers: await global.getApiHeaders(false),
+          ));
+      dynamic recordList;
+
+      if (response.statusCode == 200 && response.data["status"] == "1") {
+        recordList = CurrentUser.fromJson(response.data["data"]);
+      } else {
+        recordList = null;
+      }
+      print(response.data.toString());
+      return getAPIResultDio(response, recordList);
+    } catch (e) {
+      print("Exception - delete account(): " + e.toString());
+    }
+  }
+
   Future<dynamic> verifyOtp(String email, String otp) async {
     try {
       final response = await http.post(

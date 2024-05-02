@@ -17,9 +17,12 @@ class ShareSentPending {
       service_date = json['service_date'] != null ? json['service_date'] : null;
       mobile = json['mobile'] != null ? json['mobile'] : null;
       statustext = json['statustext'] != null ? json['statustext'] : null;
-      paymentStatus = json['payment_status'] != null ? json['payment_status'] : null;
+      paymentStatus =
+          json['payment_status'] != null ? json['payment_status'] : null;
     } catch (e) {
-      print("Exception - shareSentPendingModel.dart - ShareSentPending.fromJson():" + e.toString());
+      print(
+          "Exception - shareSentPendingModel.dart - ShareSentPending.fromJson():" +
+              e.toString());
     }
   }
 }
