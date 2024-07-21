@@ -32,11 +32,13 @@ class _GeneralInformationScreenState extends BaseRouteState {
   CurrentUser user = new CurrentUser();
   TextEditingController _cVenderName = new TextEditingController();
   TextEditingController _cOwnerName = new TextEditingController();
+  TextEditingController _cChairCount = new TextEditingController();
   TextEditingController _cPhoneNumber = new TextEditingController();
   TextEditingController _cAddress = new TextEditingController();
   TextEditingController _cDescription = new TextEditingController();
   File? _tImage;
   var _fOwnerName = new FocusNode();
+  var _fChairCount = new FocusNode();
   var _fPhoneNumber = new FocusNode();
   var _fAddress = new FocusNode();
 
@@ -190,6 +192,32 @@ class _GeneralInformationScreenState extends BaseRouteState {
                                         ),
                                       ),
                                     ),
+                                    Text(
+                                      'عدد الكراسي',
+                                      style: Theme.of(context)
+                                          .primaryTextTheme
+                                          .titleSmall,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 5),
+                                      child: TextFormField(
+                                        keyboardType: TextInputType.number,
+                                        textCapitalization:
+                                            TextCapitalization.none,
+                                        onEditingComplete: () {
+                                          FocusScope.of(context)
+                                              .requestFocus(_fChairCount);
+                                        },
+                                        focusNode: _fChairCount,
+                                        controller: _cChairCount,
+                                        decoration: InputDecoration(
+                                          hintText: 'ادخل عدد الكراسي',
+                                          contentPadding:
+                                              EdgeInsets.only(top: 5, left: 10),
+                                        ),
+                                      ),
+                                    ),
+                                    //!
                                     Text(
                                       AppLocalizations.of(context)!
                                           .lbl_phone_number,
@@ -695,6 +723,7 @@ class _GeneralInformationScreenState extends BaseRouteState {
       user.vendor_phone = _cPhoneNumber.text.trim();
       user.description = _cDescription.text.trim();
       user.owner_name = _cOwnerName.text.trim();
+      user.chairCount = int.parse(_cChairCount.text.toString()).round();
 
       if (_saloonType != null) {
         user.type = _saloonType;
@@ -705,6 +734,7 @@ class _GeneralInformationScreenState extends BaseRouteState {
       if (_cVenderName.text.isNotEmpty &&
           _cPhoneNumber.text.isNotEmpty &&
           _cOwnerName.text.isNotEmpty &&
+          _cChairCount.text.isNotEmpty &&
           _cAddress.text.isNotEmpty &&
           _cDescription.text.isNotEmpty &&
           _tImage != null &&
@@ -714,6 +744,7 @@ class _GeneralInformationScreenState extends BaseRouteState {
           showOnlyLoaderDialog();
           await apiHelper
               ?.signUp(
+                  user.chairCount ?? 1,
                   user.type!,
                   user.vendor_name!,
                   user.owner_name!,
@@ -769,6 +800,8 @@ class _GeneralInformationScreenState extends BaseRouteState {
         showSnackBar(
             snackBarMessage:
                 AppLocalizations.of(context)!.txt_please_enter_address);
+      } else if (_cChairCount.text.isEmpty) {
+        showSnackBar(snackBarMessage: 'ادخل عدد الكراسي');
       } else if (_cDescription.text.isEmpty) {
         showSnackBar(
             snackBarMessage:

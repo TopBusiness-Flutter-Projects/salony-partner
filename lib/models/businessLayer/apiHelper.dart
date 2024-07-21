@@ -1206,6 +1206,7 @@ class APIHelper {
   }
 
   Future<dynamic> signUp(
+      int chairCount,
       int type,
       String vendor_name,
       String owner_name,
@@ -1226,6 +1227,7 @@ class APIHelper {
         'type': type,
         'vendor_name': vendor_name,
         'owner_name': owner_name,
+        'chair_count': chairCount,
         'vendor_email': vendor_email,
         'vendor_password': vendor_password,
         'device_id': device_id,

@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 
 class CurrentUser with JsonParsable {
   int? id;
+  int? chairCount;
+
   String? vendor_phone;
   String? salon_name;
   double? rating;
@@ -118,12 +120,14 @@ class CurrentUser with JsonParsable {
         "city": city,
         "region": region,
         "area": area,
+        "chair_count": chairCount,
       };
 
   CurrentUser.fromJson(Map<String, dynamic> json) {
     try {
       region = json['region'] ?? null;
       city = json['city'] ?? null;
+      chairCount = json['chair_count'];
       area = json['area'] ?? null;
       id = json['vendor_id'] != null ? parseField(json['vendor_id']) : null;
       vendor_phone = json['vendor_phone'] != null ? json['vendor_phone'] : null;
