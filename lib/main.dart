@@ -13,6 +13,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 
+import 'firebase_options.dart';
+
 ///!test
 late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 AndroidNotificationChannel channel = const AndroidNotificationChannel(
@@ -33,8 +35,11 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  // await Firebase.initializeApp();
 
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
   flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();

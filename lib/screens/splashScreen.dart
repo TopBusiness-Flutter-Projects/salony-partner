@@ -50,6 +50,9 @@ class _SplashScreenState extends BaseRouteState {
               alignment: Alignment.topCenter,
               child: Column(
                 children: [
+                  SizedBox(
+                    height: MediaQuery.of(context).size.width / 1.8,
+                  ),
                   Image.asset(
                     'assets/appicon_120x120.png',
                     width: MediaQuery.of(context).size.width / 1.8,

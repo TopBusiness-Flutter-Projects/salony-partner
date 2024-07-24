@@ -155,7 +155,7 @@ class _ProfileScreenState extends BaseRouteState {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   MaterialButton(
-                    color: Color(0xFFFF6860),
+                    color: Color.fromRGBO(83, 174, 219, 1),
                     onPressed: () {
                       _editWorkingDaysTimes(
                         time_slot_id:

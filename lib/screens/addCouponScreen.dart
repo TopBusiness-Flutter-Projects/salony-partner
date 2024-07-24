@@ -74,18 +74,14 @@ class _AddCouponScreenState extends BaseRouteState {
                 child: Stack(
                   children: [
                     Container(
-                      width: MediaQuery.of(context).size.width,
-                      child: ColorFiltered(
-                        colorFilter: ColorFilter.mode(
-                          Theme.of(context).primaryColor,
-                          BlendMode.screen,
-                        ),
-                        child: Image.asset(
-                          'assets/banner.jpg',
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
+                        height: 150,
+                        width: MediaQuery.of(context).size.width,
+                        child: ColorFiltered(
+                            colorFilter: ColorFilter.mode(
+                                Colors.blueGrey.withOpacity(0.6),
+                                BlendMode.screen),
+                            child: Image.asset('assets/banner.jpg',
+                                fit: BoxFit.cover))),
                     Padding(
                       padding: EdgeInsets.only(bottom: 15, left: 10, top: 10),
                       child: GestureDetector(
