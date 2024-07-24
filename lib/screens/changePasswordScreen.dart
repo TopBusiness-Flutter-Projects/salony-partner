@@ -61,8 +61,7 @@ class _ChangePasswordScreenState extends BaseRouteState {
                             width: MediaQuery.of(context).size.width,
                             child: ColorFiltered(
                               colorFilter: ColorFilter.mode(
-                                Theme.of(context).primaryColor,
-                                BlendMode.screen,
+         Colors.blueGrey.withOpacity(0.6),                                BlendMode.screen,
                               ),
                               child: Image.asset(
                                 'assets/banner.jpg',

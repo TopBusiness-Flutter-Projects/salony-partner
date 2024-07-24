@@ -1,52 +1,45 @@
 {
   "project_info": {
-    "project_number": "496857907520",
-    "project_id": "gofresha-2b68d",
-    "storage_bucket": "gofresha-2b68d.appspot.com"
+    "project_number": "559354982479",
+    "project_id": "salonyuser",
+    "storage_bucket": "salonyuser.appspot.com"
   },
-  "client": [ 
+  "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:496857907520:android:bc4080f6ee0cc0d2823aa5",
+        "mobilesdk_app_id": "1:559354982479:android:8502121e9152a5be3a7a3a",
         "android_client_info": {
-          "package_name": "com.topbusiness.salony_partner"
+          "package_name": "com.topbusiness.salony"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "496857907520-58kvjfk049f175djbm5llgespqop66n1.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.topbusiness.salony_partner",
-            "certificate_hash": "72e453f6036ab3fe4040ac68982190f0a1a84b75"
-          }
-        },
-        {
-          "client_id": "496857907520-o0gm36eh7hsh701muura3hcnp2c5c7ku.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.topbusiness.salony_partner",
-            "certificate_hash": "48f97620ed433b637b0cf57774c84f25aa69d7c7"
-          }
-        },
-        {
-          "client_id": "496857907520-gh6t6gvv16ugdfo7sb5l201pohios1ua.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAXnB5scgzIimTCjXVydCRAhAo6eguYN6U"
+          "current_key": "AIzaSyCI-G6YMnxkYZaRZHcG_7I7ixbz_Z9qcQI"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "496857907520-gh6t6gvv16ugdfo7sb5l201pohios1ua.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:559354982479:android:d3acba07e792e2533a7a3a",
+        "android_client_info": {
+          "package_name": "com.topbusiness.salony_partner"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCI-G6YMnxkYZaRZHcG_7I7ixbz_Z9qcQI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
         }
       }
     }

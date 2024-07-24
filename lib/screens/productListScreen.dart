@@ -57,7 +57,7 @@ class _ProductListScreenState extends BaseRouteState {
                       width: MediaQuery.of(context).size.width,
                       child: ColorFiltered(
                         colorFilter: ColorFilter.mode(
-                          Theme.of(context).primaryColor,
+                           Colors.blueGrey.withOpacity(0.6),
                           BlendMode.screen,
                         ),
                         child: Image.asset(

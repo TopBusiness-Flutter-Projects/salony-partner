@@ -1,31 +1,32 @@
 import 'package:flutter/material.dart';
 
 Map<int, Color> color = {
-  50: Color.fromRGBO(255, 104, 96, .1),
-  100: Color.fromRGBO(255, 104, 96, .2),
-  200: Color.fromRGBO(255, 104, 96, .3),
-  300: Color.fromRGBO(255, 104, 96, .4),
-  400: Color.fromRGBO(255, 104, 96, .5),
-  500: Color.fromRGBO(255, 104, 96, .6),
-  600: Color.fromRGBO(255, 104, 96, .7),
-  700: Color.fromRGBO(255, 104, 96, .8),
-  800: Color.fromRGBO(255, 104, 96, .9),
-  900: Color.fromRGBO(255, 104, 96, 1),
+  50: Color.fromRGBO(83, 174, 219, .1),
+  100: Color.fromRGBO(83, 174, 219, .2),
+  200: Color.fromRGBO(83, 174, 219, .3),
+  300: Color.fromRGBO(83, 174, 219, .4),
+  400: Color.fromRGBO(83, 174, 219, .5),
+  500: Color.fromRGBO(83, 174, 219, .6),
+  600: Color.fromRGBO(83, 174, 219, .7),
+  700: Color.fromRGBO(83, 174, 219, .8),
+  800: Color.fromRGBO(83, 174, 219, .9),
+  900: Color.fromRGBO(83, 174, 219, 1),
 };
 ThemeData nativeTheme() {
   return ThemeData(
-      primaryColor: Color(
-          0xFFFF6860), //partner app old primary color: #FA692C ,new updated color #ff6860 (02-10-2021)
+      primaryColor: const Color.fromARGB(255, 83, 174,
+          219), //partner app old primary color: #FA692C ,new updated color #ff6860 (02-10-2021)
       // primaryColorLight: Color.fromRGBO(255, 166, 146, .6), // Color(0xFFFFA692),
-      primaryColorLight: Color(0xFFFFA6A2),
-      primaryColorDark: Color(0xFFFF6860),
+      primaryColorLight: Color.fromRGBO(83, 174, 219, .7),
+      primaryColorDark: Color.fromRGBO(83, 174, 219, 1),
       primarySwatch: MaterialColor(0xFFFF6860, color),
       primaryIconTheme: IconThemeData(color: Colors.white),
-      iconTheme: IconThemeData(color: Color(0xFFFF6860)),
+      iconTheme: IconThemeData(color: Color.fromRGBO(83, 174, 219, 1)),
       cardColor: Color(0xFFF8F1F7),
       primaryTextTheme: TextTheme(
         labelLarge: TextStyle(color: Colors.white, fontSize: 17),
-        displayLarge: TextStyle(fontSize: 15, color: Color(0xFFFF6860)),
+        displayLarge:
+            TextStyle(fontSize: 15, color: Color.fromRGBO(83, 174, 219, 1)),
         displayMedium: TextStyle(
             fontSize: 18,
             color: Colors.white,
@@ -90,13 +91,14 @@ ThemeData nativeTheme() {
 
       scaffoldBackgroundColor: Colors.white,
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: Color(0xFFFF6860),
+        backgroundColor: Color.fromRGBO(83, 174, 219, 1),
       ),
       textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
         padding:
             MaterialStateProperty.all(EdgeInsets.only(top: 10, bottom: 10)),
-        backgroundColor: MaterialStateProperty.all(Color(0xFFFF6860)),
+        backgroundColor:
+            MaterialStateProperty.all(Color.fromRGBO(83, 174, 219, 1)),
         shadowColor: MaterialStateProperty.all(Colors.white),
         foregroundColor: MaterialStateProperty.all(Colors.white),
         shape: MaterialStateProperty.all(RoundedRectangleBorder(
@@ -111,11 +113,11 @@ ThemeData nativeTheme() {
       outlinedButtonTheme: OutlinedButtonThemeData(
           style: ButtonStyle(
         side: MaterialStateProperty.all(
-            BorderSide(color: Color(0xFFFF6860), width: 1.5)),
+            BorderSide(color: Color.fromRGBO(83, 174, 219, 1), width: 1.5)),
         textStyle: MaterialStateProperty.all(TextStyle(
             fontSize: 16,
             fontFamily: 'cairo',
-            color: Color(0xFFFF6860),
+            color: Color.fromRGBO(83, 174, 219, 1),
             fontWeight: FontWeight.w400)),
         shape: MaterialStateProperty.all(RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5),
@@ -129,7 +131,7 @@ ThemeData nativeTheme() {
         titleTextStyle: TextStyle(
             fontWeight: FontWeight.bold,
             fontFamily: 'cairo',
-            color: Color(0xFFFF6860)),
+            color: Color.fromRGBO(83, 174, 219, 1)),
       ),
       //elevatedButtonTheme: ElevatedButtonThemeData(style: ButtonStyle(elevation: 0.5)),
       fontFamily: 'cairo',
@@ -137,11 +139,11 @@ ThemeData nativeTheme() {
       buttonTheme: ButtonThemeData(
         textTheme: ButtonTextTheme.primary,
         height: 50,
-        buttonColor: Color(0xFFFF6860),
-        focusColor: Color(0xFFFF6860),
-        highlightColor: Color(0xFFFF6860),
-        hoverColor: Color(0xFFFF6860),
-        splashColor: Color(0xFFFF6860),
+        buttonColor: Color.fromRGBO(83, 174, 219, 1),
+        focusColor: Color.fromRGBO(83, 174, 219, 1),
+        highlightColor: Color.fromRGBO(83, 174, 219, 1),
+        hoverColor: Color.fromRGBO(83, 174, 219, 1),
+        splashColor: Color.fromRGBO(83, 174, 219, 1),
         disabledColor: Colors.grey,
         shape: RoundedRectangleBorder(
             borderRadius: new BorderRadius.all(new Radius.circular(10.0))),
@@ -183,7 +185,7 @@ ThemeData nativeTheme() {
           borderRadius: BorderRadius.all(Radius.circular(10.0)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Color(0xFFFF6860)),
+          borderSide: BorderSide(color: Color.fromRGBO(83, 174, 219, 1)),
           borderRadius: BorderRadius.all(Radius.circular(10.0)),
         ),
         filled: true,
@@ -193,8 +195,10 @@ ThemeData nativeTheme() {
       appBarTheme: AppBarTheme(
         color: Colors.grey[100],
         elevation: 0,
-        actionsIconTheme: IconThemeData(color: Color(0xFFFF6860), size: 30),
-        iconTheme: IconThemeData(color: Color(0xFFFF6860), size: 24),
+        actionsIconTheme:
+            IconThemeData(color: Color.fromRGBO(83, 174, 219, 1), size: 30),
+        iconTheme:
+            IconThemeData(color: Color.fromRGBO(83, 174, 219, 1), size: 24),
       ),
       useMaterial3: false,
       elevatedButtonTheme: ElevatedButtonThemeData(
@@ -214,6 +218,6 @@ ThemeData nativeTheme() {
       ),
       checkboxTheme: CheckboxThemeData(
         checkColor: MaterialStateProperty.all(Colors.white),
-        fillColor: MaterialStateProperty.all(Color(0xFFFF6860)),
+        fillColor: MaterialStateProperty.all(Color.fromRGBO(83, 174, 219, 1)),
       ));
 }

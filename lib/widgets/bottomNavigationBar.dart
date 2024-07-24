@@ -5,7 +5,6 @@ import 'package:app/screens/appointmentHistoryScreen.dart';
 import 'package:app/screens/homeScreen.dart';
 import 'package:app/screens/profileScreen.dart';
 import 'package:app/screens/requestScreen.dart';
-import 'package:app/widgets/drawerWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -39,6 +38,12 @@ class _BottomNavigationWidgetState extends BaseRouteState {
         return false;
       },
       child: Scaffold(
+        // drawer: _selectedIndex == 0
+        // ? DrawerWidget(
+        //     a: widget.analytics,
+        //     o: widget.observer,
+        //   )
+        //     : Container(),
         bottomNavigationBar: Container(
           height: MediaQuery.of(context).size.width / 7,
           width: MediaQuery.of(context).size.width,
@@ -77,12 +82,7 @@ class _BottomNavigationWidgetState extends BaseRouteState {
             onTap: _onItemTap,
           ),
         ),
-        drawer: _selectedIndex == 0
-            ? DrawerWidget(
-                a: widget.analytics,
-                o: widget.observer,
-              )
-            : null,
+        // drawer:
         body: AnnotatedRegion<SystemUiOverlayStyle>(
             value: SystemUiOverlayStyle.dark,
             child: sc(_children().elementAt(_selectedIndex))),
