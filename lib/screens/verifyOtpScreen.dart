@@ -71,7 +71,7 @@ class _VerifyOtpScreenState extends BaseRouteState {
                             width: MediaQuery.of(context).size.width,
                             child: ColorFiltered(
                               colorFilter: ColorFilter.mode(
-                    Colors.blueGrey.withOpacity(0.6),
+                                Colors.blueGrey.withOpacity(0.6),
                                 BlendMode.screen,
                               ),
                               child: Image.asset(
@@ -238,7 +238,7 @@ class _VerifyOtpScreenState extends BaseRouteState {
               hideLoader();
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => ChangePasswordScreen(
-                        true,
+                        email,
                         a: widget.analytics,
                         o: widget.observer,
                       )));

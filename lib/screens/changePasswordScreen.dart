@@ -5,18 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ChangePasswordScreen extends BaseRoute {
-  final bool isFromVarifyOtp;
+  final String phoneNumber;
 
-  ChangePasswordScreen(this.isFromVarifyOtp, {a, o})
+  ChangePasswordScreen(this.phoneNumber, {a, o})
       : super(a: a, o: o, r: 'ChangePasswordScreen');
 
   @override
   _ChangePasswordScreenState createState() =>
-      new _ChangePasswordScreenState(this.isFromVarifyOtp);
+      new _ChangePasswordScreenState(this.phoneNumber);
 }
 
 class _ChangePasswordScreenState extends BaseRouteState {
-  bool isFromVarifyOtp;
+  String phoneNumber;
   TextEditingController _cEmail = new TextEditingController();
   TextEditingController _cPassword = new TextEditingController();
   TextEditingController _cConfirmPassword = new TextEditingController();
@@ -31,10 +31,11 @@ class _ChangePasswordScreenState extends BaseRouteState {
   var _fConfirmPassword = FocusNode();
   var _fDismiss = FocusNode();
 
-  _ChangePasswordScreenState(this.isFromVarifyOtp) : super();
+  _ChangePasswordScreenState(this.phoneNumber) : super();
 
   @override
   Widget build(BuildContext context) {
+    _cEmail.text = phoneNumber;
     return WillPopScope(
       onWillPop: () async {
         Navigator.of(context).pop();
@@ -61,7 +62,8 @@ class _ChangePasswordScreenState extends BaseRouteState {
                             width: MediaQuery.of(context).size.width,
                             child: ColorFiltered(
                               colorFilter: ColorFilter.mode(
-         Colors.blueGrey.withOpacity(0.6),                                BlendMode.screen,
+                                Colors.blueGrey.withOpacity(0.6),
+                                BlendMode.screen,
                               ),
                               child: Image.asset(
                                 'assets/banner.jpg',
@@ -130,93 +132,94 @@ class _ChangePasswordScreenState extends BaseRouteState {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      !isFromVarifyOtp
-                                          ? Text(
-                                              AppLocalizations.of(context)!
-                                                  .lbl_old_password,
-                                              style: Theme.of(context)
-                                                  .primaryTextTheme
-                                                  .titleSmall,
-                                            )
-                                          : SizedBox(),
-                                      !isFromVarifyOtp
-                                          ? Padding(
-                                              padding:
-                                                  const EdgeInsets.only(top: 5),
-                                              child: TextFormField(
-                                                controller: _cOldPassword,
-                                                obscureText: _showOldPassword,
-                                                focusNode: _fOldPassword,
-                                                onFieldSubmitted: (val) {
-                                                  FocusScope.of(context)
-                                                      .requestFocus(_fPassword);
-                                                },
-                                                decoration: InputDecoration(
-                                                  hintText: AppLocalizations.of(
-                                                          context)!
-                                                      .hnt_password,
-                                                  prefixIcon: Icon(
-                                                    Icons.lock,
-                                                  ),
-                                                  suffixIcon: IconButton(
-                                                    onPressed: () {
-                                                      _showOldPassword =
-                                                          !_showOldPassword;
-                                                      setState(() {});
-                                                    },
-                                                    icon: Icon(_showOldPassword
-                                                        ? Icons.visibility_off
-                                                        : Icons.visibility),
-                                                    color: Colors.black,
-                                                  ),
-                                                  contentPadding:
-                                                      EdgeInsets.only(top: 5),
-                                                ),
-                                              ),
-                                            )
-                                          : SizedBox(),
-                                      isFromVarifyOtp
-                                          ? Container(
-                                              margin: EdgeInsets.only(top: 10),
-                                              child: Text(
+                                      // !isFromVarifyOtp
+                                      //     ? Text(
+                                      //         AppLocalizations.of(context)!
+                                      //             .lbl_old_password,
+                                      //         style: Theme.of(context)
+                                      //             .primaryTextTheme
+                                      //             .titleSmall,
+                                      //       )
+                                      //     : SizedBox(),
+                                      // !isFromVarifyOtp
+                                      //     ? Padding(
+                                      //         padding:
+                                      //             const EdgeInsets.only(top: 5),
+                                      //         child: TextFormField(
+                                      //           controller: _cOldPassword,
+                                      //           obscureText: _showOldPassword,
+                                      //           focusNode: _fOldPassword,
+                                      //           onFieldSubmitted: (val) {
+                                      //             FocusScope.of(context)
+                                      //                 .requestFocus(_fPassword);
+                                      //           },
+                                      //           decoration: InputDecoration(
+                                      //             hintText: AppLocalizations.of(
+                                      //                     context)!
+                                      //                 .hnt_password,
+                                      //             prefixIcon: Icon(
+                                      //               Icons.lock,
+                                      //             ),
+                                      //             suffixIcon: IconButton(
+                                      //               onPressed: () {
+                                      //                 _showOldPassword =
+                                      //                     !_showOldPassword;
+                                      //                 setState(() {});
+                                      //               },
+                                      //               icon: Icon(_showOldPassword
+                                      //                   ? Icons.visibility_off
+                                      //                   : Icons.visibility),
+                                      //               color: Colors.black,
+                                      //             ),
+                                      //             contentPadding:
+                                      //                 EdgeInsets.only(top: 5),
+                                      //           ),
+                                      //         ),
+                                      //       )
+                                      //     : SizedBox(),
+                                      // isFromVarifyOtp
+                                      //     ? Container(
+                                      //         margin: EdgeInsets.only(top: 10),
+                                      //         child: Text(
+                                      //           AppLocalizations.of(context)!
+                                      //               .lblEmail,
+                                      //           style: Theme.of(context)
+                                      //               .primaryTextTheme
+                                      //               .titleSmall,
+                                      //         ),
+                                      //       )
+                                      //     : SizedBox(),
+                                      // isFromVarifyOtp
+                                      //     ?
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 5),
+                                        child: TextFormField(
+                                          controller: _cEmail,
+                                          readOnly: true,
+                                          onFieldSubmitted: (val) {
+                                            FocusScope.of(context).requestFocus(
+                                                _fConfirmPassword);
+                                          },
+                                          decoration: InputDecoration(
+                                            hintText:
                                                 AppLocalizations.of(context)!
-                                                    .lblEmail,
-                                                style: Theme.of(context)
-                                                    .primaryTextTheme
-                                                    .titleSmall,
-                                              ),
-                                            )
-                                          : SizedBox(),
-                                      isFromVarifyOtp
-                                          ? Padding(
-                                              padding:
-                                                  const EdgeInsets.only(top: 5),
-                                              child: TextFormField(
-                                                controller: _cEmail,
-                                                onFieldSubmitted: (val) {
-                                                  FocusScope.of(context)
-                                                      .requestFocus(
-                                                          _fConfirmPassword);
-                                                },
-                                                decoration: InputDecoration(
-                                                  hintText: AppLocalizations.of(
-                                                          context)!
-                                                      .hnt_email,
-                                                  prefixIcon: Icon(Icons.mail),
-                                                  contentPadding:
-                                                      EdgeInsets.only(top: 5),
-                                                ),
-                                              ),
-                                            )
-                                          : SizedBox(),
+                                                    .hnt_email,
+                                            prefixIcon: Icon(Icons.mail),
+                                            contentPadding:
+                                                EdgeInsets.only(top: 5),
+                                          ),
+                                        ),
+                                      ),
+                                      // : SizedBox(),
                                       Container(
                                         margin: EdgeInsets.only(top: 10),
                                         child: Text(
-                                          isFromVarifyOtp
-                                              ? AppLocalizations.of(context)!
-                                                  .lblPassword
-                                              : AppLocalizations.of(context)!
-                                                  .lbl_new_password,
+                                          // isFromVarifyOtp
+                                          //     ?
+                                          AppLocalizations.of(context)!
+                                              .lblPassword,
+                                          // : AppLocalizations.of(context)!
+                                          //     .lbl_new_password,
                                           style: Theme.of(context)
                                               .primaryTextTheme
                                               .titleSmall,
@@ -336,90 +339,90 @@ class _ChangePasswordScreenState extends BaseRouteState {
 
   _changePassword() async {
     try {
-      if (isFromVarifyOtp) // change password from otp...
-      {
-        if (_cPassword.text.isNotEmpty &&
-            _cPassword.text == _cConfirmPassword.text) {
-          bool isConnected = await br.checkConnectivity();
-          if (isConnected) {
-            showOnlyLoaderDialog();
+      // if (isFromVarifyOtp) // change password from otp...
+      // {
+      if (_cPassword.text.isNotEmpty &&
+          _cPassword.text == _cConfirmPassword.text) {
+        bool isConnected = await br.checkConnectivity();
+        if (isConnected) {
+          showOnlyLoaderDialog();
 
-            await apiHelper
-                ?.changePasswordFromOtp(
-                    _cEmail.text.trim(), _cPassword.text.trim())
-                .then((result) {
-              if (result.status == "1") {
-                hideLoader();
+          await apiHelper
+              ?.changePasswordFromOtp(
+                  _cEmail.text.trim(), _cPassword.text.trim())
+              .then((result) {
+            if (result.status == "1") {
+              hideLoader();
 
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) =>
-                        ChangePasswordSuccessDialog(
-                          a: widget.analytics,
-                          o: widget.observer,
-                        ));
-              } else {
-                hideLoader();
-                showSnackBar(snackBarMessage: '${result.message}');
-              }
-            });
-          } else {
-            showNetworkErrorSnackBar(_scaffoldKey);
-          }
-        } else if (_cEmail.text.isEmpty) {
-          showSnackBar(
-              snackBarMessage:
-                  AppLocalizations.of(context)!.txt_please_enter_email);
-        } else if (_cPassword.text != _cConfirmPassword.text) {
-          showSnackBar(
-              snackBarMessage: AppLocalizations.of(context)!
-                  .txt_password_and_confirm_password_do_not_match);
+              showDialog(
+                  context: context,
+                  builder: (BuildContext context) =>
+                      ChangePasswordSuccessDialog(
+                        a: widget.analytics,
+                        o: widget.observer,
+                      ));
+            } else {
+              hideLoader();
+              showSnackBar(snackBarMessage: '${result.message}');
+            }
+          });
+        } else {
+          showNetworkErrorSnackBar(_scaffoldKey);
         }
-      } else //simple change password
-      {
-        if (_cPassword.text.isNotEmpty &&
-            _cPassword.text == _cConfirmPassword.text &&
-            _cOldPassword.text.isNotEmpty) {
-          bool isConnected = await br.checkConnectivity();
-          if (isConnected) {
-            showOnlyLoaderDialog();
-
-            await apiHelper
-                ?.changePassword(global.user.id!, _cOldPassword.text.trim(),
-                    _cPassword.text.trim(), _cConfirmPassword.text.trim())
-                .then((result) {
-              if (result.status == "1") {
-                hideLoader();
-
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) =>
-                        ChangePasswordSuccessDialog(
-                          a: widget.analytics,
-                          o: widget.observer,
-                        ));
-              } else {
-                hideLoader();
-                showSnackBar(snackBarMessage: '${result.message}');
-              }
-            });
-          } else {
-            showNetworkErrorSnackBar(_scaffoldKey);
-          }
-        } else if (_cOldPassword.text.isEmpty) {
-          showSnackBar(
-              snackBarMessage:
-                  AppLocalizations.of(context)!.txt_please_enter_old_password);
-        } else if (_cPassword.text != _cConfirmPassword.text) {
-          showSnackBar(
-              snackBarMessage: AppLocalizations.of(context)!
-                  .txt_password_and_confirm_password_do_not_match);
-        } else if (_cPassword.text.isEmpty) {
-          showSnackBar(
-              snackBarMessage:
-                  AppLocalizations.of(context)!.txt_please_enter_new_password);
-        }
+      } else if (_cEmail.text.isEmpty) {
+        showSnackBar(
+            snackBarMessage:
+                AppLocalizations.of(context)!.txt_please_enter_email);
+      } else if (_cPassword.text != _cConfirmPassword.text) {
+        showSnackBar(
+            snackBarMessage: AppLocalizations.of(context)!
+                .txt_password_and_confirm_password_do_not_match);
       }
+      // } else //simple change password
+      // {
+      //   if (_cPassword.text.isNotEmpty &&
+      //       _cPassword.text == _cConfirmPassword.text &&
+      //       _cOldPassword.text.isNotEmpty) {
+      //     bool isConnected = await br.checkConnectivity();
+      //     if (isConnected) {
+      //       showOnlyLoaderDialog();
+
+      //       await apiHelper
+      //           ?.changePassword(global.user.id!, _cOldPassword.text.trim(),
+      //               _cPassword.text.trim(), _cConfirmPassword.text.trim())
+      //           .then((result) {
+      //         if (result.status == "1") {
+      //           hideLoader();
+
+      //           showDialog(
+      //               context: context,
+      //               builder: (BuildContext context) =>
+      //                   ChangePasswordSuccessDialog(
+      //                     a: widget.analytics,
+      //                     o: widget.observer,
+      //                   ));
+      //         } else {
+      //           hideLoader();
+      //           showSnackBar(snackBarMessage: '${result.message}');
+      //         }
+      //       });
+      //     } else {
+      //       showNetworkErrorSnackBar(_scaffoldKey);
+      //     }
+      //   } else if (_cOldPassword.text.isEmpty) {
+      //     showSnackBar(
+      //         snackBarMessage:
+      //             AppLocalizations.of(context)!.txt_please_enter_old_password);
+      //   } else if (_cPassword.text != _cConfirmPassword.text) {
+      //     showSnackBar(
+      //         snackBarMessage: AppLocalizations.of(context)!
+      //             .txt_password_and_confirm_password_do_not_match);
+      //   } else if (_cPassword.text.isEmpty) {
+      //     showSnackBar(
+      //         snackBarMessage:
+      //             AppLocalizations.of(context)!.txt_please_enter_new_password);
+      //   }
+      // }
     } catch (e) {
       print("Exception - changePassword.dart - _changePassword():" +
           e.toString());

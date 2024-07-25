@@ -9,9 +9,13 @@ import 'package:app/screens/signUpScreen.dart';
 import 'package:app/screens/verifyOtpScreen.dart';
 import 'package:app/widgets/bottomNavigationBar.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../constants.dart';
+import 'otpVerificationScreen.dart';
 
 class SignInScreen extends BaseRoute {
   final int? screenId;
@@ -344,7 +348,7 @@ class _SignInScreenState extends BaseRouteState {
                       Container(
                         margin: EdgeInsets.only(top: 5),
                         child: Text(
-                          AppLocalizations.of(context)!.lblEmail,
+                          'ادخل رقم الهاتف',
                           style: Theme.of(context).primaryTextTheme.titleSmall,
                         ),
                       ),
@@ -353,11 +357,14 @@ class _SignInScreenState extends BaseRouteState {
                         child: TextFormField(
                           controller: _cForgotEmail,
                           decoration: InputDecoration(
-                            hintText: AppLocalizations.of(context)!.hnt_email,
-                            prefixIcon: Icon(Icons.mail),
+                            hintText: 'رقم الهاتف',
+                            prefixIcon: Icon(
+                              Icons.phone,
+                              color: Theme.of(context).primaryColor,
+                            ),
                             contentPadding: EdgeInsets.only(top: 5, left: 10),
                           ),
-                          keyboardType: TextInputType.emailAddress,
+                          keyboardType: TextInputType.phone,
                         ),
                       ),
                       Container(
@@ -366,40 +373,9 @@ class _SignInScreenState extends BaseRouteState {
                         width: MediaQuery.of(context).size.width,
                         child: TextButton(
                           onPressed: () async {
-                            _isValidateEmail = EmailValidator.validate(
-                                _cForgotEmail.text.trim());
-                            if (_isValidateEmail &&
-                                _cForgotEmail.text.isNotEmpty) {
-                              bool isConnected = await br.checkConnectivity();
-                              if (isConnected) {
-                                showOnlyLoaderDialog();
-                                await apiHelper
-                                    ?.forGotPassword(_cForgotEmail.text.trim())
-                                    .then((result) {
-                                  if (result.status == "1") {
-                                    hideLoader();
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                VerifyOtpScreen(
-                                                  _cForgotEmail.text.trim(),
-                                                  a: widget.analytics,
-                                                  o: widget.observer,
-                                                )));
-                                  } else {
-                                    hideLoader();
-                                    Navigator.of(context).pop();
-                                    showSnackBar(
-                                        snackBarMessage: '${result.message}');
-                                  }
-                                });
-                              } else {
-                                showNetworkErrorSnackBar(_scaffoldKey);
-                              }
-                            } else {
-                              showSnackBar(
-                                  snackBarMessage: AppLocalizations.of(context)!
-                                      .txt_please_enter_valid_email);
+                            bool isConnected = await br.checkConnectivity();
+                            if (isConnected) {
+                              _sendOTP(_cForgotEmail.text.trim());
                             }
                           },
                           child: Text(
@@ -468,6 +444,36 @@ class _SignInScreenState extends BaseRouteState {
     } catch (e) {
       print(
           "Exception - signInScreen.dart - _loginWithEmail():" + e.toString());
+    }
+  }
+
+  _sendOTP(String phoneNumber) async {
+    try {
+      await FirebaseAuth.instance.verifyPhoneNumber(
+        phoneNumber: '$phoneCode$phoneNumber',
+        verificationCompleted: (PhoneAuthCredential credential) {},
+        verificationFailed: (FirebaseAuthException e) {
+          hideLoader();
+          showSnackBar(
+              snackBarMessage: "الرجاء المحاولة مرة أخرى بعد فترة من الزمن");
+        },
+        codeSent: (String verificationId, int? resendToken) async {
+          hideLoader();
+          Navigator.of(context).push(
+            MaterialPageRoute(
+                builder: (context) => OTPVerificationPhoneScreen(
+                      a: widget.analytics,
+                      o: widget.observer,
+                      screenId: 1,
+                      verificationId: verificationId,
+                      phoneNumberOrEmail: phoneNumber,
+                    )),
+          );
+        },
+        codeAutoRetrievalTimeout: (String verificationId) {},
+      );
+    } catch (e) {
+      print("Exception - addPhoneScreen.dart - _sendOTP():" + e.toString());
     }
   }
 }

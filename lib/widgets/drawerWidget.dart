@@ -252,7 +252,7 @@ class _DrawerWidgetState extends BaseRouteState {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                       builder: (context) => ChangePasswordScreen(
-                            false,
+                            global.user.vendor_phone ?? '',
                             a: widget.analytics,
                             o: widget.observer,
                           )),
