@@ -81,7 +81,7 @@ class _UpdateProfileScreenState extends BaseRouteState {
                       width: MediaQuery.of(context).size.width,
                       child: ColorFiltered(
                         colorFilter: ColorFilter.mode(
-                         Colors.blueGrey.withOpacity(0.6),
+                          Colors.blueGrey.withOpacity(0.6),
                           BlendMode.screen,
                         ),
                         child: Image.asset(
@@ -439,11 +439,7 @@ class _UpdateProfileScreenState extends BaseRouteState {
         showSnackBar(
             snackBarMessage:
                 AppLocalizations.of(context)!.txt_please_enter_phone_number);
-      } else if (_cPhoneNumber.text.length != 10) {
-        showSnackBar(
-            snackBarMessage: AppLocalizations.of(context)!
-                .txt_please_enter_valid_phone_number);
-      } else if (!_isValidate || _cEmail.text.isEmpty) {
+      } else if (!_isValidate) {
         showSnackBar(
             snackBarMessage:
                 AppLocalizations.of(context)!.txt_please_enter_valid_email);
