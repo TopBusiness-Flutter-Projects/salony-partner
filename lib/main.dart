@@ -35,15 +35,15 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   }
 }
 
-FirebaseMessaging messaging = FirebaseMessaging.instance;
+// FirebaseMessaging messaging = FirebaseMessaging.instance;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // await Firebase.initializeApp();
 
   await Firebase.initializeApp(
-    // options: DefaultFirebaseOptions.currentPlatform
-  );
+      // options: DefaultFirebaseOptions.currentPlatform
+      );
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
   flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();

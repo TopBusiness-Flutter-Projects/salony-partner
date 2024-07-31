@@ -187,7 +187,7 @@ class _SplashScreenState extends BaseRouteState {
   getToke()async{
 
   messaging.getToken().then((value) {
-    print('ssssssssssss$value');
+    print('ssssssssssss : $value');
     global.appDeviceId =value;
     
 
