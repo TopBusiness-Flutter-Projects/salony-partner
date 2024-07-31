@@ -70,7 +70,7 @@ class _GeneralInformationScreenState extends BaseRouteState {
                         width: MediaQuery.of(context).size.width,
                         child: ColorFiltered(
                           colorFilter: ColorFilter.mode(
-                                    Colors.blueGrey.withOpacity(0.6),
+                            Colors.blueGrey.withOpacity(0.6),
                             BlendMode.screen,
                           ),
                           child: Image.asset(
