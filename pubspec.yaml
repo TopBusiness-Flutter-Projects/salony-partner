@@ -71,7 +71,6 @@ dependencies:
   mobile_number: ^2.1.1
   sms_autofill: ^2.3.0
   otp_autofill: ^3.0.0
-
 dependency_overrides:
   flutter_svg: ^1.0.3
   path_drawing: ^1.0.1

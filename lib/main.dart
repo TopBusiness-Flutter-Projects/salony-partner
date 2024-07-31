@@ -16,6 +16,8 @@ import 'package:http/http.dart' as http;
 import 'firebase_options.dart';
 
 ///!test
+///
+FirebaseMessaging messaging = FirebaseMessaging.instance;
 late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 AndroidNotificationChannel channel = const AndroidNotificationChannel(
   'high_importance_channel_for_partner',
@@ -38,7 +40,7 @@ void main() async {
   // await Firebase.initializeApp();
 
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
+    // options: DefaultFirebaseOptions.currentPlatform
   );
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 

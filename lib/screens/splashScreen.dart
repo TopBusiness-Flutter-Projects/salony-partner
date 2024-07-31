@@ -11,6 +11,8 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../main.dart';
+
 class SplashScreen extends BaseRoute {
   SplashScreen({a, o}) : super(a: a, o: o, r: 'SplashScreen');
   @override
@@ -146,9 +148,13 @@ class _SplashScreenState extends BaseRouteState {
           global.isRTL = false;
         }
       });
+
+      await getToke();
       var duration = Duration(seconds: 3);
       Timer(duration, () async {
-        global.appDeviceId = await FirebaseMessaging.instance.getToken();
+
+
+        // global.appDeviceId = await FirebaseMessaging.instance.getToken();
         await _getCurrency();
         bool isConnected = await br.checkConnectivity();
         if (isConnected) {
@@ -175,5 +181,25 @@ class _SplashScreenState extends BaseRouteState {
     } catch (e) {
       print("Exception - splashScreen.dart - init():" + e.toString());
     }
+  }
+  
+  
+  getToke()async{
+
+  messaging.getToken().then((value) {
+    print('ssssssssssss$value');
+    global.appDeviceId =value;
+    
+
+
+  }).onError((error, stackTrace) {
+    print('ssssssssssss${error.toString()}');
+
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error.toString())));
+
+
+  });
+      // Handle the case when permission is not granted
+    
   }
 }
