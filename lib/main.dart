@@ -21,6 +21,8 @@ import 'firebase_options.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
+///
+FirebaseMessaging messaging = FirebaseMessaging.instance;
 late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 AndroidNotificationChannel channel = const AndroidNotificationChannel(
   'high_importance_channel_for_partner',
@@ -39,7 +41,7 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   }
 }
 
-FirebaseMessaging messaging = FirebaseMessaging.instance;
+// FirebaseMessaging messaging = FirebaseMessaging.instance;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -55,6 +57,10 @@ void main() async {
     print('....................: ontap');
     navigatorKey.currentState?.pushNamed(Routes.notificationScreen);
   });
+
+      // options: DefaultFirebaseOptions.currentPlatform
+      );
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
   flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
   await flutterLocalNotificationsPlugin

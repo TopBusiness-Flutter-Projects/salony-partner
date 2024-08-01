@@ -2,24 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CLIENT_ID</key>
-	<string>496857907520-s4cgo277qqsccs8k1564tjl7shqp6cgt.apps.googleusercontent.com</string>
-	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.496857907520-s4cgo277qqsccs8k1564tjl7shqp6cgt</string>
-	<key>ANDROID_CLIENT_ID</key>
-	<string>496857907520-08dhemfphme3bedmpcf1he38qjpnpg0k.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyC86LW_vjQ1eBVC9DMZp0C0uVNjHHLU4iI</string>
+	<string>AIzaSyC7tQD9d-eleQrDzXGVe7Nq_DEjAx87SmU</string>
 	<key>GCM_SENDER_ID</key>
-	<string>496857907520</string>
+	<string>559354982479</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.topbusiness.salony_partner</string>
+	<string>com.topbusiness.salonypartner</string>
 	<key>PROJECT_ID</key>
-	<string>gofresha-2b68d</string>
+	<string>salonyuser</string>
 	<key>STORAGE_BUCKET</key>
-	<string>gofresha-2b68d.appspot.com</string>
+	<string>salonyuser.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:496857907520:ios:e089bf0d5f01f39e823aa5</string>
+	<string>1:559354982479:ios:4f394f0014d109533a7a3a</string>
 </dict>
 </plist>
