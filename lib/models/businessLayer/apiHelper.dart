@@ -1221,6 +1221,7 @@ class APIHelper {
       String description,
       File vendor_image) async {
     try {
+      print('device token : ${device_id}');
       Response response;
       var dio = Dio();
       var formData = FormData.fromMap({

@@ -61,7 +61,7 @@ class _SignUpScreenState extends BaseRouteState {
                         width: MediaQuery.of(context).size.width,
                         child: ColorFiltered(
                           colorFilter: ColorFilter.mode(
-                           Colors.blueGrey.withOpacity(0.6),
+                            Colors.blueGrey.withOpacity(0.6),
                             BlendMode.screen,
                           ),
                           child: Image.asset(
@@ -249,8 +249,6 @@ class _SignUpScreenState extends BaseRouteState {
                                           Row(
                                             children: [
                                               Container(
-                                                height: 17,
-                                                width: 17,
                                                 child: Checkbox(
                                                     value: _isacceptPrivacy,
                                                     onChanged: (val) {
@@ -317,9 +315,8 @@ class _SignUpScreenState extends BaseRouteState {
                                                   2 &&
                                               _cConfirmPassword
                                                   .text.isNotEmpty &&
-                                              _cPassword.text.trim() ==
-                                                  _cConfirmPassword.text
-                                                      .trim() &&
+                                              _cPassword.text ==
+                                                  _cConfirmPassword.text &&
                                               _isacceptPrivacy &&
                                               _isValidate) {
                                             Navigator.of(context).push(
@@ -366,6 +363,10 @@ class _SignUpScreenState extends BaseRouteState {
                                                 snackBarMessage: AppLocalizations
                                                         .of(context)!
                                                     .txt_please_enter_valid_email);
+                                          } else {
+                                            showSnackBar(
+                                                snackBarMessage:
+                                                    'قم بإستكمال معلوماتك الشخصية');
                                           }
                                         },
                                         child: Text(

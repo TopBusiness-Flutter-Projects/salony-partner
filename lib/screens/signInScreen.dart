@@ -211,8 +211,6 @@ class _SignInScreenState extends BaseRouteState {
                                 Row(
                                   children: [
                                     Container(
-                                      height: 17,
-                                      width: 17,
                                       child: Checkbox(
                                           value: _isRemember,
                                           onChanged: (val) {
