@@ -9,13 +9,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 
+import 'config/app_routes.dart';
 import 'firebase_options.dart';
 
 ///!test
+
+final navigatorKey = GlobalKey<NavigatorState>();
+
 late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 AndroidNotificationChannel channel = const AndroidNotificationChannel(
   'high_importance_channel_for_partner',
@@ -26,6 +31,7 @@ AndroidNotificationChannel channel = const AndroidNotificationChannel(
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   try {
     await Firebase.initializeApp();
+    navigatorKey.currentState?.pushNamed(Routes.notificationScreen);
     print('Handling a background message ${message.messageId}');
   } catch (e) {
     print('Exception - main.dart - _firebaseMessagingBackgroundHandler(): ' +
@@ -42,7 +48,13 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+  FirebaseMessaging.onBackgroundMessage(
+    _firebaseMessagingBackgroundHandler,
+  );
+  FirebaseMessaging.onMessageOpenedApp.listen((event) {
+    print('....................: ontap');
+    navigatorKey.currentState?.pushNamed(Routes.notificationScreen);
+  });
 
   flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
   await flutterLocalNotificationsPlugin
@@ -73,7 +85,15 @@ class MyAppState extends State<MyApp> {
       android: initialzationSettingsAndroid,
       iOS: initializationSettingsIOS,
     );
-    flutterLocalNotificationsPlugin.initialize(initializationSettings);
+    flutterLocalNotificationsPlugin.initialize(
+      initializationSettings,
+      onDidReceiveBackgroundNotificationResponse: (details) {
+        navigatorKey.currentState?.pushNamed(Routes.notificationScreen);
+      },
+      onDidReceiveNotificationResponse: (details) {
+        navigatorKey.currentState?.pushNamed(Routes.notificationScreen);
+      },
+    );
 
     FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
       try {
@@ -147,6 +167,8 @@ class MyAppState extends State<MyApp> {
                 notificationDetails);
           }
         }
+//! nav to notification screen
+        // navigatorKey.currentState?.pushNamesd(Routes.notificationScreen);
 
         if (message.notification != null) {
           print(
@@ -164,31 +186,36 @@ class MyAppState extends State<MyApp> {
         builder: (context, child) {
           final provider = Provider.of<LocaleProvider>(context);
 
-          return MaterialApp(
-              debugShowCheckedModeBanner: false,
-              title: 'salony partner',
-              navigatorObservers: <NavigatorObserver>[observer],
-              theme: nativeTheme(),
-              locale: provider.locale,
-              supportedLocales: [
-                Locale("ar", "AE"),
-                // OR Locale('ar', 'AE') OR Other RTL locales
-              ],
-              localizationsDelegates: [
-                AppLocalizations.delegate,
-                GlobalMaterialLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-              ],
-              home: Builder(builder: (context) {
-                return Directionality(
-                  textDirection: TextDirection.rtl,
-                  child: SplashScreen(
-                    a: analytics,
-                    o: observer,
-                  ),
-                );
-              }));
+          return GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'salony partner',
+            navigatorObservers: <NavigatorObserver>[observer],
+            theme: nativeTheme(),
+            // locale: provider.locale,
+            supportedLocales: [
+              Locale("ar", "AE"),
+              // OR Locale('ar', 'AE') OR Other RTL locales
+            ],
+            localizationsDelegates: [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+            ],
+            textDirection: TextDirection.rtl,
+
+            home: Builder(builder: (context) {
+              return Directionality(
+                textDirection: TextDirection.rtl,
+                child: SplashScreen(
+                  a: analytics,
+                  o: observer,
+                ),
+              );
+            }),
+            navigatorKey: navigatorKey,
+            onGenerateRoute: AppRoutes.onGenerateRoute,
+          );
         },
       );
 }

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:ui';
+import 'package:app/main.dart';
 import 'package:app/models/businessLayer/baseRoute.dart';
 import 'package:app/models/businessLayer/global.dart' as global;
 import 'package:app/models/partnerUserModel.dart';
@@ -148,7 +149,9 @@ class _SplashScreenState extends BaseRouteState {
       });
       var duration = Duration(seconds: 3);
       Timer(duration, () async {
-        global.appDeviceId = await FirebaseMessaging.instance.getToken();
+        global.appDeviceId = await messaging.getToken();
+
+        print('.......... : ${global.appDeviceId}');
         await _getCurrency();
         bool isConnected = await br.checkConnectivity();
         if (isConnected) {
